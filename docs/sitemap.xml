@@ -2,11 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://www.velengel.com/blog/posts/2023/0717/</loc>
+    <lastmod>2023-07-17T21:38:31+09:00</lastmod>
+  </url><url>
     <loc>https://www.velengel.com/blog/posts/</loc>
-    <lastmod>2023-07-17T14:07:54+09:00</lastmod>
+    <lastmod>2023-07-17T21:38:31+09:00</lastmod>
   </url><url>
     <loc>https://www.velengel.com/blog/</loc>
-    <lastmod>2023-07-17T14:07:54+09:00</lastmod>
+    <lastmod>2023-07-17T21:38:31+09:00</lastmod>
   </url><url>
     <loc>https://www.velengel.com/blog/posts/my-first-post/</loc>
     <lastmod>2023-07-17T14:07:54+09:00</lastmod>

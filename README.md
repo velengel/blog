@@ -17,3 +17,7 @@ hugo new posts/my-first-post.md
 ```
 hugo server
 ```
+
+## Site Not Foundになるとき
+* 多分anankeがないので、submoduleのclone必要
+
