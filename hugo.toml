@@ -1,5 +1,5 @@
 baseURL = 'https://www.velengel.com/blog'
 languageCode = 'ja'
-title = 'My New Hugo Site'
+title = 'Vel Labs(ベル研究所)'
 theme = 'ananke'
 publishDir = 'docs'
