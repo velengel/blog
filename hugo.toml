@@ -3,3 +3,4 @@ languageCode = 'ja'
 title = 'Vel Labs(ベル研究所)'
 theme = 'ananke'
 publishDir = 'docs'
+

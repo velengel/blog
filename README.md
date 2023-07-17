@@ -12,3 +12,8 @@ hugo
 hugo new posts/my-first-post.md
 ```
 * draftをfalseにする
+
+# ローカルで確認
+```
+hugo server
+```

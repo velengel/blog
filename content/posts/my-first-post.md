@@ -1,5 +1,5 @@
 ---
-title: "hugoテスト"
+title: "はじまり"
 date: 2023-07-17T14:07:54+09:00
 draft: false
 ---
@@ -9,3 +9,5 @@ draft: false
 ```
 ./hugo new posts/my-first-post.md
 ```
+
+![slime](images/slimetree.png)
