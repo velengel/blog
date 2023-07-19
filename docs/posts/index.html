@@ -93,6 +93,23 @@
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
+      <a href="/blog/posts/2023/0719/" class="link black dim">
+        0719
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      やったこと phpで掲示板を作る〜をchatGPTと対話しながらやってみた https://github.com/velengel/keijiban デプロイとかはしてない 静的サイトではないのでGithub Pagesからやるにはバックエンド用意したり少々面倒 感想 こんなにさくっと2時間くらいで作れるの楽し〜〜〜 ハードル高いなと思ってたけど、それぞれの問題解決の問題解決・切り分け能力は業務で培われていたのでそこまで苦労しなかった 一回DBに繋がらなくてふて寝したが chatGPTが言ってることを丁寧に一つずつ試す(抽象的に聞く→具体的なコードで教えてのコンボが強すぎる)能力があればという条件付きではある それぞれのファイルが何やってるかは精読してないので、今度じっくり読みたい 機密情報はまあデフォルトから変えてないけどノリで環境変数を使って隠した 苦労したこと docker化 dbに無限に繋がらなくて苦労した 原因はいくつかあった 接続先DBのhost名はローカルで直で動かしてた時はlocalhostでよかったけど、コンテナから繋ぐ時はサービス名(今回の場合db)にしないといけなかった キャッシュが残っていたっぽく、docker-compose down --volumesで消してあげないといけなかった いろいろ必要だったもの php.ini apache.conf pdo_mysql .htaccess この辺を調査するためのプログラムとかから調べないといけないのが一苦労ポイントだった それぞれのファイルの意味は自分への宿題 
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
       <a href="/blog/posts/2023/0717/" class="link black dim">
         20230717
       </a>

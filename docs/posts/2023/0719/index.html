@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>0719 | Vel Labs(ベル研究所)</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="やったこと phpで掲示板を作る〜をchatGPTと対話しながらやってみた https://github.com/velengel/keijiban デプロイとかはしてない 静的サイトではないのでGithub Pagesからやるにはバックエンド用意したり少々面倒 感想 こんなにさくっと2時間くらいで作れるの楽し〜〜〜 ハードル高いなと思ってたけど、それぞれの問題解決の問題解決・切り分け能力は業務で培われていたのでそこまで苦労しなかった 一回DBに繋がらなくてふて寝したが chatGPTが言ってることを丁寧に一つずつ試す(抽象的に聞く→具体的なコードで教えてのコンボが強すぎる)能力があればという条件付きではある それぞれのファイルが何やってるかは精読してないので、今度じっくり読みたい 機密情報はまあデフォルトから変えてないけどノリで環境変数を使って隠した 苦労したこと docker化 dbに無限に繋がらなくて苦労した 原因はいくつかあった 接続先DBのhost名はローカルで直で動かしてた時はlocalhostでよかったけど、コンテナから繋ぐ時はサービス名(今回の場合db)にしないといけなかった キャッシュが残っていたっぽく、docker-compose down --volumesで消してあげないといけなかった いろいろ必要だったもの php.ini apache.conf pdo_mysql .htaccess この辺を調査するためのプログラムとかから調べないといけないのが一苦労ポイントだった それぞれのファイルの意味は自分への宿題 ">
+    <meta name="generator" content="Hugo 0.115.3">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/blog/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="0719" />
+<meta property="og:description" content="やったこと phpで掲示板を作る〜をchatGPTと対話しながらやってみた https://github.com/velengel/keijiban デプロイとかはしてない 静的サイトではないのでGithub Pagesからやるにはバックエンド用意したり少々面倒 感想 こんなにさくっと2時間くらいで作れるの楽し〜〜〜 ハードル高いなと思ってたけど、それぞれの問題解決の問題解決・切り分け能力は業務で培われていたのでそこまで苦労しなかった 一回DBに繋がらなくてふて寝したが chatGPTが言ってることを丁寧に一つずつ試す(抽象的に聞く→具体的なコードで教えてのコンボが強すぎる)能力があればという条件付きではある それぞれのファイルが何やってるかは精読してないので、今度じっくり読みたい 機密情報はまあデフォルトから変えてないけどノリで環境変数を使って隠した 苦労したこと docker化 dbに無限に繋がらなくて苦労した 原因はいくつかあった 接続先DBのhost名はローカルで直で動かしてた時はlocalhostでよかったけど、コンテナから繋ぐ時はサービス名(今回の場合db)にしないといけなかった キャッシュが残っていたっぽく、docker-compose down --volumesで消してあげないといけなかった いろいろ必要だったもの php.ini apache.conf pdo_mysql .htaccess この辺を調査するためのプログラムとかから調べないといけないのが一苦労ポイントだった それぞれのファイルの意味は自分への宿題 " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.velengel.com/blog/posts/2023/0719/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-07-19T22:23:52+09:00" />
+<meta property="article:modified_time" content="2023-07-19T22:23:52+09:00" />
+<meta itemprop="name" content="0719">
+<meta itemprop="description" content="やったこと phpで掲示板を作る〜をchatGPTと対話しながらやってみた https://github.com/velengel/keijiban デプロイとかはしてない 静的サイトではないのでGithub Pagesからやるにはバックエンド用意したり少々面倒 感想 こんなにさくっと2時間くらいで作れるの楽し〜〜〜 ハードル高いなと思ってたけど、それぞれの問題解決の問題解決・切り分け能力は業務で培われていたのでそこまで苦労しなかった 一回DBに繋がらなくてふて寝したが chatGPTが言ってることを丁寧に一つずつ試す(抽象的に聞く→具体的なコードで教えてのコンボが強すぎる)能力があればという条件付きではある それぞれのファイルが何やってるかは精読してないので、今度じっくり読みたい 機密情報はまあデフォルトから変えてないけどノリで環境変数を使って隠した 苦労したこと docker化 dbに無限に繋がらなくて苦労した 原因はいくつかあった 接続先DBのhost名はローカルで直で動かしてた時はlocalhostでよかったけど、コンテナから繋ぐ時はサービス名(今回の場合db)にしないといけなかった キャッシュが残っていたっぽく、docker-compose down --volumesで消してあげないといけなかった いろいろ必要だったもの php.ini apache.conf pdo_mysql .htaccess この辺を調査するためのプログラムとかから調べないといけないのが一苦労ポイントだった それぞれのファイルの意味は自分への宿題 "><meta itemprop="datePublished" content="2023-07-19T22:23:52+09:00" />
+<meta itemprop="dateModified" content="2023-07-19T22:23:52+09:00" />
+<meta itemprop="wordCount" content="28">
+<meta itemprop="keywords" content="php," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="0719"/>
+<meta name="twitter:description" content="やったこと phpで掲示板を作る〜をchatGPTと対話しながらやってみた https://github.com/velengel/keijiban デプロイとかはしてない 静的サイトではないのでGithub Pagesからやるにはバックエンド用意したり少々面倒 感想 こんなにさくっと2時間くらいで作れるの楽し〜〜〜 ハードル高いなと思ってたけど、それぞれの問題解決の問題解決・切り分け能力は業務で培われていたのでそこまで苦労しなかった 一回DBに繋がらなくてふて寝したが chatGPTが言ってることを丁寧に一つずつ試す(抽象的に聞く→具体的なコードで教えてのコンボが強すぎる)能力があればという条件付きではある それぞれのファイルが何やってるかは精読してないので、今度じっくり読みたい 機密情報はまあデフォルトから変えてないけどノリで環境変数を使って隠した 苦労したこと docker化 dbに無限に繋がらなくて苦労した 原因はいくつかあった 接続先DBのhost名はローカルで直で動かしてた時はlocalhostでよかったけど、コンテナから繋ぐ時はサービス名(今回の場合db)にしないといけなかった キャッシュが残っていたっぽく、docker-compose down --volumesで消してあげないといけなかった いろいろ必要だったもの php.ini apache.conf pdo_mysql .htaccess この辺を調査するためのプログラムとかから調べないといけないのが一苦労ポイントだった それぞれのファイルの意味は自分への宿題 "/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/blog/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Vel Labs(ベル研究所)
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">0719</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-07-19T22:23:52+09:00">July 19, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h1 id="やったこと">やったこと</h1>
+<ul>
+<li>phpで掲示板を作る〜をchatGPTと対話しながらやってみた</li>
+<li><a href="https://github.com/velengel/keijiban">https://github.com/velengel/keijiban</a>
+<ul>
+<li>デプロイとかはしてない</li>
+<li>静的サイトではないのでGithub Pagesからやるにはバックエンド用意したり少々面倒</li>
+</ul>
+</li>
+</ul>
+<h2 id="感想">感想</h2>
+<ul>
+<li>こんなにさくっと2時間くらいで作れるの楽し〜〜〜</li>
+<li>ハードル高いなと思ってたけど、それぞれの問題解決の問題解決・切り分け能力は業務で培われていたのでそこまで苦労しなかった
+<ul>
+<li>一回DBに繋がらなくてふて寝したが</li>
+</ul>
+</li>
+<li>chatGPTが言ってることを丁寧に一つずつ試す(抽象的に聞く→具体的なコードで教えてのコンボが強すぎる)能力があればという条件付きではある</li>
+<li>それぞれのファイルが何やってるかは精読してないので、今度じっくり読みたい</li>
+<li>機密情報はまあデフォルトから変えてないけどノリで環境変数を使って隠した</li>
+</ul>
+<h2 id="苦労したこと">苦労したこと</h2>
+<ul>
+<li><strong>docker化</strong>
+<ul>
+<li>dbに無限に繋がらなくて苦労した</li>
+<li>原因はいくつかあった
+<ul>
+<li>接続先DBのhost名はローカルで直で動かしてた時は<code>localhost</code>でよかったけど、コンテナから繋ぐ時はサービス名(今回の場合<code>db</code>)にしないといけなかった</li>
+<li>キャッシュが残っていたっぽく、<code>docker-compose down --volumes</code>で消してあげないといけなかった</li>
+<li>いろいろ必要だったもの
+<ul>
+<li><code>php.ini</code></li>
+<li><code>apache.conf</code></li>
+<li><code>pdo_mysql</code></li>
+<li><code>.htaccess</code></li>
+</ul>
+</li>
+<li>この辺を調査するためのプログラムとかから調べないといけないのが一苦労ポイントだった</li>
+<li>それぞれのファイルの意味は自分への宿題</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="pa0">
+  
+   <li class="list di">
+     <a href="/blog/tags/php/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">php</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://www.velengel.com/blog/" >
+    &copy;  Vel Labs(ベル研究所) 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
