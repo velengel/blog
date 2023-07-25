@@ -6,4 +6,6 @@ publishDir = 'docs'
 
 [taxonomies]
   tag = "tags"
-  category = "categories"
+
+[params]
+  custom_css = ["custom.css"]

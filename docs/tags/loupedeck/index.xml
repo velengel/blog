@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>loupedeck on Vel Labs(ベル研究所)</title>
+    <link>https://www.velengel.com/blog/tags/loupedeck/</link>
+    <description>Recent content in loupedeck on Vel Labs(ベル研究所)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Tue, 25 Jul 2023 20:15:11 +0900</lastBuildDate><atom:link href="https://www.velengel.com/blog/tags/loupedeck/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>20230725</title>
+      <link>https://www.velengel.com/blog/posts/2023/0725/</link>
+      <pubDate>Tue, 25 Jul 2023 20:15:11 +0900</pubDate>
+      
+      <guid>https://www.velengel.com/blog/posts/2023/0725/</guid>
+      <description> やったこと 所感 学び やったこと loupedeckを買った 一番小さいやつ きっかけは趣味のDTMの生産性UPでいろんなとこで聞くようになっていて気になっていた ガシェット系youtuberを見漁ってこれに決めた Loupedeck Live S loupedeckのソフトウェアをいろいろセットアップした ボタン一つでいろいろ呼び出せるように このブログにCSSを追加する方法を学んだ アフィリンクも登録しようとしたけど、クローキングとかをしなきゃいけないっぽいのでいったん放置 興味はある 所感 まだ三日くらいしか使ってないがとてもいい 一個設定すると一個便利になるのでハマってしまう 生産性に直結する logicool optionsとかも使ってなかったけどやってみようかなという気持ちになった 今のところの設定画面 学び windowsのURIスキームというものを学んだ
+きっかけ Loupedeck Live SでサラリーマンがPC作業を効率化し、更なる改善のためにプラグインを自作した話：Windows版 ドキュメント URI に応じた既定のアプリの起動 これを知るまでアプリ一覧からもなんか出てこないし、管理者権限必要なディレクトリのアプリってどうやって起動するんだ～～と永遠に調べていた
+気づきはmicrosoft storeからのアプリであることに気づいたこと そのあたりのワードでググったら出てきた anankeにCSSが効かなくて困った
+どうやらthemes/ananke以下のassetsやらlayoutsやらをいじらなければいけなかったっぽい こういうのあるからCSS嫌い static以下に置けばimagesで参照できるよ！的なやつもこれが原因かと思ったけど違ったっぽい 日付ごとにフォルダ作ってimages作らないといけないのめんどい～～ 本当はこの辺もデフォルトのテーマ入れてるだけだから、どっかで選んでいい感じにしたい だけど対応してるものとか、いろんなものに耐えてる信頼と実績を考えるとこのままでもいい気もしている 詳しくないものはデフォルトに倣う </description>
+    </item>
+    
+  </channel>
+</rss>
