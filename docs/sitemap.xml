@@ -2,22 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://www.velengel.com/blog/posts/2023/1015/</loc>
+    <lastmod>2023-10-15T13:57:31+09:00</lastmod>
+  </url><url>
+    <loc>https://www.velengel.com/blog/posts/</loc>
+    <lastmod>2023-10-15T13:57:31+09:00</lastmod>
+  </url><url>
+    <loc>https://www.velengel.com/blog/tags/</loc>
+    <lastmod>2023-10-15T13:57:31+09:00</lastmod>
+  </url><url>
+    <loc>https://www.velengel.com/blog/</loc>
+    <lastmod>2023-10-15T13:57:31+09:00</lastmod>
+  </url><url>
+    <loc>https://www.velengel.com/blog/tags/vue/</loc>
+    <lastmod>2023-10-15T13:57:31+09:00</lastmod>
+  </url><url>
     <loc>https://www.velengel.com/blog/posts/2023/0725/</loc>
     <lastmod>2023-07-25T20:15:11+09:00</lastmod>
   </url><url>
     <loc>https://www.velengel.com/blog/tags/loupedeck/</loc>
     <lastmod>2023-07-25T20:15:11+09:00</lastmod>
   </url><url>
-    <loc>https://www.velengel.com/blog/posts/</loc>
-    <lastmod>2023-07-25T20:15:11+09:00</lastmod>
-  </url><url>
-    <loc>https://www.velengel.com/blog/tags/</loc>
-    <lastmod>2023-07-25T20:15:11+09:00</lastmod>
-  </url><url>
     <loc>https://www.velengel.com/blog/tags/uri%E3%82%B9%E3%82%AD%E3%83%BC%E3%83%A0/</loc>
-    <lastmod>2023-07-25T20:15:11+09:00</lastmod>
-  </url><url>
-    <loc>https://www.velengel.com/blog/</loc>
     <lastmod>2023-07-25T20:15:11+09:00</lastmod>
   </url><url>
     <loc>https://www.velengel.com/blog/tags/windows/</loc>

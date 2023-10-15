@@ -3,18 +3,18 @@ https://www.velengel.com/blog/
 
 
 # ビルド
-```
+```bash
 hugo
 ```
 
 # 新規追加
-```
-hugo new posts/my-first-post.md
+```bash
+hugo new posts/2023/1015.md
 ```
 * draftをfalseにする
 
 # ローカルで確認
-```
+```bash
 hugo server
 ```
 

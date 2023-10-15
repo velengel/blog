@@ -6,7 +6,16 @@
     <description>Recent content on Vel Labs(ベル研究所)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Tue, 25 Jul 2023 20:15:11 +0900</lastBuildDate><atom:link href="https://www.velengel.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 15 Oct 2023 13:57:31 +0900</lastBuildDate><atom:link href="https://www.velengel.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>20231015</title>
+      <link>https://www.velengel.com/blog/posts/2023/1015/</link>
+      <pubDate>Sun, 15 Oct 2023 13:57:31 +0900</pubDate>
+      
+      <guid>https://www.velengel.com/blog/posts/2023/1015/</guid>
+      <description>表示の都合でデータを別で作ってはいけない 背景 自分なりのTodoListの亜種みたいなアプリを作っている データの持たせ方で悩んでいた 目的(課題) todoの一覧データをどう子コンポーネントに受け渡すか、および更新するか？ 結論 親コンポーネントから子コンポーネントに受け渡すデータはtodosのみ filteredTodoは表示の都合で生まれただけのもの それはvueでは算出プロパティに書くことで生成するのがセオリー 参考：https://ja.vuejs.org/guide/essentials/computed.html やっていた間違い 表示用のfilteredTodoというデータを別に作ろうとしていた これは表示の都合なだけなのでそもそも必要ない </description>
+    </item>
+    
     <item>
       <title>20230725</title>
       <link>https://www.velengel.com/blog/posts/2023/0725/</link>
