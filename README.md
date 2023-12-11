@@ -20,4 +20,7 @@ hugo server
 
 ## Site Not Foundになるとき
 * 多分anankeがないので、submoduleのclone必要
+```bash
+git submodule update --init --recursive
+```
 

@@ -7,7 +7,7 @@
     <title>20231015 | Vel Labs(ベル研究所)</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="表示の都合でデータを別で作ってはいけない 背景 自分なりのTodoListの亜種みたいなアプリを作っている データの持たせ方で悩んでいた 目的(課題) todoの一覧データをどう子コンポーネントに受け渡すか、および更新するか？ 結論 親コンポーネントから子コンポーネントに受け渡すデータはtodosのみ filteredTodoは表示の都合で生まれただけのもの それはvueでは算出プロパティに書くことで生成するのがセオリー 参考：https://ja.vuejs.org/guide/essentials/computed.html やっていた間違い 表示用のfilteredTodoというデータを別に作ろうとしていた これは表示の都合なだけなのでそもそも必要ない ">
-    <meta name="generator" content="Hugo 0.115.3">
+    <meta name="generator" content="Hugo 0.121.1">
     
     
     
@@ -20,6 +20,8 @@
 
 
 
+  
+    <link rel="stylesheet" href="/blog/custom.css">
   
 
     
@@ -37,17 +39,15 @@
 <meta property="og:url" content="https://www.velengel.com/blog/posts/2023/1015/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-10-15T13:57:31+09:00" />
 <meta property="article:modified_time" content="2023-10-15T13:57:31+09:00" />
+
 <meta itemprop="name" content="20231015">
 <meta itemprop="description" content="表示の都合でデータを別で作ってはいけない 背景 自分なりのTodoListの亜種みたいなアプリを作っている データの持たせ方で悩んでいた 目的(課題) todoの一覧データをどう子コンポーネントに受け渡すか、および更新するか？ 結論 親コンポーネントから子コンポーネントに受け渡すデータはtodosのみ filteredTodoは表示の都合で生まれただけのもの それはvueでは算出プロパティに書くことで生成するのがセオリー 参考：https://ja.vuejs.org/guide/essentials/computed.html やっていた間違い 表示用のfilteredTodoというデータを別に作ろうとしていた これは表示の都合なだけなのでそもそも必要ない "><meta itemprop="datePublished" content="2023-10-15T13:57:31+09:00" />
 <meta itemprop="dateModified" content="2023-10-15T13:57:31+09:00" />
 <meta itemprop="wordCount" content="14">
-<meta itemprop="keywords" content="vue," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="20231015"/>
+<meta itemprop="keywords" content="vue," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="20231015"/>
 <meta name="twitter:description" content="表示の都合でデータを別で作ってはいけない 背景 自分なりのTodoListの亜種みたいなアプリを作っている データの持たせ方で悩んでいた 目的(課題) todoの一覧データをどう子コンポーネントに受け渡すか、および更新するか？ 結論 親コンポーネントから子コンポーネントに受け渡すデータはtodosのみ filteredTodoは表示の都合で生まれただけのもの それはvueでは算出プロパティに書くことで生成するのがセオリー 参考：https://ja.vuejs.org/guide/essentials/computed.html やっていた間違い 表示用のfilteredTodoというデータを別に作ろうとしていた これは表示の都合なだけなのでそもそも必要ない "/>
 
 	
-<link rel="stylesheet" href="/css/style.css">
-
   </head>
 
   <body class="ma0 avenir bg-near-white">

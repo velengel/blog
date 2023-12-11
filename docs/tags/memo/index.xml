@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>memo on Vel Labs(ベル研究所)</title>
+    <link>https://www.velengel.com/blog/tags/memo/</link>
+    <description>Recent content in memo on Vel Labs(ベル研究所)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Mon, 11 Dec 2023 21:04:36 +0900</lastBuildDate>
+    <atom:link href="https://www.velengel.com/blog/tags/memo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>読書メモのフォーマット所感</title>
+      <link>https://www.velengel.com/blog/posts/2023/1211/</link>
+      <pubDate>Mon, 11 Dec 2023 21:04:36 +0900</pubDate>
+      <guid>https://www.velengel.com/blog/posts/2023/1211/</guid>
+      <description>近況 M2 macを買って快適になった。普段はWindowsからやってるけど仕事でもmacだしやっぱりスイッチングコストがないのは嬉しいね。&#xA;純粋な技術系以外のことの書いてもいいかなという気持ちになったので今日は技術書読む時に自分が使ってるメモのフォーマットとその所感を書いていく。&#xA;項目 以下の3項目について、表形式もしくは見出しをつけて書いていく。&#xA;日付、次どこからか 読んだ日付と、次どのページから読むかを書く。&#xA;その日読んだページは前の記録との差から直ちに求められる。&#xA;メモ、感想 書いていてメモりたくなったもの、思ったことは全部ここに書いていく&#xA;覚えておきたいもの 一回書いて整理したいもの それで派生して思ったこと 疑問 読んでいて疑問に思ったこと、調べたことを書いていく&#xA;疑問は基本解決しなくて良い、気になったら調べるくらいで なんでかというと大体少し先のページに書いてあったりするから 未来の自分への伝言のつもりで書いておく あと疑問を持って読むとそうじゃないときよりは記憶に残りやすい なくてもいい 具体例 ゼロからのOS自作入門で書いた時のやつ&#xA;# 8/23 ### 次どこからか P35 WSLでQEMU使う準備から ### メモ - 最初はlinuxも1万行だった - OSの特徴 - アプリケーションのインターフェース - 計算資源分配者 - 人間に対するインターフェース - https://zero.osdev.jp/ - とりあえず開発環境のインストールに沿ってWSLに入れてみた https://github.com/uchan-nos/mikanos-build - 一通りは成功した - 付録AのXサーバ入れるやつはやってない ### 疑問 所感 最初はいろいろ頑張って書いたり分けたりしてたけど、結局この3項目に落ち着いた 結局後で見返さないことも多い。整理するようなものじゃないので書きやすさを優先する ただ、「どこかでこれメモったぞ！」というときに辿れるように最低限分けておく 読書は量ではなく時間で区切る 習慣の力のほうが大きいし楽、「慣性力」を利用する モチベが溢れてる時(他にはあとちょっとで終わる時とか)、興味がある章の時は自然に読む量が多くなる それが自分の興味、一番持って帰る価値のあるところになる </description>
+    </item>
+  </channel>
+</rss>
