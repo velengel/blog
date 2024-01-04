@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>ラズパイを買って自宅サーバ入門した話 | Vel Labs(ベル研究所)</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="背景 年末年始で暇だったので、ラズパイを買ってファイルサーバでも作ってみるか、と思って作り始めた。諸々で2日ほどかかった。 https://www.amazon.co.jp/gp/product/B081YD3VL5/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&amp;psc=1
+ちょうどたまたま家に使わなくなった以下のものがあったので、それを有効活用したいみたいな気持ちもあった。
+200GBのmicroSD 元switchのSDカード ゲームが入らなくなってきたので512GBを買ったのでこれが退役した 2TBのHDD(Gdrive) https://www.amazon.co.jp/G-Technology-0G10339-HGST-G-Drive-Mobile/dp/B07F8NG48L?th=1 元々は前の前のmacのバックアップ用途で買った SSDが256GBだったのでバックアップから復活させると簡単に容量を食い潰してしまうため、結局使わなかった あとはicloudの容量が200GBを超えそうだったので、自宅にバックアップ取れるならこれ以上プランを上げなくてもいいかな、みたいな気持ちがあった。
+やったこと OSのインストール 普通のRecommendedのやつを入れたらOMV6が入らない(対応してない)と言われ、OMV6を入れたらsshができなくなる、みたいな罠を踏んで4回くらい入れ直した。結局入れたのはLiteの方。
+Debian12系に当たるので巷の記事が微妙に古くて参考にならないものばかりだった。流れだけ参考にして公式ドキュメントを見るという王道に戻って解決。
+OMV6のインストール(回避) 参考にしたもの: https://koh-sen.jp/blog/archives/12238
+OMV6を入れるところまではなんとか行ったものの、なんか動作が不安定で先に進めなくなったので回避。
+別にファイルサーバが作れればいいのでOMV6にこだわる必要はなかった。
+NextCloudのインストール 参考にしたもの: https://qiita.com/hiro2do/items/f8eed40acab713f20693
+色々apt経由で入れられないか試行錯誤している中で、調査してたら見つけた。snapという便利パッケージ管理ツール的なのが出ていて、それを使ったら一瞬で入った。すごい。
+公式: https://snapcraft.io/docs
+外付けHDD有効化 ↑のブログ参考に、mount系のコマンドは別で調べてやったら入った。素晴らしいね。
+df -hで自分の意図したものが出てきた時は軽く感動。普段仕事ではクラウド上のEC2とかしか触ってないから。物理サーバは実感が湧くのがいいね。
+外部公開とHTTPS(TODO) ↑のブログに言われるままにtailscaleとか色々入れてたらどうも証明書関連でうまく行ってないっぽく全世界に公開しそう(一瞬した)になったので、一旦内部公開に止めることにした。別にそれでも要件は満たせるので。
+NextCloudを写真のバックアップ先に設定 参考にしたもの: https://denor.jp/iphone%E3%81%A7%E6%92%AE%E5%BD%B1%E3%81%97%E3%81%9F%E5%86%99%E7%9C%9F%E3%82%84%E5%8B%95%E7%94%BB%E3%82%92nextcloud%E3%82%B5%E3%83%BC%E3%83%90%E3%81%B8%E8%87%AA%E5%8B%95%E3%82%A2%E3%83%83%E3%83%97
+やるだけ。
+ここまで1日目。この後監視入れてwikiサーバでも建ててみるかという気分になり、引き続きインストールをしていた。
+mackerel導入 入れるのはやるだけ。カスタムメトリックのプラグインを導入するのが苦労した。やりたかったのはラズパイのCPU温度の監視。
+公式: https://mackerel.io/ja/docs/entry/advanced/custom-metrics
+最終的に書いたもの
+[plugin.metrics.temp] command = [&#34;bash&#34;, &#34;/home/xxx/temp.sh&#34;] 最初はcommand=&quot;/home/xxx/temp.sh&quot;と書いていた。これでも動いていてくれて良くない？と思ったがなぜかメトリクスが送られなかったので書き方を変えた。
+ちゃんとdiscordにも通知するようにした✌️ mediawiki導入(回避) 公式: https://www.mediawiki.org/wiki/Manual:Running_MediaWiki_on_Debian_or_Ubuntu/ja
+これに沿って初回のセットアップページまでは進んだ。(そこにいくまでにapache2にmod-phpを入れてなくてただのphpファイルがそのまま表示されるみたいな罠を踏んだ。一回休み。)
+ただ、NextCloudがMySQLを立ち上げてるっぽく競合してしまったので、仕方なく諦めた。DBを共存させたりポート変えたりとかの回避手段はあるものの、そこまでしたいわけでもないので諦めた。(tryはした)
+dokuwiki導入 なんとdokuwikiはDBを立ち上げる必要がないので、いけそう！と思って入れた。
+公式: https://www.dokuwiki.org/install:debian
+なんとか入ってくれたのでよかった。ただ普通に記法に慣れないw
+最近のドキュメント書くツールは便利なんだなあというのを改めて感じる。
+メールを送る(TODO) dokouwikiのユーザー登録にメール送信が必要なのだが、いつまで経ってもメールが来なかった。ログを見るとsendmailが入ってないよって言われたから入れてみるも挙動変わらず。 どうやらメールサーバの設定とかGmailのアプリパスワード？的な色々準備が必要そうなので、宿題。
+viのモードを治す 参考にしたもの: https://yaru-yaru.net/reizo/raspberrypi%E3%81%AEvi%E3%81%A7%E6%96%B9%E5%90%91%E3%82%AD%E3%83%BC%E3%82%92%E6%8A%BC%E3%81%99%E3%81%A8abcd%E3%81%8C%E5%87%BA%E3%82%8B%E5%95%8F%E9%A1%8C/
+vi互換モードというのになっていたらしい。 最初ユーザーのホームディレクトリにのみ.vimrc書いてたら、sudo viした時に現象が解決しなくて焦った。仕方なくrootの方にも書いてあげたら治った。こういう細かい課題を解決できるようになったのは進歩を感じるね。">
+    <meta name="generator" content="Hugo 0.121.1">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/blog/ananke/css/main.min.css" >
+
+
+
+  
+    <link rel="stylesheet" href="/blog/custom.css">
+  
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="ラズパイを買って自宅サーバ入門した話" />
+<meta property="og:description" content="背景 年末年始で暇だったので、ラズパイを買ってファイルサーバでも作ってみるか、と思って作り始めた。諸々で2日ほどかかった。 https://www.amazon.co.jp/gp/product/B081YD3VL5/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&amp;psc=1
+ちょうどたまたま家に使わなくなった以下のものがあったので、それを有効活用したいみたいな気持ちもあった。
+200GBのmicroSD 元switchのSDカード ゲームが入らなくなってきたので512GBを買ったのでこれが退役した 2TBのHDD(Gdrive) https://www.amazon.co.jp/G-Technology-0G10339-HGST-G-Drive-Mobile/dp/B07F8NG48L?th=1 元々は前の前のmacのバックアップ用途で買った SSDが256GBだったのでバックアップから復活させると簡単に容量を食い潰してしまうため、結局使わなかった あとはicloudの容量が200GBを超えそうだったので、自宅にバックアップ取れるならこれ以上プランを上げなくてもいいかな、みたいな気持ちがあった。
+やったこと OSのインストール 普通のRecommendedのやつを入れたらOMV6が入らない(対応してない)と言われ、OMV6を入れたらsshができなくなる、みたいな罠を踏んで4回くらい入れ直した。結局入れたのはLiteの方。
+Debian12系に当たるので巷の記事が微妙に古くて参考にならないものばかりだった。流れだけ参考にして公式ドキュメントを見るという王道に戻って解決。
+OMV6のインストール(回避) 参考にしたもの: https://koh-sen.jp/blog/archives/12238
+OMV6を入れるところまではなんとか行ったものの、なんか動作が不安定で先に進めなくなったので回避。
+別にファイルサーバが作れればいいのでOMV6にこだわる必要はなかった。
+NextCloudのインストール 参考にしたもの: https://qiita.com/hiro2do/items/f8eed40acab713f20693
+色々apt経由で入れられないか試行錯誤している中で、調査してたら見つけた。snapという便利パッケージ管理ツール的なのが出ていて、それを使ったら一瞬で入った。すごい。
+公式: https://snapcraft.io/docs
+外付けHDD有効化 ↑のブログ参考に、mount系のコマンドは別で調べてやったら入った。素晴らしいね。
+df -hで自分の意図したものが出てきた時は軽く感動。普段仕事ではクラウド上のEC2とかしか触ってないから。物理サーバは実感が湧くのがいいね。
+外部公開とHTTPS(TODO) ↑のブログに言われるままにtailscaleとか色々入れてたらどうも証明書関連でうまく行ってないっぽく全世界に公開しそう(一瞬した)になったので、一旦内部公開に止めることにした。別にそれでも要件は満たせるので。
+NextCloudを写真のバックアップ先に設定 参考にしたもの: https://denor.jp/iphone%E3%81%A7%E6%92%AE%E5%BD%B1%E3%81%97%E3%81%9F%E5%86%99%E7%9C%9F%E3%82%84%E5%8B%95%E7%94%BB%E3%82%92nextcloud%E3%82%B5%E3%83%BC%E3%83%90%E3%81%B8%E8%87%AA%E5%8B%95%E3%82%A2%E3%83%83%E3%83%97
+やるだけ。
+ここまで1日目。この後監視入れてwikiサーバでも建ててみるかという気分になり、引き続きインストールをしていた。
+mackerel導入 入れるのはやるだけ。カスタムメトリックのプラグインを導入するのが苦労した。やりたかったのはラズパイのCPU温度の監視。
+公式: https://mackerel.io/ja/docs/entry/advanced/custom-metrics
+最終的に書いたもの
+[plugin.metrics.temp] command = [&#34;bash&#34;, &#34;/home/xxx/temp.sh&#34;] 最初はcommand=&quot;/home/xxx/temp.sh&quot;と書いていた。これでも動いていてくれて良くない？と思ったがなぜかメトリクスが送られなかったので書き方を変えた。
+ちゃんとdiscordにも通知するようにした✌️ mediawiki導入(回避) 公式: https://www.mediawiki.org/wiki/Manual:Running_MediaWiki_on_Debian_or_Ubuntu/ja
+これに沿って初回のセットアップページまでは進んだ。(そこにいくまでにapache2にmod-phpを入れてなくてただのphpファイルがそのまま表示されるみたいな罠を踏んだ。一回休み。)
+ただ、NextCloudがMySQLを立ち上げてるっぽく競合してしまったので、仕方なく諦めた。DBを共存させたりポート変えたりとかの回避手段はあるものの、そこまでしたいわけでもないので諦めた。(tryはした)
+dokuwiki導入 なんとdokuwikiはDBを立ち上げる必要がないので、いけそう！と思って入れた。
+公式: https://www.dokuwiki.org/install:debian
+なんとか入ってくれたのでよかった。ただ普通に記法に慣れないw
+最近のドキュメント書くツールは便利なんだなあというのを改めて感じる。
+メールを送る(TODO) dokouwikiのユーザー登録にメール送信が必要なのだが、いつまで経ってもメールが来なかった。ログを見るとsendmailが入ってないよって言われたから入れてみるも挙動変わらず。 どうやらメールサーバの設定とかGmailのアプリパスワード？的な色々準備が必要そうなので、宿題。
+viのモードを治す 参考にしたもの: https://yaru-yaru.net/reizo/raspberrypi%E3%81%AEvi%E3%81%A7%E6%96%B9%E5%90%91%E3%82%AD%E3%83%BC%E3%82%92%E6%8A%BC%E3%81%99%E3%81%A8abcd%E3%81%8C%E5%87%BA%E3%82%8B%E5%95%8F%E9%A1%8C/
+vi互換モードというのになっていたらしい。 最初ユーザーのホームディレクトリにのみ.vimrc書いてたら、sudo viした時に現象が解決しなくて焦った。仕方なくrootの方にも書いてあげたら治った。こういう細かい課題を解決できるようになったのは進歩を感じるね。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.velengel.com/blog/posts/2024/0104/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-01-04T09:53:32+09:00" />
+<meta property="article:modified_time" content="2024-01-04T09:53:32+09:00" />
+
+<meta itemprop="name" content="ラズパイを買って自宅サーバ入門した話">
+<meta itemprop="description" content="背景 年末年始で暇だったので、ラズパイを買ってファイルサーバでも作ってみるか、と思って作り始めた。諸々で2日ほどかかった。 https://www.amazon.co.jp/gp/product/B081YD3VL5/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&amp;psc=1
+ちょうどたまたま家に使わなくなった以下のものがあったので、それを有効活用したいみたいな気持ちもあった。
+200GBのmicroSD 元switchのSDカード ゲームが入らなくなってきたので512GBを買ったのでこれが退役した 2TBのHDD(Gdrive) https://www.amazon.co.jp/G-Technology-0G10339-HGST-G-Drive-Mobile/dp/B07F8NG48L?th=1 元々は前の前のmacのバックアップ用途で買った SSDが256GBだったのでバックアップから復活させると簡単に容量を食い潰してしまうため、結局使わなかった あとはicloudの容量が200GBを超えそうだったので、自宅にバックアップ取れるならこれ以上プランを上げなくてもいいかな、みたいな気持ちがあった。
+やったこと OSのインストール 普通のRecommendedのやつを入れたらOMV6が入らない(対応してない)と言われ、OMV6を入れたらsshができなくなる、みたいな罠を踏んで4回くらい入れ直した。結局入れたのはLiteの方。
+Debian12系に当たるので巷の記事が微妙に古くて参考にならないものばかりだった。流れだけ参考にして公式ドキュメントを見るという王道に戻って解決。
+OMV6のインストール(回避) 参考にしたもの: https://koh-sen.jp/blog/archives/12238
+OMV6を入れるところまではなんとか行ったものの、なんか動作が不安定で先に進めなくなったので回避。
+別にファイルサーバが作れればいいのでOMV6にこだわる必要はなかった。
+NextCloudのインストール 参考にしたもの: https://qiita.com/hiro2do/items/f8eed40acab713f20693
+色々apt経由で入れられないか試行錯誤している中で、調査してたら見つけた。snapという便利パッケージ管理ツール的なのが出ていて、それを使ったら一瞬で入った。すごい。
+公式: https://snapcraft.io/docs
+外付けHDD有効化 ↑のブログ参考に、mount系のコマンドは別で調べてやったら入った。素晴らしいね。
+df -hで自分の意図したものが出てきた時は軽く感動。普段仕事ではクラウド上のEC2とかしか触ってないから。物理サーバは実感が湧くのがいいね。
+外部公開とHTTPS(TODO) ↑のブログに言われるままにtailscaleとか色々入れてたらどうも証明書関連でうまく行ってないっぽく全世界に公開しそう(一瞬した)になったので、一旦内部公開に止めることにした。別にそれでも要件は満たせるので。
+NextCloudを写真のバックアップ先に設定 参考にしたもの: https://denor.jp/iphone%E3%81%A7%E6%92%AE%E5%BD%B1%E3%81%97%E3%81%9F%E5%86%99%E7%9C%9F%E3%82%84%E5%8B%95%E7%94%BB%E3%82%92nextcloud%E3%82%B5%E3%83%BC%E3%83%90%E3%81%B8%E8%87%AA%E5%8B%95%E3%82%A2%E3%83%83%E3%83%97
+やるだけ。
+ここまで1日目。この後監視入れてwikiサーバでも建ててみるかという気分になり、引き続きインストールをしていた。
+mackerel導入 入れるのはやるだけ。カスタムメトリックのプラグインを導入するのが苦労した。やりたかったのはラズパイのCPU温度の監視。
+公式: https://mackerel.io/ja/docs/entry/advanced/custom-metrics
+最終的に書いたもの
+[plugin.metrics.temp] command = [&#34;bash&#34;, &#34;/home/xxx/temp.sh&#34;] 最初はcommand=&quot;/home/xxx/temp.sh&quot;と書いていた。これでも動いていてくれて良くない？と思ったがなぜかメトリクスが送られなかったので書き方を変えた。
+ちゃんとdiscordにも通知するようにした✌️ mediawiki導入(回避) 公式: https://www.mediawiki.org/wiki/Manual:Running_MediaWiki_on_Debian_or_Ubuntu/ja
+これに沿って初回のセットアップページまでは進んだ。(そこにいくまでにapache2にmod-phpを入れてなくてただのphpファイルがそのまま表示されるみたいな罠を踏んだ。一回休み。)
+ただ、NextCloudがMySQLを立ち上げてるっぽく競合してしまったので、仕方なく諦めた。DBを共存させたりポート変えたりとかの回避手段はあるものの、そこまでしたいわけでもないので諦めた。(tryはした)
+dokuwiki導入 なんとdokuwikiはDBを立ち上げる必要がないので、いけそう！と思って入れた。
+公式: https://www.dokuwiki.org/install:debian
+なんとか入ってくれたのでよかった。ただ普通に記法に慣れないw
+最近のドキュメント書くツールは便利なんだなあというのを改めて感じる。
+メールを送る(TODO) dokouwikiのユーザー登録にメール送信が必要なのだが、いつまで経ってもメールが来なかった。ログを見るとsendmailが入ってないよって言われたから入れてみるも挙動変わらず。 どうやらメールサーバの設定とかGmailのアプリパスワード？的な色々準備が必要そうなので、宿題。
+viのモードを治す 参考にしたもの: https://yaru-yaru.net/reizo/raspberrypi%E3%81%AEvi%E3%81%A7%E6%96%B9%E5%90%91%E3%82%AD%E3%83%BC%E3%82%92%E6%8A%BC%E3%81%99%E3%81%A8abcd%E3%81%8C%E5%87%BA%E3%82%8B%E5%95%8F%E9%A1%8C/
+vi互換モードというのになっていたらしい。 最初ユーザーのホームディレクトリにのみ.vimrc書いてたら、sudo viした時に現象が解決しなくて焦った。仕方なくrootの方にも書いてあげたら治った。こういう細かい課題を解決できるようになったのは進歩を感じるね。"><meta itemprop="datePublished" content="2024-01-04T09:53:32+09:00" />
+<meta itemprop="dateModified" content="2024-01-04T09:53:32+09:00" />
+<meta itemprop="wordCount" content="87">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="ラズパイを買って自宅サーバ入門した話"/>
+<meta name="twitter:description" content="背景 年末年始で暇だったので、ラズパイを買ってファイルサーバでも作ってみるか、と思って作り始めた。諸々で2日ほどかかった。 https://www.amazon.co.jp/gp/product/B081YD3VL5/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&amp;psc=1
+ちょうどたまたま家に使わなくなった以下のものがあったので、それを有効活用したいみたいな気持ちもあった。
+200GBのmicroSD 元switchのSDカード ゲームが入らなくなってきたので512GBを買ったのでこれが退役した 2TBのHDD(Gdrive) https://www.amazon.co.jp/G-Technology-0G10339-HGST-G-Drive-Mobile/dp/B07F8NG48L?th=1 元々は前の前のmacのバックアップ用途で買った SSDが256GBだったのでバックアップから復活させると簡単に容量を食い潰してしまうため、結局使わなかった あとはicloudの容量が200GBを超えそうだったので、自宅にバックアップ取れるならこれ以上プランを上げなくてもいいかな、みたいな気持ちがあった。
+やったこと OSのインストール 普通のRecommendedのやつを入れたらOMV6が入らない(対応してない)と言われ、OMV6を入れたらsshができなくなる、みたいな罠を踏んで4回くらい入れ直した。結局入れたのはLiteの方。
+Debian12系に当たるので巷の記事が微妙に古くて参考にならないものばかりだった。流れだけ参考にして公式ドキュメントを見るという王道に戻って解決。
+OMV6のインストール(回避) 参考にしたもの: https://koh-sen.jp/blog/archives/12238
+OMV6を入れるところまではなんとか行ったものの、なんか動作が不安定で先に進めなくなったので回避。
+別にファイルサーバが作れればいいのでOMV6にこだわる必要はなかった。
+NextCloudのインストール 参考にしたもの: https://qiita.com/hiro2do/items/f8eed40acab713f20693
+色々apt経由で入れられないか試行錯誤している中で、調査してたら見つけた。snapという便利パッケージ管理ツール的なのが出ていて、それを使ったら一瞬で入った。すごい。
+公式: https://snapcraft.io/docs
+外付けHDD有効化 ↑のブログ参考に、mount系のコマンドは別で調べてやったら入った。素晴らしいね。
+df -hで自分の意図したものが出てきた時は軽く感動。普段仕事ではクラウド上のEC2とかしか触ってないから。物理サーバは実感が湧くのがいいね。
+外部公開とHTTPS(TODO) ↑のブログに言われるままにtailscaleとか色々入れてたらどうも証明書関連でうまく行ってないっぽく全世界に公開しそう(一瞬した)になったので、一旦内部公開に止めることにした。別にそれでも要件は満たせるので。
+NextCloudを写真のバックアップ先に設定 参考にしたもの: https://denor.jp/iphone%E3%81%A7%E6%92%AE%E5%BD%B1%E3%81%97%E3%81%9F%E5%86%99%E7%9C%9F%E3%82%84%E5%8B%95%E7%94%BB%E3%82%92nextcloud%E3%82%B5%E3%83%BC%E3%83%90%E3%81%B8%E8%87%AA%E5%8B%95%E3%82%A2%E3%83%83%E3%83%97
+やるだけ。
+ここまで1日目。この後監視入れてwikiサーバでも建ててみるかという気分になり、引き続きインストールをしていた。
+mackerel導入 入れるのはやるだけ。カスタムメトリックのプラグインを導入するのが苦労した。やりたかったのはラズパイのCPU温度の監視。
+公式: https://mackerel.io/ja/docs/entry/advanced/custom-metrics
+最終的に書いたもの
+[plugin.metrics.temp] command = [&#34;bash&#34;, &#34;/home/xxx/temp.sh&#34;] 最初はcommand=&quot;/home/xxx/temp.sh&quot;と書いていた。これでも動いていてくれて良くない？と思ったがなぜかメトリクスが送られなかったので書き方を変えた。
+ちゃんとdiscordにも通知するようにした✌️ mediawiki導入(回避) 公式: https://www.mediawiki.org/wiki/Manual:Running_MediaWiki_on_Debian_or_Ubuntu/ja
+これに沿って初回のセットアップページまでは進んだ。(そこにいくまでにapache2にmod-phpを入れてなくてただのphpファイルがそのまま表示されるみたいな罠を踏んだ。一回休み。)
+ただ、NextCloudがMySQLを立ち上げてるっぽく競合してしまったので、仕方なく諦めた。DBを共存させたりポート変えたりとかの回避手段はあるものの、そこまでしたいわけでもないので諦めた。(tryはした)
+dokuwiki導入 なんとdokuwikiはDBを立ち上げる必要がないので、いけそう！と思って入れた。
+公式: https://www.dokuwiki.org/install:debian
+なんとか入ってくれたのでよかった。ただ普通に記法に慣れないw
+最近のドキュメント書くツールは便利なんだなあというのを改めて感じる。
+メールを送る(TODO) dokouwikiのユーザー登録にメール送信が必要なのだが、いつまで経ってもメールが来なかった。ログを見るとsendmailが入ってないよって言われたから入れてみるも挙動変わらず。 どうやらメールサーバの設定とかGmailのアプリパスワード？的な色々準備が必要そうなので、宿題。
+viのモードを治す 参考にしたもの: https://yaru-yaru.net/reizo/raspberrypi%E3%81%AEvi%E3%81%A7%E6%96%B9%E5%90%91%E3%82%AD%E3%83%BC%E3%82%92%E6%8A%BC%E3%81%99%E3%81%A8abcd%E3%81%8C%E5%87%BA%E3%82%8B%E5%95%8F%E9%A1%8C/
+vi互換モードというのになっていたらしい。 最初ユーザーのホームディレクトリにのみ.vimrc書いてたら、sudo viした時に現象が解決しなくて焦った。仕方なくrootの方にも書いてあげたら治った。こういう細かい課題を解決できるようになったのは進歩を感じるね。"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/blog/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Vel Labs(ベル研究所)
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+    
+    <a href="https://github.com/velengel" target="_blank" rel="noopener" class="github ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="GitHub link" aria-label="follow on GitHub——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">ラズパイを買って自宅サーバ入門した話</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2024-01-04T09:53:32+09:00">January 4, 2024</time>
+      
+
+      
+      
+        <span class="f6 mv4 dib tracked"> - One minute read </span>
+        <span class="f6 mv4 dib tracked"> - 87 words </span>
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h2 id="背景">背景</h2>
+<p>年末年始で<strong>暇</strong>だったので、ラズパイを買ってファイルサーバでも作ってみるか、と思って作り始めた。諸々で2日ほどかかった。
+<a href="https://www.amazon.co.jp/gp/product/B081YD3VL5/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&amp;psc=1">https://www.amazon.co.jp/gp/product/B081YD3VL5/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&amp;psc=1</a></p>
+<p>ちょうどたまたま家に使わなくなった以下のものがあったので、それを有効活用したいみたいな気持ちもあった。</p>
+<ul>
+<li>200GBのmicroSD
+<ul>
+<li>元switchのSDカード</li>
+<li>ゲームが入らなくなってきたので512GBを買ったのでこれが退役した</li>
+</ul>
+</li>
+<li>2TBのHDD(Gdrive)
+<ul>
+<li><a href="https://www.amazon.co.jp/G-Technology-0G10339-HGST-G-Drive-Mobile/dp/B07F8NG48L?th=1">https://www.amazon.co.jp/G-Technology-0G10339-HGST-G-Drive-Mobile/dp/B07F8NG48L?th=1</a></li>
+<li>元々は前の前のmacのバックアップ用途で買った</li>
+<li>SSDが256GBだったのでバックアップから復活させると簡単に容量を食い潰してしまうため、結局使わなかった</li>
+</ul>
+</li>
+</ul>
+<p>あとはicloudの容量が200GBを超えそうだったので、自宅にバックアップ取れるならこれ以上プランを上げなくてもいいかな、みたいな気持ちがあった。</p>
+<h2 id="やったこと">やったこと</h2>
+<h3 id="osのインストール">OSのインストール</h3>
+<p>普通のRecommendedのやつを入れたらOMV6が入らない(対応してない)と言われ、OMV6を入れたらsshができなくなる、みたいな罠を踏んで4回くらい入れ直した。結局入れたのはLiteの方。</p>
+<p>Debian12系に当たるので巷の記事が微妙に古くて参考にならないものばかりだった。流れだけ参考にして公式ドキュメントを見るという王道に戻って解決。</p>
+<h3 id="omv6のインストール回避">OMV6のインストール(回避)</h3>
+<p>参考にしたもの: <a href="https://koh-sen.jp/blog/archives/12238">https://koh-sen.jp/blog/archives/12238</a><br>
+OMV6を入れるところまではなんとか行ったものの、なんか動作が不安定で先に進めなくなったので回避。<br>
+別に<strong>ファイルサーバが作れればいい</strong>のでOMV6にこだわる必要はなかった。</p>
+<h3 id="nextcloudのインストール">NextCloudのインストール</h3>
+<p>参考にしたもの: <a href="https://qiita.com/hiro2do/items/f8eed40acab713f20693">https://qiita.com/hiro2do/items/f8eed40acab713f20693</a><br>
+色々apt経由で入れられないか試行錯誤している中で、調査してたら見つけた。snapという便利パッケージ管理ツール的なのが出ていて、それを使ったら一瞬で入った。すごい。<br>
+公式: <a href="https://snapcraft.io/docs">https://snapcraft.io/docs</a></p>
+<h3 id="外付けhdd有効化">外付けHDD有効化</h3>
+<p>↑のブログ参考に、mount系のコマンドは別で調べてやったら入った。素晴らしいね。<br>
+<code>df -h</code>で自分の意図したものが出てきた時は軽く感動。普段仕事ではクラウド上のEC2とかしか触ってないから。物理サーバは実感が湧くのがいいね。</p>
+<h3 id="外部公開とhttpstodo">外部公開とHTTPS(TODO)</h3>
+<p>↑のブログに言われるままにtailscaleとか色々入れてたらどうも証明書関連でうまく行ってないっぽく全世界に公開しそう(一瞬した)になったので、一旦内部公開に止めることにした。別にそれでも<strong>要件は満たせる</strong>ので。</p>
+<h3 id="nextcloudを写真のバックアップ先に設定">NextCloudを写真のバックアップ先に設定</h3>
+<p>参考にしたもの: <a href="https://denor.jp/iphone%E3%81%A7%E6%92%AE%E5%BD%B1%E3%81%97%E3%81%9F%E5%86%99%E7%9C%9F%E3%82%84%E5%8B%95%E7%94%BB%E3%82%92nextcloud%E3%82%B5%E3%83%BC%E3%83%90%E3%81%B8%E8%87%AA%E5%8B%95%E3%82%A2%E3%83%83%E3%83%97">https://denor.jp/iphone%E3%81%A7%E6%92%AE%E5%BD%B1%E3%81%97%E3%81%9F%E5%86%99%E7%9C%9F%E3%82%84%E5%8B%95%E7%94%BB%E3%82%92nextcloud%E3%82%B5%E3%83%BC%E3%83%90%E3%81%B8%E8%87%AA%E5%8B%95%E3%82%A2%E3%83%83%E3%83%97</a><br>
+やるだけ。</p>
+<p>ここまで1日目。この後監視入れてwikiサーバでも建ててみるかという気分になり、引き続きインストールをしていた。</p>
+<h3 id="mackerel導入">mackerel導入</h3>
+<p>入れるのはやるだけ。カスタムメトリックのプラグインを導入するのが苦労した。やりたかったのはラズパイのCPU温度の監視。<br>
+公式: <a href="https://mackerel.io/ja/docs/entry/advanced/custom-metrics">https://mackerel.io/ja/docs/entry/advanced/custom-metrics</a><br>
+最終的に書いたもの</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>plugin.metrics.temp<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>command <span style="color:#f92672">=</span> <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;bash&#34;</span>, <span style="color:#e6db74">&#34;/home/xxx/temp.sh&#34;</span><span style="color:#f92672">]</span>
+</span></span></code></pre></div><p>最初は<code>command=&quot;/home/xxx/temp.sh&quot;</code>と書いていた。これでも動いていてくれて良くない？と思ったがなぜかメトリクスが送られなかったので書き方を変えた。</p>
+<p>ちゃんとdiscordにも通知するようにした✌️
+<img src="images/mackerel.jpeg" alt="notify"></p>
+<h3 id="mediawiki導入回避">mediawiki導入(回避)</h3>
+<p>公式: <a href="https://www.mediawiki.org/wiki/Manual:Running_MediaWiki_on_Debian_or_Ubuntu/ja">https://www.mediawiki.org/wiki/Manual:Running_MediaWiki_on_Debian_or_Ubuntu/ja</a></p>
+<p>これに沿って初回のセットアップページまでは進んだ。(そこにいくまでにapache2にmod-phpを入れてなくてただのphpファイルがそのまま表示されるみたいな罠を踏んだ。一回休み。)<br>
+ただ、NextCloudがMySQLを立ち上げてるっぽく<strong>競合してしまった</strong>ので、仕方なく諦めた。DBを共存させたりポート変えたりとかの回避手段はあるものの、そこまでしたいわけでもないので諦めた。(tryはした)</p>
+<h3 id="dokuwiki導入">dokuwiki導入</h3>
+<p>なんとdokuwikiはDBを立ち上げる必要がないので、いけそう！と思って入れた。<br>
+公式: <a href="https://www.dokuwiki.org/install:debian">https://www.dokuwiki.org/install:debian</a></p>
+<p>なんとか入ってくれたのでよかった。ただ普通に記法に慣れないw<br>
+最近のドキュメント書くツールは便利なんだなあというのを改めて感じる。</p>
+<h3 id="メールを送るtodo">メールを送る(TODO)</h3>
+<p>dokouwikiのユーザー登録にメール送信が必要なのだが、いつまで経ってもメールが来なかった。ログを見るとsendmailが入ってないよって言われたから入れてみるも挙動変わらず。 <br>
+どうやらメールサーバの設定とかGmailのアプリパスワード？的な色々準備が必要そうなので、宿題。</p>
+<h3 id="viのモードを治す">viのモードを治す</h3>
+<p>参考にしたもの: <a href="https://yaru-yaru.net/reizo/raspberrypi%E3%81%AEvi%E3%81%A7%E6%96%B9%E5%90%91%E3%82%AD%E3%83%BC%E3%82%92%E6%8A%BC%E3%81%99%E3%81%A8abcd%E3%81%8C%E5%87%BA%E3%82%8B%E5%95%8F%E9%A1%8C/">https://yaru-yaru.net/reizo/raspberrypi%E3%81%AEvi%E3%81%A7%E6%96%B9%E5%90%91%E3%82%AD%E3%83%BC%E3%82%92%E6%8A%BC%E3%81%99%E3%81%A8abcd%E3%81%8C%E5%87%BA%E3%82%8B%E5%95%8F%E9%A1%8C/</a><br>
+vi互換モードというのになっていたらしい。
+最初ユーザーのホームディレクトリにのみ<code>.vimrc</code>書いてたら、<code>sudo vi</code>した時に現象が解決しなくて焦った。仕方なくrootの方にも書いてあげたら治った。こういう細かい課題を解決できるようになったのは進歩を感じるね。</p>
+<h3 id="構成図を書いた">構成図を書いた</h3>
+<p>ちゃんと覚えてるうちにポートとかパスをメモっておいた。</p>
+<h2 id="幸運だったこと">幸運だったこと</h2>
+<h3 id="一人暮らしを始めていた">一人暮らしを始めていた</h3>
+<p>これによりルーターの全権を握れているのが大きい。また、契約時にメールサーバももらっていたのでその辺の検証もしやすい。自分の城があるって大事だよね。</p>
+<h3 id="仕事で触ってた">仕事で触ってた</h3>
+<p>困ったら公式ドキュメントを見る。落ち着いてエラーログを確認する。みたいな一連の所作は仕事で息をするように身につけていた(そうしないと仕事にならないので)ので、万策尽きた！みたいになることが少なくてよかった。</p>
+<p>大学の時の数年前の自分は調べる力が弱かったのでこういう時に解決できず諦めるしかなかった。</p>
+<h2 id="反省">反省</h2>
+<h3 id="調査ログを途中から取り始めた">調査ログを途中から取り始めた</h3>
+<p>最初はまあすぐ終わるやろ、と思いながらやっていた。trelloのコメントにフロー情報的に残していた。</p>
+<p>そうだとしても調査ログは残すべきだった。コマンドとやったことを書いておくだけで後から見直した時に価値が出る。結局notionにストック情報としてまとめなおした。</p>
+<h2 id="todo">TODO</h2>
+<p>個人開発にすぎないので気が向いたらやること一覧</p>
+<ul>
+<li>外部公開とHTTPS</li>
+<li>メールを送る</li>
+<li>温度、湿度、二酸化炭素濃度などのモニタリング</li>
+</ul>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://www.velengel.com/blog/" >
+    &copy;  Vel Labs(ベル研究所) 2024 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+    
+    <a href="https://github.com/velengel" target="_blank" rel="noopener" class="github ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="GitHub link" aria-label="follow on GitHub——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
