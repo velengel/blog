@@ -7,7 +7,7 @@
     <title>Vel Labs(ベル研究所)</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="">
-    <meta name="generator" content="Hugo 0.121.1">
+    <meta name="generator" content="Hugo 0.115.3">
     
     
     
@@ -20,8 +20,6 @@
 
 
 
-  
-    <link rel="stylesheet" href="/blog/custom.css">
   
 
     
@@ -42,12 +40,14 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://www.velengel.com/blog/" />
-
 <meta itemprop="name" content="Vel Labs(ベル研究所)">
-<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Vel Labs(ベル研究所)"/>
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Vel Labs(ベル研究所)"/>
 <meta name="twitter:description" content=""/>
 
 	
+<link rel="stylesheet" href="/css/style.css">
+
   </head>
 
   <body class="ma0 avenir bg-near-white">
@@ -126,6 +126,30 @@
 
       <section class="w-100 mw8">
         
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/blog/posts/2024/0525/" class="color-inherit dim link">
+            ゼロからのOS自作入門を読み終わった話
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          やったこと ゼロからのOS自作入門をようやく読み切った！！ https://amzn.asia/d/gRGFy2i きちんと差分のコードを読みながら手を動かしてやってたのでとてもかかった ちゃんとやり始めたのは去年の8月くらい、買ったのは2021年4月くらいにあったDMMの電子書籍セール ちゃんと積読を消化できた稀有な例 意識したこと 無理をしない 他の趣味でもなんでもそうだけど、自分にとっての適切な距離というものがある 時間を少しでも確保していれば遅くても進んでいくというのは一つ自信になった myルール的には1ポモドーロ(自分は20分でやってる)を土日で1回こなせばokということにしていた 継続こそ最大の力 分からないときに立ち止まる 業務でも何回も体験したことだが、背景の概念から知らないときは理解に時間がかかるのが当然というのを思い出した C++やCを読むのは久々だったが特にC++の文法が懐かしかった とはいえモチベ下がっても嫌なので立ち止まりすぎず、とりあえず次に進むこともあった 「ここは細かいアドレスを計算したり変換してるだけだな」ということが分かったら、いったん細かい挙動を追うより先に進んでいいということにした 自分の言葉でメモを取る 理解できてないときは概して自分の言葉で説明できていない 前の章とか時にはめっちゃ前の章をちゃんと理解してないと意味わからないみたいな部分が特にこういう本は頻出する システムコールが分からないとそもそもアプリを動かせなかったり ファイルシステムが分からないと読み込み・書き込みの処理を作れなかったり まあ最悪再度出てきたときに振り返って思い出せればいい気はするけどね 学んだこと・懐かしかったこと C++のゲーム制作 実は中高生の時にDirectXとかSiv3Dとかでゲームを作っていたのを思い出した 左上と大きさ指定して四角形を描画するみたいなのが懐かしすぎて涙が出た ウィンドウの描画処理とかはその辺の経験まんまだったのですっと読めた C++自体も懐かしくて、この本の作者が「なんでここでラムダ関数を使うのか？」みたいなこともコラムで書いてくれるタイプだったのでそのあたりの理解も深まった 過去のOS自作入門 まず文字を表示するだけのを簡単に作って、徐々にできることを増やしていく感じが懐かしかった あの時は完走できなかったはずなので、リベンジを果たした アセンブリ パタヘネを読んでいたので、C言語の中でアセンブリ経由で呼び出さなきゃいけない関数とかも何となくのイメージがついていた 細かいなんとかレジスタみたいなのは忘れていたので調べて思い出した ここはまあ仕事とかで使うわけではないので、忘れていることを分かっている状態であれば及第点だと思っている 結局CPUはレジスタの値を読み込んで1行ずつ機械語を実行してるだけなんだよな、みたいなあたりの感覚を久々に思い出した PCIデバイスの入力 自作PCをしたときに、「PCIeはどうする？」みたいな話が上がったときに全くついていけなかった 今は規格の名前だとわかっている スロットの種類とか数が選択肢だった記憶がある 実際にそれを使う側のコードを今回の本で触ったので、ハードウェアとソフトウェアの知識・経験がつながった瞬間だった OSっぽさとは何かを考えた アプリケーションの上でアプリケーションが動いていたらOS? これはランチャーっぽい ここでいうランチャーは文化祭でゲームを動かすためのゲーム(アプリケーション)みたいなもの ターミナルが描画できればOS? OSっぽくはなってると思う 画像やテキストビューワが使えたらOS? これは実用性の観点 複数アプリが動くのもそれっぽい テセウスの船みたいな思考実験を思い出した 人生で比較的時間とお金を割いて、手を動かしたり理解してきた部分の伏線回収という感じがすごかった 知識がつながるのって楽しいね 展望など とはいえ0からOSを作れるかというと全然作れる気はしない 自分なりになぞっただけ でも趣味だしそれでいいかなーという気もする きっとこの経験も未来のどこかでつながるでしょ！くらいの軽い気持ちで次の技術書や作りたいものに手を出していきたいと思う 
+        </div>
+          <a href="/blog/posts/2024/0525/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
         
           <div class="relative w-100 mb4">
             
@@ -214,36 +238,18 @@ vi互換モードというのになっていたらしい。 最初ユーザー�
 
           </div>
         
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="/blog/posts/2023/1015/" class="color-inherit dim link">
-            20231015
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          表示の都合でデータを別で作ってはいけない 背景 自分なりのTodoListの亜種みたいなアプリを作っている データの持たせ方で悩んでいた 目的(課題) todoの一覧データをどう子コンポーネントに受け渡すか、および更新するか？ 結論 親コンポーネントから子コンポーネントに受け渡すデータはtodosのみ filteredTodoは表示の都合で生まれただけのもの それはvueでは算出プロパティに書くことで生成するのがセオリー 参考：https://ja.vuejs.org/guide/essentials/computed.html やっていた間違い 表示用のfilteredTodoというデータを別に作ろうとしていた これは表示の都合なだけなのでそもそも必要ない 
-        </div>
-          <a href="/blog/posts/2023/1015/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
       </section>
 
       
       <section class="w-100">
         <h1 class="f3">More</h1>
         
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="/blog/posts/2023/1015/" class="link black dim">
+              20231015
+            </a>
+          </h2>
         
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="/blog/posts/2023/0725/" class="link black dim">
@@ -260,12 +266,6 @@ vi互換モードというのになっていたらしい。 最初ユーザー�
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="/blog/posts/2023/0717/" class="link black dim">
               20230717
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="/blog/posts/my-first-post/" class="link black dim">
-              はじまり
             </a>
           </h2>
         
