@@ -6,7 +6,20 @@
     <description>Recent content in Posts on Vel Labs(ベル研究所)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 25 May 2024 20:11:20 +0900</lastBuildDate><atom:link href="https://www.velengel.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 13 Jul 2024 17:03:14 +0900</lastBuildDate><atom:link href="https://www.velengel.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>windowsの自動起動(スタートアップ)アプリに標準のクロックを入れたい</title>
+      <link>https://www.velengel.com/blog/posts/2024/0713/</link>
+      <pubDate>Sat, 13 Jul 2024 17:03:14 +0900</pubDate>
+      
+      <guid>https://www.velengel.com/blog/posts/2024/0713/</guid>
+      <description>背景 休日にueliというランチャーアプリを入れて作業効率化を楽しんでいた 普段windowsで作業するとき、ポモドーロタイマーとして標準でついてるクロックアプリを使っていた このアプリをスタートアップアプリに登録するのに少し手こずったので備忘録 調査 サポートページを確認 [ファイルの場所を開く] のオプションがない場合は、そのアプリを起動時に実行できないことを意味します。
+そんなわけないので、いろいろ調べて無理やり登録した
+一般的な方法 一般的なアプリ(: windows標準ではないアプリ)をスタートアップアプリに登録する方法 https://atmarkit.itmedia.co.jp/ait/articles/2308/28/news025.html 要約 エクスプローラーを開いてshell:startupを打ち込む ユーザごとのスタートアップフォルダが開く ここに自動起動したいアプリのショートカットを入れることで、自動起動できるようになる 方針 クロックアプリの場所を頑張って見つける Everythingという検索ツールを使う これはueliをいじってるときに入れてた ショートカットを作る 上記のスタートアップフォルダにショートカットを移す 設定アプリで確認したのち、再起動して動作確認 詳細 クロックアプリの場所を頑張って見つける Everythingを使ってtimerとかclockとかそれっぽい名前をいろいろ調べる
+ノイズが多くて大変 パスの中にWindowsAppsが入ってるものを何とか発見 名前はTime.exeだった ショートカットを作る エクスプローラーのアドレスバーみたいなところに前の手順で調べたフルパスを張り付けるとそのディレクトリに飛べる 試しに起動してみるといつものクロックアプリが起動したのでビンゴ 右クリックしてショートカットを作成 一筋縄では作れないので、「その他のオプションを確認」から作った スタートアップフォルダにショートカットを移す ドラッグ&amp;amp;ドロップでok
+設定アプリで確認したのち、再起動して動作確認 「スタートアップ アプリ」に該当のアプリがあることを確認 再起動！ ちゃんと起動することを確認！やったね～～～ 感想・学び 休日エンジニアとしていい感じの課題だった 自動起動アプリ自体はPCの起動を重くするので入れすぎに注意 こまめに棚卸すべき 今までwindowsのフォルダ整理をサボっていたが、検索ツールの発達によって一瞬で目的のものが探せるようになったのも普通にハッピー </description>
+    </item>
+    
     <item>
       <title>ゼロからのOS自作入門を読み終わった話</title>
       <link>https://www.velengel.com/blog/posts/2024/0525/</link>

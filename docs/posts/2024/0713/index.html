@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>windowsの自動起動(スタートアップ)アプリに標準のクロックを入れたい | Vel Labs(ベル研究所)</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="背景 休日にueliというランチャーアプリを入れて作業効率化を楽しんでいた 普段windowsで作業するとき、ポモドーロタイマーとして標準でついてるクロックアプリを使っていた このアプリをスタートアップアプリに登録するのに少し手こずったので備忘録 調査 サポートページを確認 [ファイルの場所を開く] のオプションがない場合は、そのアプリを起動時に実行できないことを意味します。
+そんなわけないので、いろいろ調べて無理やり登録した
+一般的な方法 一般的なアプリ(: windows標準ではないアプリ)をスタートアップアプリに登録する方法 https://atmarkit.itmedia.co.jp/ait/articles/2308/28/news025.html 要約 エクスプローラーを開いてshell:startupを打ち込む ユーザごとのスタートアップフォルダが開く ここに自動起動したいアプリのショートカットを入れることで、自動起動できるようになる 方針 クロックアプリの場所を頑張って見つける Everythingという検索ツールを使う これはueliをいじってるときに入れてた ショートカットを作る 上記のスタートアップフォルダにショートカットを移す 設定アプリで確認したのち、再起動して動作確認 詳細 クロックアプリの場所を頑張って見つける Everythingを使ってtimerとかclockとかそれっぽい名前をいろいろ調べる
+ノイズが多くて大変 パスの中にWindowsAppsが入ってるものを何とか発見 名前はTime.exeだった ショートカットを作る エクスプローラーのアドレスバーみたいなところに前の手順で調べたフルパスを張り付けるとそのディレクトリに飛べる 試しに起動してみるといつものクロックアプリが起動したのでビンゴ 右クリックしてショートカットを作成 一筋縄では作れないので、「その他のオプションを確認」から作った スタートアップフォルダにショートカットを移す ドラッグ&amp;ドロップでok
+設定アプリで確認したのち、再起動して動作確認 「スタートアップ アプリ」に該当のアプリがあることを確認 再起動！ ちゃんと起動することを確認！やったね～～～ 感想・学び 休日エンジニアとしていい感じの課題だった 自動起動アプリ自体はPCの起動を重くするので入れすぎに注意 こまめに棚卸すべき 今までwindowsのフォルダ整理をサボっていたが、検索ツールの発達によって一瞬で目的のものが探せるようになったのも普通にハッピー ">
+    <meta name="generator" content="Hugo 0.115.3">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/blog/ananke/css/main.min.css" >
+
+
+
+  
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="windowsの自動起動(スタートアップ)アプリに標準のクロックを入れたい" />
+<meta property="og:description" content="背景 休日にueliというランチャーアプリを入れて作業効率化を楽しんでいた 普段windowsで作業するとき、ポモドーロタイマーとして標準でついてるクロックアプリを使っていた このアプリをスタートアップアプリに登録するのに少し手こずったので備忘録 調査 サポートページを確認 [ファイルの場所を開く] のオプションがない場合は、そのアプリを起動時に実行できないことを意味します。
+そんなわけないので、いろいろ調べて無理やり登録した
+一般的な方法 一般的なアプリ(: windows標準ではないアプリ)をスタートアップアプリに登録する方法 https://atmarkit.itmedia.co.jp/ait/articles/2308/28/news025.html 要約 エクスプローラーを開いてshell:startupを打ち込む ユーザごとのスタートアップフォルダが開く ここに自動起動したいアプリのショートカットを入れることで、自動起動できるようになる 方針 クロックアプリの場所を頑張って見つける Everythingという検索ツールを使う これはueliをいじってるときに入れてた ショートカットを作る 上記のスタートアップフォルダにショートカットを移す 設定アプリで確認したのち、再起動して動作確認 詳細 クロックアプリの場所を頑張って見つける Everythingを使ってtimerとかclockとかそれっぽい名前をいろいろ調べる
+ノイズが多くて大変 パスの中にWindowsAppsが入ってるものを何とか発見 名前はTime.exeだった ショートカットを作る エクスプローラーのアドレスバーみたいなところに前の手順で調べたフルパスを張り付けるとそのディレクトリに飛べる 試しに起動してみるといつものクロックアプリが起動したのでビンゴ 右クリックしてショートカットを作成 一筋縄では作れないので、「その他のオプションを確認」から作った スタートアップフォルダにショートカットを移す ドラッグ&amp;ドロップでok
+設定アプリで確認したのち、再起動して動作確認 「スタートアップ アプリ」に該当のアプリがあることを確認 再起動！ ちゃんと起動することを確認！やったね～～～ 感想・学び 休日エンジニアとしていい感じの課題だった 自動起動アプリ自体はPCの起動を重くするので入れすぎに注意 こまめに棚卸すべき 今までwindowsのフォルダ整理をサボっていたが、検索ツールの発達によって一瞬で目的のものが探せるようになったのも普通にハッピー " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.velengel.com/blog/posts/2024/0713/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-07-13T17:03:14+09:00" />
+<meta property="article:modified_time" content="2024-07-13T17:03:14+09:00" />
+<meta itemprop="name" content="windowsの自動起動(スタートアップ)アプリに標準のクロックを入れたい">
+<meta itemprop="description" content="背景 休日にueliというランチャーアプリを入れて作業効率化を楽しんでいた 普段windowsで作業するとき、ポモドーロタイマーとして標準でついてるクロックアプリを使っていた このアプリをスタートアップアプリに登録するのに少し手こずったので備忘録 調査 サポートページを確認 [ファイルの場所を開く] のオプションがない場合は、そのアプリを起動時に実行できないことを意味します。
+そんなわけないので、いろいろ調べて無理やり登録した
+一般的な方法 一般的なアプリ(: windows標準ではないアプリ)をスタートアップアプリに登録する方法 https://atmarkit.itmedia.co.jp/ait/articles/2308/28/news025.html 要約 エクスプローラーを開いてshell:startupを打ち込む ユーザごとのスタートアップフォルダが開く ここに自動起動したいアプリのショートカットを入れることで、自動起動できるようになる 方針 クロックアプリの場所を頑張って見つける Everythingという検索ツールを使う これはueliをいじってるときに入れてた ショートカットを作る 上記のスタートアップフォルダにショートカットを移す 設定アプリで確認したのち、再起動して動作確認 詳細 クロックアプリの場所を頑張って見つける Everythingを使ってtimerとかclockとかそれっぽい名前をいろいろ調べる
+ノイズが多くて大変 パスの中にWindowsAppsが入ってるものを何とか発見 名前はTime.exeだった ショートカットを作る エクスプローラーのアドレスバーみたいなところに前の手順で調べたフルパスを張り付けるとそのディレクトリに飛べる 試しに起動してみるといつものクロックアプリが起動したのでビンゴ 右クリックしてショートカットを作成 一筋縄では作れないので、「その他のオプションを確認」から作った スタートアップフォルダにショートカットを移す ドラッグ&amp;ドロップでok
+設定アプリで確認したのち、再起動して動作確認 「スタートアップ アプリ」に該当のアプリがあることを確認 再起動！ ちゃんと起動することを確認！やったね～～～ 感想・学び 休日エンジニアとしていい感じの課題だった 自動起動アプリ自体はPCの起動を重くするので入れすぎに注意 こまめに棚卸すべき 今までwindowsのフォルダ整理をサボっていたが、検索ツールの発達によって一瞬で目的のものが探せるようになったのも普通にハッピー "><meta itemprop="datePublished" content="2024-07-13T17:03:14+09:00" />
+<meta itemprop="dateModified" content="2024-07-13T17:03:14+09:00" />
+<meta itemprop="wordCount" content="47">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="windowsの自動起動(スタートアップ)アプリに標準のクロックを入れたい"/>
+<meta name="twitter:description" content="背景 休日にueliというランチャーアプリを入れて作業効率化を楽しんでいた 普段windowsで作業するとき、ポモドーロタイマーとして標準でついてるクロックアプリを使っていた このアプリをスタートアップアプリに登録するのに少し手こずったので備忘録 調査 サポートページを確認 [ファイルの場所を開く] のオプションがない場合は、そのアプリを起動時に実行できないことを意味します。
+そんなわけないので、いろいろ調べて無理やり登録した
+一般的な方法 一般的なアプリ(: windows標準ではないアプリ)をスタートアップアプリに登録する方法 https://atmarkit.itmedia.co.jp/ait/articles/2308/28/news025.html 要約 エクスプローラーを開いてshell:startupを打ち込む ユーザごとのスタートアップフォルダが開く ここに自動起動したいアプリのショートカットを入れることで、自動起動できるようになる 方針 クロックアプリの場所を頑張って見つける Everythingという検索ツールを使う これはueliをいじってるときに入れてた ショートカットを作る 上記のスタートアップフォルダにショートカットを移す 設定アプリで確認したのち、再起動して動作確認 詳細 クロックアプリの場所を頑張って見つける Everythingを使ってtimerとかclockとかそれっぽい名前をいろいろ調べる
+ノイズが多くて大変 パスの中にWindowsAppsが入ってるものを何とか発見 名前はTime.exeだった ショートカットを作る エクスプローラーのアドレスバーみたいなところに前の手順で調べたフルパスを張り付けるとそのディレクトリに飛べる 試しに起動してみるといつものクロックアプリが起動したのでビンゴ 右クリックしてショートカットを作成 一筋縄では作れないので、「その他のオプションを確認」から作った スタートアップフォルダにショートカットを移す ドラッグ&amp;ドロップでok
+設定アプリで確認したのち、再起動して動作確認 「スタートアップ アプリ」に該当のアプリがあることを確認 再起動！ ちゃんと起動することを確認！やったね～～～ 感想・学び 休日エンジニアとしていい感じの課題だった 自動起動アプリ自体はPCの起動を重くするので入れすぎに注意 こまめに棚卸すべき 今までwindowsのフォルダ整理をサボっていたが、検索ツールの発達によって一瞬で目的のものが探せるようになったのも普通にハッピー "/>
+
+	
+<link rel="stylesheet" href="/css/style.css">
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/blog/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Vel Labs(ベル研究所)
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+    
+    <a href="https://github.com/velengel" target="_blank" rel="noopener" class="github ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="GitHub link" aria-label="follow on GitHub——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">windowsの自動起動(スタートアップ)アプリに標準のクロックを入れたい</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2024-07-13T17:03:14+09:00">July 13, 2024</time>
+      
+
+      
+      
+        <span class="f6 mv4 dib tracked"> - One minute read </span>
+        <span class="f6 mv4 dib tracked"> - 47 words </span>
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h2 id="背景">背景</h2>
+<ul>
+<li>休日に<a href="https://ueli.app/">ueli</a>というランチャーアプリを入れて作業効率化を楽しんでいた</li>
+<li>普段windowsで作業するとき、ポモドーロタイマーとして標準でついてる<a href="https://apps.microsoft.com/detail/9wzdncrfj3pr?hl=ja-jp&amp;gl=JP">クロック</a>アプリを使っていた</li>
+<li>このアプリをスタートアップアプリに登録するのに少し手こずったので備忘録</li>
+</ul>
+<h2 id="調査">調査</h2>
+<ul>
+<li><a href="https://support.microsoft.com/ja-jp/windows/windows-10-%E3%81%AE%E8%B5%B7%E5%8B%95%E6%99%82%E3%81%AB%E8%87%AA%E5%8B%95%E7%9A%84%E3%81%AB%E5%AE%9F%E8%A1%8C%E3%81%99%E3%82%8B%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B-150da165-dcd9-7230-517b-cf3c295d89dd">サポートページ</a>を確認</li>
+</ul>
+<blockquote>
+<p>[ファイルの場所を開く] のオプションがない場合は、そのアプリを起動時に実行できないことを意味します。</p>
+</blockquote>
+<p><strong>そんなわけない</strong>ので、いろいろ調べて無理やり登録した</p>
+<h3 id="一般的な方法">一般的な方法</h3>
+<ul>
+<li>一般的なアプリ(: windows標準ではないアプリ)をスタートアップアプリに登録する方法
+<ul>
+<li><a href="https://atmarkit.itmedia.co.jp/ait/articles/2308/28/news025.html">https://atmarkit.itmedia.co.jp/ait/articles/2308/28/news025.html</a></li>
+</ul>
+</li>
+<li>要約
+<ul>
+<li>エクスプローラーを開いて<code>shell:startup</code>を打ち込む</li>
+<li>ユーザごとのスタートアップフォルダが開く</li>
+<li>ここに自動起動したいアプリのショートカットを入れることで、自動起動できるようになる</li>
+</ul>
+</li>
+</ul>
+<h3 id="方針">方針</h3>
+<ul>
+<li>クロックアプリの場所を頑張って見つける
+<ul>
+<li><a href="https://www.voidtools.com/">Everything</a>という検索ツールを使う</li>
+<li>これはueliをいじってるときに入れてた</li>
+</ul>
+</li>
+<li>ショートカットを作る</li>
+<li>上記のスタートアップフォルダにショートカットを移す</li>
+<li>設定アプリで確認したのち、再起動して動作確認</li>
+</ul>
+<h2 id="詳細">詳細</h2>
+<h3 id="クロックアプリの場所を頑張って見つける">クロックアプリの場所を頑張って見つける</h3>
+<p>Everythingを使ってtimerとかclockとかそれっぽい名前をいろいろ調べる</p>
+<ul>
+<li>ノイズが多くて大変</li>
+<li>パスの中に<code>WindowsApps</code>が入ってるものを何とか発見
+<ul>
+<li>名前は<code>Time.exe</code>だった</li>
+</ul>
+</li>
+</ul>
+<h3 id="ショートカットを作る">ショートカットを作る</h3>
+<ul>
+<li>エクスプローラーのアドレスバーみたいなところに前の手順で調べたフルパスを張り付けるとそのディレクトリに飛べる
+<ul>
+<li>試しに起動してみるといつものクロックアプリが起動したのでビンゴ</li>
+</ul>
+</li>
+<li>右クリックしてショートカットを作成
+<ul>
+<li>一筋縄では作れないので、「その他のオプションを確認」から作った</li>
+</ul>
+</li>
+</ul>
+<h3 id="スタートアップフォルダにショートカットを移す">スタートアップフォルダにショートカットを移す</h3>
+<p>ドラッグ&amp;ドロップでok</p>
+<h3 id="設定アプリで確認したのち再起動して動作確認">設定アプリで確認したのち、再起動して動作確認</h3>
+<ul>
+<li>「スタートアップ アプリ」に該当のアプリがあることを確認</li>
+</ul>
+<p><img src="images/image.png" alt="application"></p>
+<ul>
+<li>再起動！</li>
+<li>ちゃんと起動することを確認！やったね～～～</li>
+</ul>
+<h2 id="感想学び">感想・学び</h2>
+<ul>
+<li>休日エンジニアとしていい感じの課題だった</li>
+<li>自動起動アプリ自体はPCの起動を重くするので入れすぎに注意
+<ul>
+<li>こまめに棚卸すべき</li>
+</ul>
+</li>
+<li>今までwindowsのフォルダ整理をサボっていたが、検索ツールの発達によって一瞬で目的のものが探せるようになったのも普通にハッピー</li>
+</ul>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://www.velengel.com/blog/" >
+    &copy;  Vel Labs(ベル研究所) 2024 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+    
+    <a href="https://github.com/velengel" target="_blank" rel="noopener" class="github ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="GitHub link" aria-label="follow on GitHub——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

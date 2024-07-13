@@ -135,6 +135,34 @@
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/blog/posts/2024/0713/" class="color-inherit dim link">
+            windowsの自動起動(スタートアップ)アプリに標準のクロックを入れたい
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          背景 休日にueliというランチャーアプリを入れて作業効率化を楽しんでいた 普段windowsで作業するとき、ポモドーロタイマーとして標準でついてるクロックアプリを使っていた このアプリをスタートアップアプリに登録するのに少し手こずったので備忘録 調査 サポートページを確認 [ファイルの場所を開く] のオプションがない場合は、そのアプリを起動時に実行できないことを意味します。
+そんなわけないので、いろいろ調べて無理やり登録した
+一般的な方法 一般的なアプリ(: windows標準ではないアプリ)をスタートアップアプリに登録する方法 https://atmarkit.itmedia.co.jp/ait/articles/2308/28/news025.html 要約 エクスプローラーを開いてshell:startupを打ち込む ユーザごとのスタートアップフォルダが開く ここに自動起動したいアプリのショートカットを入れることで、自動起動できるようになる 方針 クロックアプリの場所を頑張って見つける Everythingという検索ツールを使う これはueliをいじってるときに入れてた ショートカットを作る 上記のスタートアップフォルダにショートカットを移す 設定アプリで確認したのち、再起動して動作確認 詳細 クロックアプリの場所を頑張って見つける Everythingを使ってtimerとかclockとかそれっぽい名前をいろいろ調べる
+ノイズが多くて大変 パスの中にWindowsAppsが入ってるものを何とか発見 名前はTime.exeだった ショートカットを作る エクスプローラーのアドレスバーみたいなところに前の手順で調べたフルパスを張り付けるとそのディレクトリに飛べる 試しに起動してみるといつものクロックアプリが起動したのでビンゴ 右クリックしてショートカットを作成 一筋縄では作れないので、「その他のオプションを確認」から作った スタートアップフォルダにショートカットを移す ドラッグ&amp;ドロップでok
+設定アプリで確認したのち、再起動して動作確認 「スタートアップ アプリ」に該当のアプリがあることを確認 再起動！ ちゃんと起動することを確認！やったね～～～ 感想・学び 休日エンジニアとしていい感じの課題だった 自動起動アプリ自体はPCの起動を重くするので入れすぎに注意 こまめに棚卸すべき 今までwindowsのフォルダ整理をサボっていたが、検索ツールの発達によって一瞬で目的のものが探せるようになったのも普通にハッピー 
+        </div>
+          <a href="/blog/posts/2024/0713/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
           <a href="/blog/posts/2024/0525/" class="color-inherit dim link">
             ゼロからのOS自作入門を読み終わった話
             </a>
@@ -206,44 +234,18 @@ vi互換モードというのになっていたらしい。 最初ユーザー�
 
           </div>
         
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="/blog/posts/2023/1211/" class="color-inherit dim link">
-            読書メモのフォーマット所感
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          近況 M2 macを買って快適になった。普段はWindowsからやってるけど仕事でもmacだしやっぱりスイッチングコストがないのは嬉しいね。
-純粋な技術系以外のことの書いてもいいかなという気持ちになったので今日は技術書読む時に自分が使ってるメモのフォーマットとその所感を書いていく。
-項目 以下の3項目について、表形式もしくは見出しをつけて書いていく。
-日付、次どこからか 読んだ日付と、次どのページから読むかを書く。
-その日読んだページは前の記録との差から直ちに求められる。
-メモ、感想 書いていてメモりたくなったもの、思ったことは全部ここに書いていく
-覚えておきたいもの 一回書いて整理したいもの それで派生して思ったこと 疑問 読んでいて疑問に思ったこと、調べたことを書いていく
-疑問は基本解決しなくて良い、気になったら調べるくらいで なんでかというと大体少し先のページに書いてあったりするから 未来の自分への伝言のつもりで書いておく あと疑問を持って読むとそうじゃないときよりは記憶に残りやすい なくてもいい 具体例 ゼロからのOS自作入門で書いた時のやつ
-# 8/23 ### 次どこからか P35 WSLでQEMU使う準備から ### メモ - 最初はlinuxも1万行だった - OSの特徴 - アプリケーションのインターフェース - 計算資源分配者 - 人間に対するインターフェース - https://zero.osdev.jp/ - とりあえず開発環境のインストールに沿ってWSLに入れてみた https://github.com/uchan-nos/mikanos-build - 一通りは成功した - 付録AのXサーバ入れるやつはやってない ### 疑問 所感 最初はいろいろ頑張って書いたり分けたりしてたけど、結局この3項目に落ち着いた 結局後で見返さないことも多い。整理するようなものじゃないので書きやすさを優先する ただ、「どこかでこれメモったぞ！」というときに辿れるように最低限分けておく 読書は量ではなく時間で区切る 習慣の力のほうが大きいし楽、「慣性力」を利用する モチベが溢れてる時(他にはあとちょっとで終わる時とか)、興味がある章の時は自然に読む量が多くなる それが自分の興味、一番持って帰る価値のあるところになる 
-        </div>
-          <a href="/blog/posts/2023/1211/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
       </section>
 
       
       <section class="w-100">
         <h1 class="f3">More</h1>
         
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="/blog/posts/2023/1211/" class="link black dim">
+              読書メモのフォーマット所感
+            </a>
+          </h2>
         
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="/blog/posts/2023/1015/" class="link black dim">
@@ -260,12 +262,6 @@ vi互換モードというのになっていたらしい。 最初ユーザー�
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="/blog/posts/2023/0719/" class="link black dim">
               20230719
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="/blog/posts/2023/0717/" class="link black dim">
-              20230717
             </a>
           </h2>
         
