@@ -21,6 +21,8 @@
 
 
   
+    <link rel="stylesheet" href="/blog/custom.css">
+  
 
     
     
@@ -46,8 +48,6 @@
 <meta name="twitter:description" content="やったこと phpで掲示板を作る〜をchatGPTと対話しながらやってみた https://github.com/velengel/keijiban デプロイとかはしてない 静的サイトではないのでGithub Pagesからやるにはバックエンド用意したり少々面倒 感想 こんなにさくっと2時間くらいで作れるの楽し〜〜〜 ハードル高いなと思ってたけど、それぞれの問題解決の問題解決・切り分け能力は業務で培われていたのでそこまで苦労しなかった 一回DBに繋がらなくてふて寝したが chatGPTが言ってることを丁寧に一つずつ試す(抽象的に聞く→具体的なコードで教えてのコンボが強すぎる)能力があればという条件付きではある それぞれのファイルが何やってるかは精読してないので、今度じっくり読みたい 機密情報はまあデフォルトから変えてないけどノリで環境変数を使って隠した 苦労したこと docker化 dbに無限に繋がらなくて苦労した 原因はいくつかあった 接続先DBのhost名はローカルで直で動かしてた時はlocalhostでよかったけど、コンテナから繋ぐ時はサービス名(今回の場合db)にしないといけなかった キャッシュが残っていたっぽく、docker-compose down --volumesで消してあげないといけなかった いろいろ必要だったもの php.ini apache.conf pdo_mysql .htaccess この辺を調査するためのプログラムとかから調べないといけないのが一苦労ポイントだった それぞれのファイルの意味は自分への宿題 "/>
 
 	
-<link rel="stylesheet" href="/css/style.css">
-
   </head>
 
   <body class="ma0 avenir bg-near-white">
@@ -206,7 +206,7 @@
     <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
   <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://www.velengel.com/blog/" >
-    &copy;  Vel Labs(ベル研究所) 2024 
+    &copy;  Vel Labs(ベル研究所) 2025 
   </a>
     <div>
 <div class="ananke-socials">

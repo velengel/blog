@@ -2,7 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://www.velengel.com/blog/tags/c/</loc>
+    <lastmod>2025-01-05T11:03:57+09:00</lastmod>
+  </url><url>
     <loc>https://www.velengel.com/blog/posts/</loc>
+    <lastmod>2025-01-05T11:03:57+09:00</lastmod>
+  </url><url>
+    <loc>https://www.velengel.com/blog/tags/programming/</loc>
+    <lastmod>2025-01-05T11:03:57+09:00</lastmod>
+  </url><url>
+    <loc>https://www.velengel.com/blog/tags/</loc>
     <lastmod>2025-01-05T11:03:57+09:00</lastmod>
   </url><url>
     <loc>https://www.velengel.com/blog/posts/2025/0105/</loc>
@@ -21,9 +30,6 @@
     <lastmod>2024-01-04T09:53:32+09:00</lastmod>
   </url><url>
     <loc>https://www.velengel.com/blog/tags/memo/</loc>
-    <lastmod>2023-12-11T21:04:36+09:00</lastmod>
-  </url><url>
-    <loc>https://www.velengel.com/blog/tags/</loc>
     <lastmod>2023-12-11T21:04:36+09:00</lastmod>
   </url><url>
     <loc>https://www.velengel.com/blog/posts/2023/1211/</loc>
