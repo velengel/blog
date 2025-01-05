@@ -6,7 +6,17 @@
     <description>Recent content in Posts on Vel Labs(ベル研究所)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 13 Jul 2024 17:03:14 +0900</lastBuildDate><atom:link href="https://www.velengel.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 05 Jan 2025 11:03:57 +0900</lastBuildDate><atom:link href="https://www.velengel.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>texteditor途中まで作った</title>
+      <link>https://www.velengel.com/blog/posts/2025/0105/</link>
+      <pubDate>Sun, 05 Jan 2025 11:03:57 +0900</pubDate>
+      
+      <guid>https://www.velengel.com/blog/posts/2025/0105/</guid>
+      <description>やったもの texteditor
+きっかけ texteditorのチュートリアルをgoで書き換えるみたいな記事を読んだ 紹介されてたもの→https://viewsourcecode.org/snaptoken/kilo/index.html ざっと見た感じとてもよくできていたので年末年始にやることにした 進捗 5.a text editorまで searchとsyntaxhighlightingはこの期間では終わらなさそうだったので今後の土日でのんびりやる 学び・感想 とてもとても楽しかった 自分のプログラミングの原体験がC++でゲーム作るとかだったので、特にキー入力の部分とかは「こういうのやったやった」みたいなとても懐かしい気持ちになった 境界値とかその辺 自作OSの本でも似たようなものを読んだ switch (key) { case ARROW_LEFT: if (E.cx != 0) { E.cx--; } else if (E.cy &amp;gt; 0) { E.cy--; E.cx = E.row[E.cy].size; } break; case ARROW_RIGHT: if (row &amp;amp;&amp;amp; E.cx &amp;lt; row-&amp;gt;size) { E.cx++; } else if (row &amp;amp;&amp;amp; E.cx == row-&amp;gt;size) { E.cy++; E.cx = 0; } break; case ARROW_UP: if (E.cy != 0) { E.</description>
+    </item>
+    
     <item>
       <title>windowsの自動起動(スタートアップ)アプリに標準のクロックを入れたい</title>
       <link>https://www.velengel.com/blog/posts/2024/0713/</link>
