@@ -9,3 +9,9 @@ publishDir = 'docs'
   tag = "tags"
   archive = "archives"
   search = "search"
+
+[params]
+  author = "velengel"
+  authorLink = "https://github.com/velengel"
+  description = "エンジニアリングマネージャー見習いの個人開発備忘録"
+  showAuthor = true
