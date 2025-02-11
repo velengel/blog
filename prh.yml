@@ -1,0 +1,8 @@
+version: 1
+rules:
+  - expected: JavaScript
+    pattern: /javascript/i
+  - expected: WordPress
+    pattern: /wordpress/i
+  - expected: "サーバ"
+    pattern: "サーバー"

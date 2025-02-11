@@ -1,3 +1,4 @@
 hugo.exe
 _hugo_build.lock
 themes/
+node_modules/
