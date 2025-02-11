@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Vue on Vel Labs(ベル研究所)</title>
-    <link>http://localhost:1313/blog/tags/vue/</link>
+    <link>https://www.velengel.com/blog/tags/vue/</link>
     <description>Recent content in Vue on Vel Labs(ベル研究所)</description>
     <generator>Hugo</generator>
     <language>ja</language>
     <lastBuildDate>Sun, 15 Oct 2023 13:57:31 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/blog/tags/vue/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://www.velengel.com/blog/tags/vue/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>表示の都合でデータを別で作ってはいけない</title>
-      <link>http://localhost:1313/blog/posts/2023/1015/</link>
+      <link>https://www.velengel.com/blog/posts/2023/1015/</link>
       <pubDate>Sun, 15 Oct 2023 13:57:31 +0900</pubDate>
-      <guid>http://localhost:1313/blog/posts/2023/1015/</guid>
+      <guid>https://www.velengel.com/blog/posts/2023/1015/</guid>
       <description>&lt;h2 id=&#34;背景&#34;&gt;背景&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;自分なりの TodoList の亜種みたいなアプリを作っている&lt;/li&gt;&#xA;&lt;li&gt;データの持たせ方で悩んでいた&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
   </channel>
