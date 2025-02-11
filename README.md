@@ -39,3 +39,4 @@ npx textlint content/**
 # fix
 npx textlint --fix content/**
 ```
+* `--fix` で直らないやつ(日本語とか)は**自分で**直す
