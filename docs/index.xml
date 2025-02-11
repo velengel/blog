@@ -13,14 +13,14 @@
       <link>https://www.velengel.com/blog/posts/2025/0105/</link>
       <pubDate>Sun, 05 Jan 2025 11:03:57 +0900</pubDate>
       <guid>https://www.velengel.com/blog/posts/2025/0105/</guid>
-      <description>&lt;h2 id=&#34;やったもの&#34;&gt;やったもの&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/velengel/texteditor&#34;&gt;texteditor&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;きっかけ&#34;&gt;きっかけ&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;texteditor のチュートリアルを go で書き換えるみたいな記事を読んだ&#xA;&lt;ul&gt;&#xA;&lt;li&gt;紹介されてたもの → &lt;a href=&#34;https://viewsourcecode.org/snaptoken/kilo/index.html&#34;&gt;Build Your Own Text Editor&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;ざっと見た感じとてもよくできていたので年末年始にやることにした&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+      <description>&lt;h2 id=&#34;やったもの&#34;&gt;やったもの&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/velengel/texteditor&#34;&gt;texteditor&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;きっかけ&#34;&gt;きっかけ&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;texteditor のチュートリアルを go で書き換えるみたいな記事を読んだ&#xA;&lt;ul&gt;&#xA;&lt;li&gt;紹介されてたもの → &lt;a href=&#34;https://viewsourcecode.org/snaptoken/kilo/index.html&#34;&gt;Build Your Own Text Editor&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;ざっと見た感じとてもよくできていたので年末年始でやることにした&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
     <item>
       <title>windowsの自動起動(スタートアップ)アプリに標準のクロックを入れたい</title>
       <link>https://www.velengel.com/blog/posts/2024/0713/</link>
       <pubDate>Sat, 13 Jul 2024 17:03:14 +0900</pubDate>
       <guid>https://www.velengel.com/blog/posts/2024/0713/</guid>
-      <description>&lt;h2 id=&#34;背景&#34;&gt;背景&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;休日に &lt;a href=&#34;https://ueli.app/&#34;&gt;ueli&lt;/a&gt; というランチャーアプリを入れて作業効率化を楽しんでいた&lt;/li&gt;&#xA;&lt;li&gt;普段 windows で作業するとき、ポモドーロタイマーとして標準でついてる &lt;a href=&#34;https://apps.microsoft.com/detail/9wzdncrfj3pr?hl=ja-jp&amp;amp;gl=JP&#34;&gt;クロック&lt;/a&gt; アプリを使っていた&lt;/li&gt;&#xA;&lt;li&gt;このアプリをスタートアップアプリに登録するのに少し手こずったので備忘録&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+      <description>&lt;h2 id=&#34;背景&#34;&gt;背景&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;休日に &lt;a href=&#34;https://ueli.app/&#34;&gt;ueli&lt;/a&gt; というランチャーアプリを入れて作業効率化を楽しんでいた&lt;/li&gt;&#xA;&lt;li&gt;普段 windows で作業するとき、ポモドーロタイマーとして標準でついてる &lt;a href=&#34;https://apps.microsoft.com/detail/9wzdncrfj3pr?hl=ja-jp&amp;amp;gl=JP&#34;&gt;クロック&lt;/a&gt; アプリを使っていた&lt;/li&gt;&#xA;&lt;li&gt;このアプリをスタートアップアプリに登録するのが少し手こずったので備忘録&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
     <item>
       <title>ゼロからのOS自作入門を読み終わった話</title>
@@ -34,7 +34,7 @@
       <link>https://www.velengel.com/blog/posts/2024/0104/</link>
       <pubDate>Thu, 04 Jan 2024 09:53:32 +0900</pubDate>
       <guid>https://www.velengel.com/blog/posts/2024/0104/</guid>
-      <description>&lt;h2 id=&#34;背景&#34;&gt;背景&lt;/h2&gt;&#xA;&lt;p&gt;年末年始で&lt;strong&gt;暇&lt;/strong&gt;だったので、ラズパイを買ってファイルサーバーでも作ってみるか、と思って作り始めた。諸々で 2 日ほどかかった。&lt;br&gt;&#xA;&lt;a href=&#34;https://amzn.to/3vvqlhK&#34;&gt;https://amzn.to/3vvqlhK&lt;/a&gt;&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;背景&#34;&gt;背景&lt;/h2&gt;&#xA;&lt;p&gt;年末年始で&lt;strong&gt;暇&lt;/strong&gt;だったので、ラズパイを買ってファイルサーバでも作ってみるか、と思って作り始めた。諸々で 2 日ほどかかった。&lt;br&gt;&#xA;&lt;a href=&#34;https://amzn.to/3vvqlhK&#34;&gt;https://amzn.to/3vvqlhK&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>読書メモのフォーマット所感</title>

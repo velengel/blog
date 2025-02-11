@@ -10,7 +10,7 @@
 
 <title>ラズパイを買って自宅サーバ入門した話</title>
 
-  <meta name="description" content="背景 年末年始で暇だったので、ラズパイを買ってファイルサーバーでも作ってみるか、と思って作り始めた。諸々で 2 日ほどかかった。
+  <meta name="description" content="背景 年末年始で暇だったので、ラズパイを買ってファイルサーバでも作ってみるか、と思って作り始めた。諸々で 2 日ほどかかった。
 https://amzn.to/3vvqlhK">
 
 
@@ -51,7 +51,7 @@ https://amzn.to/3vvqlhK">
   <meta property="og:title" content="ラズパイを買って自宅サーバ入門した話">
 
 
-  <meta property="og:description" content="背景 年末年始で暇だったので、ラズパイを買ってファイルサーバーでも作ってみるか、と思って作り始めた。諸々で 2 日ほどかかった。
+  <meta property="og:description" content="背景 年末年始で暇だったので、ラズパイを買ってファイルサーバでも作ってみるか、と思って作り始めた。諸々で 2 日ほどかかった。
 https://amzn.to/3vvqlhK">
 
 <meta property="og:url" content="https://www.velengel.com/blog/posts/2024/0104/">
@@ -61,7 +61,7 @@ https://amzn.to/3vvqlhK">
   <meta itemprop="name" content="ラズパイを買って自宅サーバ入門した話">
 
 
-  <meta itemprop="description" content="背景 年末年始で暇だったので、ラズパイを買ってファイルサーバーでも作ってみるか、と思って作り始めた。諸々で 2 日ほどかかった。
+  <meta itemprop="description" content="背景 年末年始で暇だったので、ラズパイを買ってファイルサーバでも作ってみるか、と思って作り始めた。諸々で 2 日ほどかかった。
 https://amzn.to/3vvqlhK">
 
 
@@ -187,7 +187,7 @@ https://amzn.to/3vvqlhK">
   <div class="body">
     
       <h2 id="背景">背景</h2>
-<p>年末年始で<strong>暇</strong>だったので、ラズパイを買ってファイルサーバーでも作ってみるか、と思って作り始めた。諸々で 2 日ほどかかった。<br>
+<p>年末年始で<strong>暇</strong>だったので、ラズパイを買ってファイルサーバでも作ってみるか、と思って作り始めた。諸々で 2 日ほどかかった。<br>
 <a href="https://amzn.to/3vvqlhK">https://amzn.to/3vvqlhK</a></p>
 <p>ちょうどたまたま家に使わなくなった以下のものがあったので、それを有効活用したいみたいな気持ちもあった。</p>
 <ul>
@@ -213,20 +213,20 @@ https://amzn.to/3vvqlhK">
 <h3 id="omv6のインストール回避">OMV6のインストール(回避)</h3>
 <p>参考にしたもの: <a href="https://koh-sen.jp/blog/archives/12238">https://koh-sen.jp/blog/archives/12238</a><br>
 OMV6 を入れるところまではなんとか行ったものの、なんか動作が不安定で先に進めなくなったので回避。<br>
-別に<strong>ファイルサーバーが作れればいい</strong>ので OMV6 にこだわる必要はなかった。</p>
+別に<strong>ファイルサーバが作れればいい</strong>ので OMV6 にこだわる必要はなかった。</p>
 <h3 id="nextcloudのインストール">NextCloudのインストール</h3>
 <p>参考にしたもの: <a href="https://qiita.com/hiro2do/items/f8eed40acab713f20693">https://qiita.com/hiro2do/items/f8eed40acab713f20693</a><br>
 色々apt 経由で入れられないか試行錯誤している中で、調査してたら見つけた。snap という便利パッケージ管理ツール的なのが出ていて、それを使ったら一瞬で入った。すごい。<br>
 公式: <a href="https://snapcraft.io/docs">https://snapcraft.io/docs</a></p>
 <h3 id="外付けhdd有効化">外付けHDD有効化</h3>
 <p>↑のブログ参考に、mount 系のコマンドは別で調べてやったら入った。素晴らしいね。<br>
-<code>df -h</code> で自分の意図したものが出てきた時は軽く感動。普段仕事ではクラウド上の EC2 とかしか触ってないから。物理サーバーは実感が湧くのがいいね。</p>
+<code>df -h</code> で自分の意図したものが出てきた時は軽く感動。普段仕事ではクラウド上の EC2 とかしか触ってないから。物理サーバは実感が湧くのでいいね。</p>
 <h3 id="外部公開とhttpstodo">外部公開とHTTPS(TODO)</h3>
-<p>↑のブログに言われるままに tailscale とか色々入れてたらどうも証明書関連でうまく行ってないっぽく全世界に公開しそう(一瞬した)になったので、一旦内部公開に止めることにした。別にそれでも<strong>要件は満たせる</strong>ので。</p>
+<p>↑のブログに言われるまま tailscale とか色々入れてたら、どうも証明書関連でうまく行ってないっぽく全世界に公開しそう(一瞬した)なった。一旦内部公開で止めることにした。別にそれでも<strong>要件は満たせる</strong>ので。</p>
 <h3 id="nextcloudを写真のバックアップ先に設定">NextCloudを写真のバックアップ先に設定</h3>
 <p>参考にしたもの: <a href="https://denor.jp/iphone%E3%81%A7%E6%92%AE%E5%BD%B1%E3%81%97%E3%81%9F%E5%86%99%E7%9C%9F%E3%82%84%E5%8B%95%E7%94%BB%E3%82%92nextcloud%E3%82%B5%E3%83%BC%E3%83%90%E3%81%B8%E8%87%AA%E5%8B%95%E3%82%A2%E3%83%83%E3%83%97">https://denor.jp/iphone%E3%81%A7%E6%92%AE%E5%BD%B1%E3%81%97%E3%81%9F%E5%86%99%E7%9C%9F%E3%82%84%E5%8B%95%E7%94%BB%E3%82%92nextcloud%E3%82%B5%E3%83%BC%E3%83%90%E3%81%B8%E8%87%AA%E5%8B%95%E3%82%A2%E3%83%83%E3%83%97</a><br>
 やるだけ。</p>
-<p>ここまで 1 日目。この後監視入れて wiki サーバーでも建ててみるかという気分になり、引き続きインストールをしていた。</p>
+<p>ここまで 1 日目。この後監視入れて wiki サーバでも建ててみるかという気分になり、引き続きインストールをしていた。</p>
 <h3 id="mackerel導入">mackerel導入</h3>
 <p>入れるのはやるだけ。カスタムメトリックのプラグインを導入するのが苦労した。やりたかったのはラズパイの CPU 温度の監視。<br>
 公式: <a href="https://mackerel.io/ja/docs/entry/advanced/custom-metrics">https://mackerel.io/ja/docs/entry/advanced/custom-metrics</a><br>
@@ -241,7 +241,7 @@ OMV6 を入れるところまではなんとか行ったものの、なんか動
 </p>
 <h3 id="mediawiki導入回避">mediawiki導入(回避)</h3>
 <p>公式: <a href="https://www.mediawiki.org/wiki/Manual:Running_MediaWiki_on_Debian_or_Ubuntu/ja">https://www.mediawiki.org/wiki/Manual:Running_MediaWiki_on_Debian_or_Ubuntu/ja</a></p>
-<p>これに沿って初回のセットアップページまでは進んだ。(そこにいくまでに apache2 に mod-php を入れてなくてただの php ファイルがそのまま表示されるみたいな罠を踏んだ。1回休み。)<br>
+<p>これに沿って初回のセットアップページまでは進んだ。(そこにいくまでに apache2 に mod-php を入れてなくてただの php ファイルがそのまま表示されるみたいな罠を踏んだ。1 回休み。)<br>
 ただ、NextCloud が MySQL を立ち上げてるっぽく<strong>競合してしまった</strong>ので、仕方なく諦めた。DB を共存させたりポート変えたりとかの回避手段はあるものの、そこまでしたいわけでもないので諦めた。(try はした)</p>
 <h3 id="dokuwiki導入">dokuwiki導入</h3>
 <p>なんと dokuwiki は DB を立ち上げる必要がないので、いけそう！と思って入れた。<br>
@@ -250,7 +250,7 @@ OMV6 を入れるところまではなんとか行ったものの、なんか動
 最近のドキュメント書くツールは便利なんだなあというのを改めて感じる。</p>
 <h3 id="メールを送るtodo">メールを送る(TODO)</h3>
 <p>dokouwiki のユーザー登録にメール送信が必要なのだが、いつまで経ってもメールが来なかった。ログを見ると sendmail が入ってないよって言われたから入れてみるも挙動変わらず。 <br>
-どうやらメールサーバーの設定とか Gmail のアプリパスワード？的な色々準備が必要そうなので、宿題。</p>
+どうやらメールサーバの設定とか Gmail のアプリパスワード？的な色々準備が必要そうなので、宿題。</p>
 <h3 id="viのモードを治す">viのモードを治す</h3>
 <p>参考にしたもの: <a href="https://yaru-yaru.net/reizo/raspberrypi%E3%81%AEvi%E3%81%A7%E6%96%B9%E5%90%91%E3%82%AD%E3%83%BC%E3%82%92%E6%8A%BC%E3%81%99%E3%81%A8abcd%E3%81%8C%E5%87%BA%E3%82%8B%E5%95%8F%E9%A1%8C/">https://yaru-yaru.net/reizo/raspberrypi%E3%81%AEvi%E3%81%A7%E6%96%B9%E5%90%91%E3%82%AD%E3%83%BC%E3%82%92%E6%8A%BC%E3%81%99%E3%81%A8abcd%E3%81%8C%E5%87%BA%E3%82%8B%E5%95%8F%E9%A1%8C/</a><br>
 vi 互換モードというのになっていたらしい。
@@ -259,9 +259,9 @@ vi 互換モードというのになっていたらしい。
 <p>ちゃんと覚えてるうちにポートとかパスをメモっておいた。</p>
 <h2 id="幸運だったこと">幸運だったこと</h2>
 <h3 id="一人暮らしを始めていた">一人暮らしを始めていた</h3>
-<p>これによりルーターの全権を握れているのが大きい。また、契約時にメールサーバーももらっていたのでその辺の検証もしやすい。自分の城があるって大事だよね。</p>
+<p>これによりルーターの全権を握れているのが大きい。また、契約時にメールサーバももらっていたのでその辺の検証もしやすい。自分の城があるって大事だよね。</p>
 <h3 id="仕事で触ってた">仕事で触ってた</h3>
-<p>困ったら公式ドキュメントを見る。落ち着いてエラーログを確認する。みたいな一連の所作は仕事で息をするように身につけていた(そうしないと仕事にならないので)ので、万策尽きた！みたいになることが少なくてよかった。</p>
+<p>困ったら公式ドキュメントを見る。落ち着いてエラーログを確認する。みたいな一連の所作は仕事で息をするように身につけていた(そうしないと仕事にならない)ので、万策尽きた！みたいになることが少なくてよかった。</p>
 <p>大学の時の数年前の自分は調べる力が弱かったのでこういう時に解決できず諦めるしかなかった。</p>
 <h2 id="反省">反省</h2>
 <h3 id="調査ログを途中から取り始めた">調査ログを途中から取り始めた</h3>
@@ -340,9 +340,9 @@ vi 互換モードというのになっていたらしい。
     <header class="component-title">次に読む</header>
     <ul class="dense">
       
-        <li><a href="/blog/posts/2024/0713/">windowsの自動起動(スタートアップ)アプリに標準のクロックを入れたい</a></li>
+        <li><a href="/blog/posts/2023/0717/">ブログ改修工事</a></li>
       
-        <li><a href="/blog/posts/2023/0719/">phpで掲示板作る</a></li>
+        <li><a href="/blog/posts/2024/0104/">ラズパイを買って自宅サーバ入門した話</a></li>
       
     </ul>
   </nav>
