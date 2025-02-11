@@ -40,3 +40,4 @@ npx textlint content/**
 npx textlint --fix content/**
 ```
 * `--fix` で直らないやつ(日本語とか)は**自分で**直す
+* 元の設定: https://zenn.dev/overflow_offers/articles/20220512-awesome-texlint-correction
