@@ -1,15 +1,11 @@
 baseURL = 'https://www.velengel.com/blog'
 languageCode = 'ja'
 title = 'Vel Labs(ベル研究所)'
-theme = 'ananke'
+theme = 'nagoya'
 publishDir = 'docs'
 
 [taxonomies]
+  category = "categories"
   tag = "tags"
-
-[params]
-  custom_css = ["custom.css"]
-  show_reading_time = true
-  [[params.ananke_socials]]
-  name = "github"
-  url = "https://github.com/velengel"
+  archive = "archives"
+  search = "search"

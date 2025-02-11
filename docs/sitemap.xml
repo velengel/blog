@@ -35,16 +35,16 @@
     <loc>https://www.velengel.com/blog/posts/2023/1211/</loc>
     <lastmod>2023-12-11T21:04:36+09:00</lastmod>
   </url><url>
-    <loc>https://www.velengel.com/blog/posts/2023/1015/</loc>
-    <lastmod>2023-10-15T13:57:31+09:00</lastmod>
-  </url><url>
     <loc>https://www.velengel.com/blog/tags/vue/</loc>
     <lastmod>2023-10-15T13:57:31+09:00</lastmod>
   </url><url>
-    <loc>https://www.velengel.com/blog/posts/2023/0725/</loc>
-    <lastmod>2023-07-25T20:15:11+09:00</lastmod>
+    <loc>https://www.velengel.com/blog/posts/2023/1015/</loc>
+    <lastmod>2023-10-15T13:57:31+09:00</lastmod>
   </url><url>
     <loc>https://www.velengel.com/blog/tags/loupedeck/</loc>
+    <lastmod>2023-07-25T20:15:11+09:00</lastmod>
+  </url><url>
+    <loc>https://www.velengel.com/blog/posts/2023/0725/</loc>
     <lastmod>2023-07-25T20:15:11+09:00</lastmod>
   </url><url>
     <loc>https://www.velengel.com/blog/tags/uri%E3%82%B9%E3%82%AD%E3%83%BC%E3%83%A0/</loc>
@@ -53,10 +53,16 @@
     <loc>https://www.velengel.com/blog/tags/windows/</loc>
     <lastmod>2023-07-25T20:15:11+09:00</lastmod>
   </url><url>
-    <loc>https://www.velengel.com/blog/posts/2023/0719/</loc>
+    <loc>https://www.velengel.com/blog/categories/</loc>
     <lastmod>2023-07-19T22:23:52+09:00</lastmod>
   </url><url>
     <loc>https://www.velengel.com/blog/tags/php/</loc>
+    <lastmod>2023-07-19T22:23:52+09:00</lastmod>
+  </url><url>
+    <loc>https://www.velengel.com/blog/posts/2023/0719/</loc>
+    <lastmod>2023-07-19T22:23:52+09:00</lastmod>
+  </url><url>
+    <loc>https://www.velengel.com/blog/categories/tech/</loc>
     <lastmod>2023-07-19T22:23:52+09:00</lastmod>
   </url><url>
     <loc>https://www.velengel.com/blog/posts/2023/0717/</loc>
@@ -64,5 +70,9 @@
   </url><url>
     <loc>https://www.velengel.com/blog/posts/my-first-post/</loc>
     <lastmod>2023-07-17T14:07:54+09:00</lastmod>
+  </url><url>
+    <loc>https://www.velengel.com/blog/archives/</loc>
+  </url><url>
+    <loc>https://www.velengel.com/blog/search/</loc>
   </url>
 </urlset>

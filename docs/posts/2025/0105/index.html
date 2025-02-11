@@ -1,144 +1,200 @@
 <!DOCTYPE html>
-<html lang="ja">
+
+<html lang="en" itemscope itemtype="https://schema.org/BlogPosting">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    
-    <title>texteditor途中まで作った | Vel Labs(ベル研究所)</title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="やったもの texteditor
-きっかけ texteditorのチュートリアルをgoで書き換えるみたいな記事を読んだ 紹介されてたもの → Build Your Own Text Editor ざっと見た感じとてもよくできていたので年末年始にやることにした 進捗 5.a text editorまで searchとsyntax highlightingはこの期間では終わらなさそうだったので今後の土日でのんびりやる 学び・感想 とてもとても楽しかった 自分のプログラミングの原体験がC&#43;&#43;でゲーム作るとかだったので、特にキー入力の部分とかは「こういうのやったやった」みたいなとても懐かしい気持ちになった 境界値とかその辺 自作OSの本でも似たようなものを読んだ switch (key) { case ARROW_LEFT: if (E.cx != 0) { E.cx--; } else if (E.cy &gt; 0) { E.cy--; E.cx = E.row[E.cy].size; } break; case ARROW_RIGHT: if (row &amp;&amp; E.cx &lt; row-&gt;size) { E.cx&#43;&#43;; } else if (row &amp;&amp; E.cx == row-&gt;size) { E.cy&#43;&#43;; E.cx = 0; } break; case ARROW_UP: if (E.">
-    <meta name="generator" content="Hugo 0.115.3">
-    
-    
-    
-    
-      <meta name="robots" content="noindex, nofollow">
-    
-
-    
-<link rel="stylesheet" href="/blog/ananke/css/main.min.css" >
-
+<meta name="viewport" content="width=device-width">
 
 
   
-    <link rel="stylesheet" href="/blog/custom.css">
+
+<title>texteditor途中まで作った</title>
+
+  <meta name="description" content="やったもの texteditor
+きっかけ texteditorのチュートリアルをgoで書き換えるみたいな記事を読んだ 紹介されてたもの → Build Your Own Text Editor ざっと見た感じとてもよくできていたので年末年始にやることにした">
+
+
+  <meta name="keywords" content="Programming, C">
+
+<meta name="generator" content="Hugo 0.143.1">
+
+<link rel="canonical" href="https://www.velengel.com/blog/posts/2025/0105/">
+
+
+  
+    <link rel="sitemap" type="application/xml" href="/blog/sitemap.xml">
   
 
-    
-    
-    
-      
-
-    
 
     
     
-    <meta property="og:title" content="texteditor途中まで作った" />
-<meta property="og:description" content="やったもの texteditor
-きっかけ texteditorのチュートリアルをgoで書き換えるみたいな記事を読んだ 紹介されてたもの → Build Your Own Text Editor ざっと見た感じとてもよくできていたので年末年始にやることにした 進捗 5.a text editorまで searchとsyntax highlightingはこの期間では終わらなさそうだったので今後の土日でのんびりやる 学び・感想 とてもとても楽しかった 自分のプログラミングの原体験がC&#43;&#43;でゲーム作るとかだったので、特にキー入力の部分とかは「こういうのやったやった」みたいなとても懐かしい気持ちになった 境界値とかその辺 自作OSの本でも似たようなものを読んだ switch (key) { case ARROW_LEFT: if (E.cx != 0) { E.cx--; } else if (E.cy &gt; 0) { E.cy--; E.cx = E.row[E.cy].size; } break; case ARROW_RIGHT: if (row &amp;&amp; E.cx &lt; row-&gt;size) { E.cx&#43;&#43;; } else if (row &amp;&amp; E.cx == row-&gt;size) { E.cy&#43;&#43;; E.cx = 0; } break; case ARROW_UP: if (E." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://www.velengel.com/blog/posts/2025/0105/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2025-01-05T11:03:57+09:00" />
-<meta property="article:modified_time" content="2025-01-05T11:03:57+09:00" />
-<meta itemprop="name" content="texteditor途中まで作った">
-<meta itemprop="description" content="やったもの texteditor
-きっかけ texteditorのチュートリアルをgoで書き換えるみたいな記事を読んだ 紹介されてたもの → Build Your Own Text Editor ざっと見た感じとてもよくできていたので年末年始にやることにした 進捗 5.a text editorまで searchとsyntax highlightingはこの期間では終わらなさそうだったので今後の土日でのんびりやる 学び・感想 とてもとても楽しかった 自分のプログラミングの原体験がC&#43;&#43;でゲーム作るとかだったので、特にキー入力の部分とかは「こういうのやったやった」みたいなとても懐かしい気持ちになった 境界値とかその辺 自作OSの本でも似たようなものを読んだ switch (key) { case ARROW_LEFT: if (E.cx != 0) { E.cx--; } else if (E.cy &gt; 0) { E.cy--; E.cx = E.row[E.cy].size; } break; case ARROW_RIGHT: if (row &amp;&amp; E.cx &lt; row-&gt;size) { E.cx&#43;&#43;; } else if (row &amp;&amp; E.cx == row-&gt;size) { E.cy&#43;&#43;; E.cx = 0; } break; case ARROW_UP: if (E."><meta itemprop="datePublished" content="2025-01-05T11:03:57+09:00" />
-<meta itemprop="dateModified" content="2025-01-05T11:03:57+09:00" />
-<meta itemprop="wordCount" content="130">
-<meta itemprop="keywords" content="programming,c," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="texteditor途中まで作った"/>
-<meta name="twitter:description" content="やったもの texteditor
-きっかけ texteditorのチュートリアルをgoで書き換えるみたいな記事を読んだ 紹介されてたもの → Build Your Own Text Editor ざっと見た感じとてもよくできていたので年末年始にやることにした 進捗 5.a text editorまで searchとsyntax highlightingはこの期間では終わらなさそうだったので今後の土日でのんびりやる 学び・感想 とてもとても楽しかった 自分のプログラミングの原体験がC&#43;&#43;でゲーム作るとかだったので、特にキー入力の部分とかは「こういうのやったやった」みたいなとても懐かしい気持ちになった 境界値とかその辺 自作OSの本でも似たようなものを読んだ switch (key) { case ARROW_LEFT: if (E.cx != 0) { E.cx--; } else if (E.cy &gt; 0) { E.cy--; E.cx = E.row[E.cy].size; } break; case ARROW_RIGHT: if (row &amp;&amp; E.cx &lt; row-&gt;size) { E.cx&#43;&#43;; } else if (row &amp;&amp; E.cx == row-&gt;size) { E.cy&#43;&#43;; E.cx = 0; } break; case ARROW_UP: if (E."/>
+    
 
-	
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/blog/bundle.min.87c750e580f88b9cd2425b03b0fe7f8c26055dbf67c8c1d244475fa34dbcd068.css">
+
+    <link rel="icon" href="/blog/icon.png">
+
+    
+  <meta property="og:type" content="article">
+
+<meta property="og:site_name" content="Vel Labs(ベル研究所)">
+
+  <meta property="og:title" content="texteditor途中まで作った">
+
+
+  <meta property="og:description" content="やったもの texteditor
+きっかけ texteditorのチュートリアルをgoで書き換えるみたいな記事を読んだ 紹介されてたもの → Build Your Own Text Editor ざっと見た感じとてもよくできていたので年末年始にやることにした">
+
+<meta property="og:url" content="https://www.velengel.com/blog/posts/2025/0105/">
+
+  <meta property="og:image" content="https://www.velengel.com/blog/cover/kilo.png">
+
+
+    
+  <meta itemprop="name" content="texteditor途中まで作った">
+
+
+  <meta itemprop="description" content="やったもの texteditor
+きっかけ texteditorのチュートリアルをgoで書き換えるみたいな記事を読んだ 紹介されてたもの → Build Your Own Text Editor ざっと見た感じとてもよくできていたので年末年始にやることにした">
+
+
+  <meta itemprop="keywords" content="Programming, C">
+
+
+  
+  
+    <meta itemprop="datePublished" content="2025-01-05T11:03:57+09:00">
+  
+  
+    
+      <meta itemprop="dateModified" content="2025-01-05T11:03:57+09:00">
+    
+  
+
+
+  <meta itemprop="image" content="https://www.velengel.com/blog/cover/kilo.png">
+
+<link itemprop="url" href="https://www.velengel.com/blog/posts/2025/0105/">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\(", right: "\\)", display: false},
+        {left: "\\[", right: "\\]", display: true}
+      ],
+      throwOnError: false
+    });
+  });
+</script>
+
+    
+  
+
+
+    
   </head>
-
-  <body class="ma0 avenir bg-near-white">
-
+  <body>
+    <div id="container">
+      <header id="top">
+  <div id="header-grid">
     
-   
-  
-
-  <header>
-    <div class="bg-black">
-      <nav class="pv3 ph3 ph4-ns" role="navigation">
-  <div class="flex-l justify-between items-center center">
-    <a href="/blog/" class="f3 fw2 hover-white no-underline white-90 dib">
-      
-        Vel Labs(ベル研究所)
-      
-    </a>
-    <div class="flex-l items-center">
-      
-
-      
-      
-<div class="ananke-socials">
-  
+      <div id="site-title">
+        <a href="/blog/">Vel Labs(ベル研究所)</a>
+      </div>
     
-    <a href="https://github.com/velengel" target="_blank" rel="noopener" class="github ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="GitHub link" aria-label="follow on GitHub——Opens in a new window">
+    
       
-        <span class="icon"><svg style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
-  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
-</svg>
-</span>
-      
-<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
-<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
-</svg>
-</span></a>
-  
-</div>
-
-    </div>
+    
   </div>
-</nav>
+</header>
 
-    </div>
-  </header>
-
-
-
-    <main class="pb7" role="main">
-      
-  
-  <article class="flex-l flex-wrap justify-between mw8 center ph3">
-    <header class="mt4 w-100">
-      <aside class="instapaper_ignoref b helvetica tracked">
+      <div id="middle">
+        <div id="content" class="column">
           
-        POSTS
-      </aside>
-      
+          
+            <nav id="breadcrumb" class="pane">
+              
 
 
-
-
-
-
-
-
-
-
-  <div id="sharing" class="mt3 ananke-socials">
+  
+  
+  <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
     
-  </div>
+      
+  
+  
+    
+      
+  
+  
+    
+    
+    
+      <li><a href="/blog/">Vel Labs(ベル研究所)</a></li>
+    
+  
+
+      
+    
+    
+    
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="/blog/posts/" itemprop="item"><span itemprop="name">Posts</span></a>
+        <meta itemprop="position" content="1">
+      </li>
+    
+  
+
+      
+    
+    
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="page">
+      <a aria-current="location"><span itemprop="name">texteditor途中まで作った</span></a>
+      <meta itemprop="position" content="2">
+    </li>
+  </ol>
 
 
-      <h1 class="f1 athelas mt3 mb1">texteditor途中まで作った</h1>
-      
-      
-      
-      <time class="f6 mv4 dib tracked" datetime="2025-01-05T11:03:57+09:00">January 5, 2025</time>
-      
+            </nav>
+          
+          
+          <main class="pane">
+            
+  
 
-      
-      
-        <span class="f6 mv4 dib tracked"> - One minute read </span>
-        <span class="f6 mv4 dib tracked"> - 130 words </span>
-      
-    </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h2 id="やったもの">やったもの</h2>
+
+
+<article class="single">
+  <header>
+    <h1 class="title" itemprop="headline">texteditor途中まで作った</h1>
+    
+      <div class="time">
+        
+          <div><time datetime="2025-01-05"> 2025/01/05</time></div>
+        
+      </div>
+    
+  </header>
+  <div class="body">
+    
+      <h2 id="やったもの">やったもの</h2>
 <p><a href="https://github.com/velengel/texteditor">texteditor</a></p>
 <h2 id="きっかけ">きっかけ</h2>
 <ul>
@@ -241,13 +297,19 @@
 <li>ステータスバーが表示される
 <ul>
 <li>行数とかファイル名が書いてあるところ
-<img src="images/kilo.png" alt=""></li>
+
+  <img src="images/kilo.png">
+
+</li>
 </ul>
 </li>
 </ul>
 </li>
 <li>例によって図解で整理した
-<img src="images/image.png" alt=""></li>
+
+  <img src="images/image.png">
+
+</li>
 <li>エディタを使ってみて
 <ul>
 <li>当然だが、まだまだだねｗという感想になった
@@ -264,58 +326,358 @@
 </ul>
 </li>
 </ul>
-<ul class="pa0">
-  
-   <li class="list di">
-     <a href="/blog/tags/programming/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">programming</a>
-   </li>
-  
-   <li class="list di">
-     <a href="/blog/tags/c/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">c</a>
-   </li>
-  
-</ul>
-<div class="mt6 instapaper_ignoref">
+    
+  </div>
+  <footer>
+    
+    
+    
+      
+    
+    
+    
+    
+      
+    
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+    
+    
+    
+      <table class="taxonomy-table">
+        <tbody>
+          
+            <tr>
+              <th>セクション:</th>
+              <td>
+                <div class="folder">
+                  <a href="/blog/posts/">Posts</a>
+                </div>
+              </td>
+            </tr>
+          
+          
+            <tr>
+              <th>Tags:</th>
+              <td>
+                <ul class="tags">
+                  
+                    <li class="tagged"><a href="/blog/tags/programming/">Programming</a></li>
+                  
+                    <li class="tagged"><a href="/blog/tags/c/">C</a></li>
+                  
+                </ul>
+              </td>
+            </tr>
+          
+          
+            
+          
+            
+              
+            
+          
+            
+              
+            
+          
+            
+          
+        </tbody>
+      </table>
+    
+    
       
       
-      </div>
-    </div>
+      
+      
+    
+  </footer>
+</article>
 
-    <aside class="w-30-l mt6-l">
 
-
-
-
-</aside>
-
-  </article>
-
-    </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
-  <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://www.velengel.com/blog/" >
-    &copy;  Vel Labs(ベル研究所) 2025 
-  </a>
-    <div>
-<div class="ananke-socials">
+          </main>
+          
+          
   
     
-    <a href="https://github.com/velengel" target="_blank" rel="noopener" class="github ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="GitHub link" aria-label="follow on GitHub——Opens in a new window">
-      
-        <span class="icon"><svg style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
-  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
-</svg>
-</span>
-      
-<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
-<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
-</svg>
-</span></a>
+    
+    
+      <nav class="prev-next">
+        
+        
+          <a class="prev" href="/blog/posts/2024/0713/" title="前の記事: windowsの自動起動(スタートアップ)アプリに標準のクロックを入れたい">windowsの自動起動(スタートアップ)アプリに標準のクロックを入れたい</a>
+        
+      </nav>
+    
   
-</div>
-</div>
-  </div>
+
+          
+            
+
+
+
+  
+
+
+  <nav class="pane">
+    <header class="component-title">次に読む</header>
+    <ul class="dense">
+      
+        <li><a href="/blog/posts/2024/0525/">ゼロからのOS自作入門を読み終わった話</a></li>
+      
+        <li><a href="/blog/posts/2024/0713/">windowsの自動起動(スタートアップ)アプリに標準のクロックを入れたい</a></li>
+      
+    </ul>
+  </nav>
+
+
+          
+          
+        </div>
+        <aside id="sidebar" class="column">
+  
+  
+<nav class="pane">
+  <ul>
+    
+      <li>
+        <a href="/blog/">Vel Labs(ベル研究所)</a>
+      </li>
+    
+    
+    
+      <li>
+        <a href="/blog/archives/">Archives</a>
+      </li>
+    
+    
+      <li>
+        <a href="/blog/search/">Search</a>
+      </li>
+    
+    
+      <li>
+        <a href="/blog/index.xml">RSS</a>
+      </li>
+    
+  </ul>
+</nav>
+
+  
+
+  
+    
+      <nav class="pane">
+        <form class="sidebar-search-form" method="get" action="/blog/search/">
+          <input required type="search" name="q" id="query" aria-label="検索クエリ">
+          <input type="submit" value="検索">
+        </form>
+      </nav>
+    
+  
+
+
+  
+
+
+  
+    <nav class="pane">
+      
+  
+    <ul class="folders">
+      
+        
+        <li class="folder">
+          <a href="/blog/posts/">
+            Posts (10) 
+          </a>
+          
+  
+
+        </li>
+      
+    </ul>
+  
+
+    </nav>
+  
+
+
+  
+
+
+
+  
+    
+    
+    
+    
+    
+    
+      <nav class="pane">
+        <header class="component-title">
+          <a href="/blog/tags/">Tags</a>
+        </header>
+        <ul class="tags">
+          
+            <li class="tagged">
+              <a href="/blog/tags/c/">C</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/loupedeck/">Loupedeck</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/memo/">Memo</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/php/">Php</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/programming/">Programming</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/uri%E3%82%B9%E3%82%AD%E3%83%BC%E3%83%A0/">URIスキーム</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/vue/">Vue</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/windows/">Windows</a>
+            </li>
+          
+        </ul>
+        
+      </nav>
+    
+  
+
+
+  
+  
+
+  
+    
+      <nav class="pane">
+        
+          <header class="component-title">
+            <a href="/blog/categories/">Categories</a>
+          </header>
+          <ul>
+            
+              <li>
+                <a href="/blog/categories/tech/">Tech</a>
+              </li>
+            
+          </ul>
+        
+      </nav>
+    
+  
+
+  
+    
+  
+
+  
+
+
+  
+  
+
+  <nav class="pane">
+    <header class="component-title">最新記事</header>
+    <ul class="dense">
+      
+        <li>
+          <a href="/blog/posts/2025/0105/">texteditor途中まで作った</a>
+        </li>
+      
+        <li>
+          <a href="/blog/posts/2024/0713/">windowsの自動起動(スタートアップ)アプリに標準のクロックを入れたい</a>
+        </li>
+      
+        <li>
+          <a href="/blog/posts/2024/0525/">ゼロからのOS自作入門を読み終わった話</a>
+        </li>
+      
+        <li>
+          <a href="/blog/posts/2024/0104/">ラズパイを買って自宅サーバ入門した話</a>
+        </li>
+      
+        <li>
+          <a href="/blog/posts/2023/1211/">読書メモのフォーマット所感</a>
+        </li>
+      
+        <li>
+          <a href="/blog/posts/2023/1015/">表示の都合でデータを別で作ってはいけない</a>
+        </li>
+      
+        <li>
+          <a href="/blog/posts/2023/0725/">loupedeckとWindowsのURIスキーム</a>
+        </li>
+      
+        <li>
+          <a href="/blog/posts/2023/0719/">phpで掲示板作る</a>
+        </li>
+      
+        <li>
+          <a href="/blog/posts/2023/0717/">ブログ改修工事</a>
+        </li>
+      
+        <li>
+          <a href="/blog/posts/my-first-post/">はじまり</a>
+        </li>
+      
+    </ul>
+  </nav>
+
+
+  
+</aside>
+
+      </div>
+      <footer id="bottom">
+  <small>
+    <a href="/blog/">
+      <span>Vel Labs(ベル研究所)</span>
+    </a>
+    <wbr>
+    <span>
+      
+        
+        
+          ©&nbsp;2023–2025
+        
+        
+      
+    </span>
+    <br>
+    <span>
+      <a href="https://github.com/curegit/nagoya"><i>Nagoya</i>&nbsp;Theme</a>&nbsp;by&nbsp;<a href="https://curegit.jp/"><i>curegit</i></a>.
+      <wbr>
+      Built&nbsp;with&nbsp;<a href="https://gohugo.io/">Hugo</a>.
+    </span>
+  </small>
 </footer>
 
+    </div>
   </body>
 </html>
