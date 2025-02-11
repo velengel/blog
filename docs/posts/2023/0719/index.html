@@ -10,7 +10,7 @@
 
 <title>phpで掲示板作る</title>
 
-  <meta name="description" content="やったこと phpで掲示板を作る〜をchatGPTと対話しながらやってみた https://github.com/velengel/keijiban デプロイとかはしてない 静的サイトではないのでGithub Pagesからやるにはバックエンド用意したり少々面倒">
+  <meta name="description" content="やったこと php で掲示板を作る〜を chatGPT と対話しながらやってみた https://github.com/velengel/keijiban デプロイとかはしてない 静的サイトではないので Github Pages からやるにはバックエンド用意したり少々面倒">
 
 
   <meta name="keywords" content="Php">
@@ -52,7 +52,7 @@
   <meta property="og:title" content="phpで掲示板作る">
 
 
-  <meta property="og:description" content="やったこと phpで掲示板を作る〜をchatGPTと対話しながらやってみた https://github.com/velengel/keijiban デプロイとかはしてない 静的サイトではないのでGithub Pagesからやるにはバックエンド用意したり少々面倒">
+  <meta property="og:description" content="やったこと php で掲示板を作る〜を chatGPT と対話しながらやってみた https://github.com/velengel/keijiban デプロイとかはしてない 静的サイトではないので Github Pages からやるにはバックエンド用意したり少々面倒">
 
 <meta property="og:url" content="https://www.velengel.com/blog/posts/2023/0719/">
 
@@ -61,7 +61,7 @@
   <meta itemprop="name" content="phpで掲示板作る">
 
 
-  <meta itemprop="description" content="やったこと phpで掲示板を作る〜をchatGPTと対話しながらやってみた https://github.com/velengel/keijiban デプロイとかはしてない 静的サイトではないのでGithub Pagesからやるにはバックエンド用意したり少々面倒">
+  <meta itemprop="description" content="やったこと php で掲示板を作る〜を chatGPT と対話しながらやってみた https://github.com/velengel/keijiban デプロイとかはしてない 静的サイトではないので Github Pages からやるにはバックエンド用意したり少々面倒">
 
 
   <meta itemprop="keywords" content="Php">
@@ -189,23 +189,23 @@
     
       <h1 id="やったこと">やったこと</h1>
 <ul>
-<li>phpで掲示板を作る〜をchatGPTと対話しながらやってみた</li>
+<li>php で掲示板を作る〜を chatGPT と対話しながらやってみた</li>
 <li><a href="https://github.com/velengel/keijiban">https://github.com/velengel/keijiban</a>
 <ul>
 <li>デプロイとかはしてない</li>
-<li>静的サイトではないのでGithub Pagesからやるにはバックエンド用意したり少々面倒</li>
+<li>静的サイトではないので Github Pages からやるにはバックエンド用意したり少々面倒</li>
 </ul>
 </li>
 </ul>
 <h2 id="感想">感想</h2>
 <ul>
-<li>こんなにさくっと2時間くらいで作れるの楽し〜〜〜</li>
+<li>こんなにさくっと 2 時間くらいで作れるの楽し〜〜〜</li>
 <li>ハードル高いなと思ってたけど、それぞれの問題解決の問題解決・切り分け能力は業務で培われていたのでそこまで苦労しなかった
 <ul>
-<li>一回DBに繋がらなくてふて寝したが</li>
+<li>1回 DB に繋がらなくてふて寝したが</li>
 </ul>
 </li>
-<li>chatGPTが言ってることを丁寧に一つずつ試す(抽象的に聞く→具体的なコードで教えてのコンボが強すぎる)能力があればという条件付きではある</li>
+<li>chatGPT が言ってることを丁寧に1つずつ試す(抽象的に聞く→具体的なコードで教えてのコンボが強すぎる)能力があればという条件付きではある</li>
 <li>それぞれのファイルが何やってるかは精読してないので、今度じっくり読みたい</li>
 <li>機密情報はまあデフォルトから変えてないけどノリで環境変数を使って隠した</li>
 </ul>
@@ -213,11 +213,11 @@
 <ul>
 <li><strong>docker化</strong>
 <ul>
-<li>dbに無限に繋がらなくて苦労した</li>
+<li>db に無限に繋がらなくて苦労した</li>
 <li>原因はいくつかあった
 <ul>
-<li>接続先DBのhost名はローカルで直で動かしてた時は<code>localhost</code>でよかったけど、コンテナから繋ぐ時はサービス名(今回の場合<code>db</code>)にしないといけなかった</li>
-<li>キャッシュが残っていたっぽく、<code>docker-compose down --volumes</code>で消してあげないといけなかった</li>
+<li>接続先 DB の host 名はローカルで直で動かしてた時は <code>localhost</code> でよかったけど、コンテナから繋ぐ時はサービス名(今回の場合 <code>db</code>)にしないといけなかった</li>
+<li>キャッシュが残っていたっぽく、<code>docker-compose down --volumes</code> で消してあげないといけなかった</li>
 <li>いろいろ必要だったもの
 <ul>
 <li><code>php.ini</code></li>
@@ -354,9 +354,9 @@
     <header class="component-title">次に読む</header>
     <ul class="dense">
       
-        <li><a href="/blog/posts/2023/0719/">phpで掲示板作る</a></li>
+        <li><a href="/blog/posts/2024/0713/">windowsの自動起動(スタートアップ)アプリに標準のクロックを入れたい</a></li>
       
-        <li><a href="/blog/posts/2023/1211/">読書メモのフォーマット所感</a></li>
+        <li><a href="/blog/posts/2025/0105/">texteditor途中まで作った</a></li>
       
     </ul>
   </nav>
