@@ -31,7 +31,9 @@
       // 「あるある」とか「つよつよ」のようなスラングのために単語の連続を許可
       "ja-no-successive-word": false,
       // zenn の Markdown 方言である :::message および :::details と相性が悪いため無効化
-      "ja-no-mixed-period": false
+      "ja-no-mixed-period": false,
+      "max-kanji-continuous-len": false,
+
     },
     // ja-space-between-half-and-full-width がリンクには反応しないのでこちらでカバー
     // 日本語で構成されているリンクには不要なのだけどやむなく
@@ -39,6 +41,7 @@
       "before": true,
       "after": true
     },
+
     // JavaScript とか WordPress などの固有名詞を正しく書くためのフレーズ定義
     "prh": {
       "rulePaths": [

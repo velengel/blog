@@ -4,5 +4,5 @@ rules:
     pattern: /javascript/i
   - expected: WordPress
     pattern: /wordpress/i
-  - expected: "サーバー"
-    pattern: "サーバ"
+  - expected: "サーバ"
+    pattern: "サーバー"
