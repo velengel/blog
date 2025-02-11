@@ -2,80 +2,80 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Vel Labs(ベル研究所)</title>
-    <link>https://www.velengel.com/blog/posts/</link>
+    <link>http://localhost:1313/blog/posts/</link>
     <description>Recent content in Posts on Vel Labs(ベル研究所)</description>
     <generator>Hugo</generator>
     <language>ja</language>
     <lastBuildDate>Sun, 05 Jan 2025 11:03:57 +0900</lastBuildDate>
-    <atom:link href="https://www.velengel.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>texteditor途中まで作った</title>
-      <link>https://www.velengel.com/blog/posts/2025/0105/</link>
+      <link>http://localhost:1313/blog/posts/2025/0105/</link>
       <pubDate>Sun, 05 Jan 2025 11:03:57 +0900</pubDate>
-      <guid>https://www.velengel.com/blog/posts/2025/0105/</guid>
+      <guid>http://localhost:1313/blog/posts/2025/0105/</guid>
       <description>&lt;h2 id=&#34;やったもの&#34;&gt;やったもの&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/velengel/texteditor&#34;&gt;texteditor&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;きっかけ&#34;&gt;きっかけ&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;texteditor のチュートリアルを go で書き換えるみたいな記事を読んだ&#xA;&lt;ul&gt;&#xA;&lt;li&gt;紹介されてたもの → &lt;a href=&#34;https://viewsourcecode.org/snaptoken/kilo/index.html&#34;&gt;Build Your Own Text Editor&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;ざっと見た感じとてもよくできていたので年末年始でやることにした&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
     <item>
       <title>windowsの自動起動(スタートアップ)アプリに標準のクロックを入れたい</title>
-      <link>https://www.velengel.com/blog/posts/2024/0713/</link>
+      <link>http://localhost:1313/blog/posts/2024/0713/</link>
       <pubDate>Sat, 13 Jul 2024 17:03:14 +0900</pubDate>
-      <guid>https://www.velengel.com/blog/posts/2024/0713/</guid>
+      <guid>http://localhost:1313/blog/posts/2024/0713/</guid>
       <description>&lt;h2 id=&#34;背景&#34;&gt;背景&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;休日に &lt;a href=&#34;https://ueli.app/&#34;&gt;ueli&lt;/a&gt; というランチャーアプリを入れて作業効率化を楽しんでいた&lt;/li&gt;&#xA;&lt;li&gt;普段 windows で作業するとき、ポモドーロタイマーとして標準でついてる &lt;a href=&#34;https://apps.microsoft.com/detail/9wzdncrfj3pr?hl=ja-jp&amp;amp;gl=JP&#34;&gt;クロック&lt;/a&gt; アプリを使っていた&lt;/li&gt;&#xA;&lt;li&gt;このアプリをスタートアップアプリに登録するのが少し手こずったので備忘録&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
     <item>
       <title>ゼロからのOS自作入門を読み終わった話</title>
-      <link>https://www.velengel.com/blog/posts/2024/0525/</link>
+      <link>http://localhost:1313/blog/posts/2024/0525/</link>
       <pubDate>Sat, 25 May 2024 20:11:20 +0900</pubDate>
-      <guid>https://www.velengel.com/blog/posts/2024/0525/</guid>
+      <guid>http://localhost:1313/blog/posts/2024/0525/</guid>
       <description>&lt;h2 id=&#34;やったこと&#34;&gt;やったこと&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;ゼロからの OS 自作入門をようやく読み切った！！&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://amzn.asia/d/gRGFy2i&#34;&gt;https://amzn.asia/d/gRGFy2i&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;きちんと差分のコードを読みながら手を動かしてやってたのでとてもかかった&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;ちゃんとやり始めたのは去年の 8 月くらい、買ったのは 2021 年 4 月くらいにあった DMM の電子書籍セール&#xA;&lt;ul&gt;&#xA;&lt;li&gt;ちゃんと積読を消化できた稀有な例&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
     <item>
       <title>ラズパイを買って自宅サーバ入門した話</title>
-      <link>https://www.velengel.com/blog/posts/2024/0104/</link>
+      <link>http://localhost:1313/blog/posts/2024/0104/</link>
       <pubDate>Thu, 04 Jan 2024 09:53:32 +0900</pubDate>
-      <guid>https://www.velengel.com/blog/posts/2024/0104/</guid>
+      <guid>http://localhost:1313/blog/posts/2024/0104/</guid>
       <description>&lt;h2 id=&#34;背景&#34;&gt;背景&lt;/h2&gt;&#xA;&lt;p&gt;年末年始で&lt;strong&gt;暇&lt;/strong&gt;だったので、ラズパイを買ってファイルサーバでも作ってみるか、と思って作り始めた。諸々で 2 日ほどかかった。&lt;br&gt;&#xA;&lt;a href=&#34;https://amzn.to/3vvqlhK&#34;&gt;https://amzn.to/3vvqlhK&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>読書メモのフォーマット所感</title>
-      <link>https://www.velengel.com/blog/posts/2023/1211/</link>
+      <link>http://localhost:1313/blog/posts/2023/1211/</link>
       <pubDate>Mon, 11 Dec 2023 21:04:36 +0900</pubDate>
-      <guid>https://www.velengel.com/blog/posts/2023/1211/</guid>
+      <guid>http://localhost:1313/blog/posts/2023/1211/</guid>
       <description>&lt;h2 id=&#34;近況&#34;&gt;近況&lt;/h2&gt;&#xA;&lt;p&gt;M2 mac を買って快適になった。普段は Windows からやってるけど仕事でも mac だしやっぱりスイッチングコストがないのは嬉しいね。&lt;br&gt;&#xA;純粋な技術系以外のことの書いてもいいかなという気持ちになったので今日は技術書読む時に自分が使ってるメモのフォーマットとその所感を書いていく。&lt;/p&gt;</description>
     </item>
     <item>
       <title>表示の都合でデータを別で作ってはいけない</title>
-      <link>https://www.velengel.com/blog/posts/2023/1015/</link>
+      <link>http://localhost:1313/blog/posts/2023/1015/</link>
       <pubDate>Sun, 15 Oct 2023 13:57:31 +0900</pubDate>
-      <guid>https://www.velengel.com/blog/posts/2023/1015/</guid>
+      <guid>http://localhost:1313/blog/posts/2023/1015/</guid>
       <description>&lt;h2 id=&#34;背景&#34;&gt;背景&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;自分なりの TodoList の亜種みたいなアプリを作っている&lt;/li&gt;&#xA;&lt;li&gt;データの持たせ方で悩んでいた&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
     <item>
       <title>loupedeckとWindowsのURIスキーム</title>
-      <link>https://www.velengel.com/blog/posts/2023/0725/</link>
+      <link>http://localhost:1313/blog/posts/2023/0725/</link>
       <pubDate>Tue, 25 Jul 2023 20:15:11 +0900</pubDate>
-      <guid>https://www.velengel.com/blog/posts/2023/0725/</guid>
+      <guid>http://localhost:1313/blog/posts/2023/0725/</guid>
       <description>&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#%E3%82%84%E3%81%A3%E3%81%9F%E3%81%93%E3%81%A8&#34;&gt;やったこと&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#%E6%89%80%E6%84%9F&#34;&gt;所感&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#%E5%AD%A6%E3%81%B3&#34;&gt;学び&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h1 id=&#34;やったこと&#34;&gt;やったこと&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;loupedeck を買った&#xA;&lt;ul&gt;&#xA;&lt;li&gt;一番小さいやつ&lt;/li&gt;&#xA;&lt;li&gt;きっかけは趣味の DTM の生産性 UP でいろんなとこで聞くようになっていて気になっていた&#xA;&lt;ul&gt;&#xA;&lt;li&gt;ガシェット系 youtuber を見漁ってこれに決めた&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&#xA;&#xA;&#xA;&#xA;&lt;div class=&#34;fancy-card&#34;&gt;&#xA;  &lt;div class=&#34;card-image&#34;&gt;&#xA;    &lt;a href=&#34;https://amzn.asia/d/gaxGt7l&#34; target=&#34;_blank&#34;&gt;&#xA;        &lt;img src=&#34;https://m.media-amazon.com/images/I/61l-Ycl&amp;#43;f4L._AC_SY450_.jpg&#34; alt=&#34;Loupedeck Live S&#34; /&gt;&#xA;    &lt;/a&gt;&#xA;  &lt;/div&gt;&#xA;  &lt;div class=&#34;card-content&#34;&gt;&#xA;    &lt;h3&gt;&lt;a href=&#34;https://amzn.asia/d/gaxGt7l&#34; target=&#34;_blank&#34;&gt;Loupedeck Live S&lt;/a&gt;&lt;/h3&gt;&#xA;  &lt;/div&gt;&#xA;&lt;/div&gt;</description>
     </item>
     <item>
       <title>phpで掲示板作る</title>
-      <link>https://www.velengel.com/blog/posts/2023/0719/</link>
+      <link>http://localhost:1313/blog/posts/2023/0719/</link>
       <pubDate>Wed, 19 Jul 2023 22:23:52 +0900</pubDate>
-      <guid>https://www.velengel.com/blog/posts/2023/0719/</guid>
+      <guid>http://localhost:1313/blog/posts/2023/0719/</guid>
       <description>&lt;h1 id=&#34;やったこと&#34;&gt;やったこと&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;php で掲示板を作る〜を chatGPT と対話しながらやってみた&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/velengel/keijiban&#34;&gt;https://github.com/velengel/keijiban&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;デプロイとかはしてない&lt;/li&gt;&#xA;&lt;li&gt;静的サイトではないので Github Pages からやるにはバックエンド用意したり少々面倒&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
     <item>
       <title>ブログ改修工事</title>
-      <link>https://www.velengel.com/blog/posts/2023/0717/</link>
+      <link>http://localhost:1313/blog/posts/2023/0717/</link>
       <pubDate>Mon, 17 Jul 2023 21:38:31 +0900</pubDate>
-      <guid>https://www.velengel.com/blog/posts/2023/0717/</guid>
+      <guid>http://localhost:1313/blog/posts/2023/0717/</guid>
       <description>&lt;p&gt;先週有給 3 日も使ってしまい週に必要な&lt;strong&gt;課題解決成分&lt;/strong&gt;が足りてなかったので、リハビリも兼ねて趣味プロをした。&lt;/p&gt;&#xA;&lt;h1 id=&#34;この土日月でやったこと&#34;&gt;この土日月でやったこと&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;GitHub Pages のカスタムドメインとして &lt;code&gt;velengel.com&lt;/code&gt; を設定&lt;/li&gt;&#xA;&lt;li&gt;このブログのデプロイ&lt;/li&gt;&#xA;&lt;li&gt;リンク集の作成&lt;/li&gt;&#xA;&lt;li&gt;todo-test をデプロイ&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
     <item>
       <title>はじまり</title>
-      <link>https://www.velengel.com/blog/posts/my-first-post/</link>
+      <link>http://localhost:1313/blog/posts/my-first-post/</link>
       <pubDate>Mon, 17 Jul 2023 14:07:54 +0900</pubDate>
-      <guid>https://www.velengel.com/blog/posts/my-first-post/</guid>
+      <guid>http://localhost:1313/blog/posts/my-first-post/</guid>
       <description>&lt;p&gt;いろいろ苦労して何とかできたポスト&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;./hugo new posts/my-first-post.md&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&#xA;  &lt;img src=&#34;images/slimetree.png&#34; alt=&#34;slime&#34;&gt;&#xA;&#xA;&lt;/p&gt;</description>
     </item>
   </channel>
