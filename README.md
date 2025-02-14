@@ -41,3 +41,8 @@ npx textlint --fix content/**
 ```
 * `--fix` で直らないやつ(日本語とか)は**自分で**直す
 * 元の設定: https://zenn.dev/overflow_offers/articles/20220512-awesome-texlint-correction
+
+## その他
+* `hugo` を実行した後のものをcommitする
+  * serverの方はlocalhostのURLになっちゃうので
+* 更新したはずでも差分が出るのは「次に読む」がランダム表示だから
