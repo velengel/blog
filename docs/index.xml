@@ -6,8 +6,15 @@
     <description>Recent content on Vel Labs(ベル研究所)</description>
     <generator>Hugo</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 14 Feb 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 13 Jun 2025 20:33:32 +0900</lastBuildDate>
     <atom:link href="https://www.velengel.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ドラムレッスン要約アプリ PoC</title>
+      <link>https://www.velengel.com/blog/posts/2025/0613/</link>
+      <pubDate>Fri, 13 Jun 2025 20:33:32 +0900</pubDate>
+      <guid>https://www.velengel.com/blog/posts/2025/0613/</guid>
+      <description>&lt;h2 id=&#34;背景&#34;&gt;背景&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;ドラムレッスンを月 2 回、計 3 時間受けている&lt;/li&gt;&#xA;&lt;li&gt;一応毎回録画しているが、演奏で気になった部分以外は基本見直さなくて&lt;strong&gt;なんかもったいないな&lt;/strong&gt;と思っていた&lt;/li&gt;&#xA;&lt;li&gt;会社で会議の議事録(文字起こし+要約)がかなりいい感じにできる&lt;strong&gt;時代になっていたことを知った&lt;/strong&gt;ので、使えるんじゃないかなと思った&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
     <item>
       <title>自己紹介</title>
       <link>https://www.velengel.com/blog/pages/bio/</link>
