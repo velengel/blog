@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Loupedeck on Vel Labs(ベル研究所)</title>
-    <link>https://www.velengel.com/blog/tags/loupedeck/</link>
+    <link>http://localhost:1313/blog/tags/loupedeck/</link>
     <description>Recent content in Loupedeck on Vel Labs(ベル研究所)</description>
     <generator>Hugo</generator>
     <language>ja</language>
     <lastBuildDate>Tue, 25 Jul 2023 20:15:11 +0900</lastBuildDate>
-    <atom:link href="https://www.velengel.com/blog/tags/loupedeck/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/blog/tags/loupedeck/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>loupedeckとWindowsのURIスキーム</title>
-      <link>https://www.velengel.com/blog/posts/2023/0725/</link>
+      <link>http://localhost:1313/blog/posts/2023/0725/</link>
       <pubDate>Tue, 25 Jul 2023 20:15:11 +0900</pubDate>
-      <guid>https://www.velengel.com/blog/posts/2023/0725/</guid>
+      <guid>http://localhost:1313/blog/posts/2023/0725/</guid>
       <description>&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#%E3%82%84%E3%81%A3%E3%81%9F%E3%81%93%E3%81%A8&#34;&gt;やったこと&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#%E6%89%80%E6%84%9F&#34;&gt;所感&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#%E5%AD%A6%E3%81%B3&#34;&gt;学び&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h1 id=&#34;やったこと&#34;&gt;やったこと&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;loupedeck を買った&#xA;&lt;ul&gt;&#xA;&lt;li&gt;一番小さいやつ&lt;/li&gt;&#xA;&lt;li&gt;きっかけは趣味の DTM の生産性 UP でいろんなとこで聞くようになっていて気になっていた&#xA;&lt;ul&gt;&#xA;&lt;li&gt;ガシェット系 youtuber を見漁ってこれに決めた&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&#xA;&#xA;&#xA;&#xA;&lt;div class=&#34;fancy-card&#34;&gt;&#xA;  &lt;div class=&#34;card-image&#34;&gt;&#xA;    &lt;a href=&#34;https://amzn.asia/d/gaxGt7l&#34; target=&#34;_blank&#34;&gt;&#xA;        &lt;img src=&#34;https://m.media-amazon.com/images/I/61l-Ycl&amp;#43;f4L._AC_SY450_.jpg&#34; alt=&#34;Loupedeck Live S&#34; /&gt;&#xA;    &lt;/a&gt;&#xA;  &lt;/div&gt;&#xA;  &lt;div class=&#34;card-content&#34;&gt;&#xA;    &lt;h3&gt;&lt;a href=&#34;https://amzn.asia/d/gaxGt7l&#34; target=&#34;_blank&#34;&gt;Loupedeck Live S&lt;/a&gt;&lt;/h3&gt;&#xA;  &lt;/div&gt;&#xA;&lt;/div&gt;</description>
     </item>
   </channel>

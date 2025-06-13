@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Memo on Vel Labs(ベル研究所)</title>
-    <link>https://www.velengel.com/blog/tags/memo/</link>
+    <link>http://localhost:1313/blog/tags/memo/</link>
     <description>Recent content in Memo on Vel Labs(ベル研究所)</description>
     <generator>Hugo</generator>
     <language>ja</language>
     <lastBuildDate>Mon, 11 Dec 2023 21:04:36 +0900</lastBuildDate>
-    <atom:link href="https://www.velengel.com/blog/tags/memo/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/blog/tags/memo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>読書メモのフォーマット所感</title>
-      <link>https://www.velengel.com/blog/posts/2023/1211/</link>
+      <link>http://localhost:1313/blog/posts/2023/1211/</link>
       <pubDate>Mon, 11 Dec 2023 21:04:36 +0900</pubDate>
-      <guid>https://www.velengel.com/blog/posts/2023/1211/</guid>
+      <guid>http://localhost:1313/blog/posts/2023/1211/</guid>
       <description>&lt;h2 id=&#34;近況&#34;&gt;近況&lt;/h2&gt;&#xA;&lt;p&gt;M2 mac を買って快適になった。普段は Windows からやってるけど仕事でも mac だしやっぱりスイッチングコストがないのは嬉しいね。&lt;br&gt;&#xA;純粋な技術系以外のことの書いてもいいかなという気持ちになったので今日は技術書読む時に自分が使ってるメモのフォーマットとその所感を書いていく。&lt;/p&gt;</description>
     </item>
   </channel>

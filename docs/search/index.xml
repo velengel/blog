@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Search on Vel Labs(ベル研究所)</title>
-    <link>https://www.velengel.com/blog/search/</link>
+    <link>http://localhost:1313/blog/search/</link>
     <description>Recent content in Search on Vel Labs(ベル研究所)</description>
     <generator>Hugo</generator>
     <language>ja</language>
-    <atom:link href="https://www.velengel.com/blog/search/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/blog/search/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

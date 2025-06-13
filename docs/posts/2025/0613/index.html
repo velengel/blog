@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+
+<html lang="en" itemscope itemtype="https://schema.org/BlogPosting">
+  <head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+  
+
+<title>ドラムレッスン要約アプリ PoC</title>
+
+  <meta name="description" content="背景 ドラムレッスンを月二回、計3時間受けている 一応毎回録画しているが、演奏で気になった部分以外は基本見直さなくてなんかもったいないなと思っていた 会社で会議の議事録(文字起こし&#43;要約)がかなりいい感じにできる時代になっていたことを知ったので、使えるんじゃないかなと思った">
+
+
+  <meta name="keywords" content="PoC">
+
+<meta name="generator" content="Hugo 0.143.1">
+
+  <meta name="author" content="velengel">
+  
+    <link rel="author" href="https://github.com/velengel">
+  
+
+<link rel="canonical" href="http://localhost:1313/blog/posts/2025/0613/">
+
+
+  
+    <link rel="sitemap" type="application/xml" href="/blog/sitemap.xml">
+  
+
+
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/blog/bundle.min.87c750e580f88b9cd2425b03b0fe7f8c26055dbf67c8c1d244475fa34dbcd068.css">
+
+    <link rel="icon" href="/blog/icon.png">
+
+    
+  <meta property="og:type" content="article">
+
+<meta property="og:site_name" content="Vel Labs(ベル研究所)">
+
+  <meta property="og:title" content="ドラムレッスン要約アプリ PoC">
+
+
+  <meta property="og:description" content="背景 ドラムレッスンを月二回、計3時間受けている 一応毎回録画しているが、演奏で気になった部分以外は基本見直さなくてなんかもったいないなと思っていた 会社で会議の議事録(文字起こし&#43;要約)がかなりいい感じにできる時代になっていたことを知ったので、使えるんじゃないかなと思った">
+
+<meta property="og:url" content="http://localhost:1313/blog/posts/2025/0613/">
+
+  <meta property="og:image" content="http://localhost:1313/blog/cover/lesson_app_flow.png">
+
+
+    
+  <meta itemprop="name" content="ドラムレッスン要約アプリ PoC">
+
+
+  <meta itemprop="description" content="背景 ドラムレッスンを月二回、計3時間受けている 一応毎回録画しているが、演奏で気になった部分以外は基本見直さなくてなんかもったいないなと思っていた 会社で会議の議事録(文字起こし&#43;要約)がかなりいい感じにできる時代になっていたことを知ったので、使えるんじゃないかなと思った">
+
+
+  <meta itemprop="keywords" content="PoC">
+
+
+  
+  
+    <meta itemprop="datePublished" content="2025-06-13T20:33:32+09:00">
+  
+  
+    
+      <meta itemprop="dateModified" content="2025-06-13T20:33:32+09:00">
+    
+  
+
+
+  <meta itemprop="image" content="http://localhost:1313/blog/cover/lesson_app_flow.png">
+
+<link itemprop="url" href="http://localhost:1313/blog/posts/2025/0613/">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\(", right: "\\)", display: false},
+        {left: "\\[", right: "\\]", display: true}
+      ],
+      throwOnError: false
+    });
+  });
+</script>
+
+    
+  
+
+
+    
+  </head>
+  <body>
+    <div id="container">
+      <header id="top">
+  <div id="header-grid">
+    
+      <div id="site-title">
+        <a href="/blog/">Vel Labs(ベル研究所)</a>
+      </div>
+    
+    
+      
+        <p id="description">エンジニアリングマネージャー見習いの個人開発備忘録</p>
+      
+    
+  </div>
+</header>
+
+      <div id="middle">
+        <div id="content" class="column">
+          
+          
+            <nav id="breadcrumb" class="pane">
+              
+
+
+  
+  
+  <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+      
+  
+  
+    
+      
+  
+  
+    
+    
+    
+      <li><a href="/blog/">Vel Labs(ベル研究所)</a></li>
+    
+  
+
+      
+    
+    
+    
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="/blog/posts/" itemprop="item"><span itemprop="name">Posts</span></a>
+        <meta itemprop="position" content="1">
+      </li>
+    
+  
+
+      
+    
+    
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="page">
+      <a aria-current="location"><span itemprop="name">ドラムレッスン要約アプリ PoC</span></a>
+      <meta itemprop="position" content="2">
+    </li>
+  </ol>
+
+
+            </nav>
+          
+          
+          <main class="pane">
+            
+  
+
+
+
+<article class="single">
+  <header>
+    <h1 class="title" itemprop="headline">ドラムレッスン要約アプリ PoC</h1>
+    
+      <div class="time">
+        
+          <div><time datetime="2025-06-13"> 2025/06/13</time></div>
+        
+      </div>
+    
+  </header>
+  <div class="body">
+    
+      <h2 id="背景">背景</h2>
+<ul>
+<li>ドラムレッスンを月二回、計3時間受けている</li>
+<li>一応毎回録画しているが、演奏で気になった部分以外は基本見直さなくて<strong>なんかもったいないな</strong>と思っていた</li>
+<li>会社で会議の議事録(文字起こし+要約)がかなりいい感じにできる<strong>時代になっていたことを知った</strong>ので、使えるんじゃないかなと思った</li>
+</ul>
+<h2 id="整理">整理</h2>
+<ul>
+<li>一回のレッスンが1 or 2時間なのでかなり長い
+<ul>
+<li>動画でしか見れないのはストレスというか、シンプルに見なくなる</li>
+</ul>
+</li>
+<li>レッスンの価値は大きく二軸ある
+<ul>
+<li>知識: レッスンの流れの中で自分が質問したことに対して、先生が自身の知識と経験からかみ砕いて説明してくれる
+<ul>
+<li>結構ジャズや曲のジャンルに関する文化的背景の話まで踏み込んだりする</li>
+</ul>
+</li>
+<li>経験: 自分一人でできなかった課題をかみ砕いて一つずつ指摘してもらう→改善！</li>
+</ul>
+</li>
+<li>今回は知識の部分をさらっと確認できたらいいな、くらいのもの
+<ul>
+<li>経験とか演奏面で課題感があったら自分で見直すので(そのハードルを下げるシステムは別途検討の余地があるかも)</li>
+</ul>
+</li>
+</ul>
+<h2 id="図解">図解</h2>
+<p>
+  <img src="images/image.png">
+
+</p>
+<ul>
+<li>要はiCloudの動画がinput、NotebookLMでいつでも復習できる状態がoutput</li>
+<li>動画のdownload, uploadに時間がかかるのは仕方ない気がしている
+<ul>
+<li>2時間だと動画で2.8GB, 音声だけでも1.1GB(wav)</li>
+<li>モノラル/128kb/mp3に書き出したら101MBまでは圧縮できた</li>
+</ul>
+</li>
+</ul>
+<h2 id="現状のフロー">現状のフロー</h2>
+<ol>
+<li>[手動] iCloudから動画をdownload</li>
+<li>[自動] 音声書き出し
+<ol>
+<li><a href="https://ffmpeg.org/ffmpeg.html">ffmpeg</a>使って音声ファイルを書き出すindex.jsを書いて、<code>node index.js path/to/movie.mp4</code> で実行できるように</li>
+</ol>
+</li>
+<li>[手動] Google AI Studioに音声ファイルをuploadして文字起こしを実施
+<ol>
+<li>プロンプトは以下(どこかのブログ記事で見つけた)</li>
+</ol>
+</li>
+</ol>
+<pre tabindex="0"><code>この音声を文字起こししてください。以下のルールに従ってください。「えー」「あのー」「まあ」「うーん」「そのー」などのフィラー（つなぎ言葉）は削除してください。会話の内容が不自然にならない範囲で、簡単な言い直しや言葉の繰り返しも削除してください（例：「今日は、今日は〜」→「今日は〜」にまとめる）。ChatGPT、YouTube、Meta、Appleなどの有名な英語の固有名詞は、カタカナではなく英語のまま表記してください。句読点や段落を適度に入れて、読みやすく整えてください。原則として、話し言葉をベースにしつつも読みやすい自然な文章に整えてください。ただし内容の改変は行わないでください。
+</code></pre><ol>
+<li>[手動] 要約してもらう</li>
+<li>[手動] NotebookLMに突っ込む</li>
+</ol>
+<h2 id="アウトプット">アウトプット</h2>
+<p>
+  <img src="images/output.png">
+
+
+いい感じ！</p>
+<h2 id="所感">所感</h2>
+<ul>
+<li>アウトプットの内容はだいぶ満足
+<ul>
+<li>座学的な知識部分と、練習のコツみたいな心構え両方がサマリーで見れるのは大きい、助かる</li>
+<li>いろいろこぼれ落ちてたものをやっと拾えた感</li>
+</ul>
+</li>
+<li>思ったより自動化できなかった
+<ul>
+<li>iCloudからのdownload
+<ul>
+<li>iCloud共有用リンクから<a href="https://selenium-python.readthedocs.io/">selenium</a>とか使って自動化しようとも思ったけど、結局共有用リンク作成が手動になってしまう</li>
+<li>API一発で取ってこれるドライブとかに同期しておけばできるんだけどストレージ冗長管理になるのは渋いという感想
+<ul>
+<li>ただこの辺りは人類が無限に解いている問題感があるので知見を探してもいいかもしれない</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>音声ファイルupload+文字起こし
+<ul>
+<li>ここが本質なのにGeminiAPI経由だとお金かかった(無料トークン使われなかった)ので個人だと結局手動の方が良くない？になってしまうという</li>
+<li>技術的には可能</li>
+</ul>
+</li>
+<li>要約
+<ul>
+<li>同上</li>
+</ul>
+</li>
+<li>NotebookLM
+<ul>
+<li>一応<a href="https://support.google.com/notebooklm/answer/16215270?hl=ja">youtubeのURLで指定できる</a>っぽいので、そこに上げておけばdownload/uploadの手間は省ける
+<ul>
+<li>ただし動画なので読み込みにめっちゃ時間かかりそう</li>
+<li>手動ステップが減るのはいいこと</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>その他改善ポイント
+<ul>
+<li>音声ファイルの圧縮とカット
+<ul>
+<li>例: 無音区間カット、FFTかけて発話っぽい部分抜出し</li>
+<li>mp3にしたら1/10圧縮できたので一旦いいかになった</li>
+<li>普通にここが処理できればもっと高速化すると思う</li>
+</ul>
+</li>
+<li>動画ファイルの置き場同期の仕組み
+<ul>
+<li>個人の画像/動画をドライブに自動同期 &amp;&amp; あんまり金がかからない仕組み</li>
+<li>データは置いておくだけでもお金がかかる</li>
+</ul>
+</li>
+<li>自動部分のバッチ化
+<ul>
+<li>「その日レッスン受けたら夜or次の日の朝には音声ファイルができてる」までいければハードルは下がる</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>やろうとしてやめたもの
+<ul>
+<li><a href="https://v0.dev/">Vercel v0</a>でいい感じのGUIで一連のアプリを作る
+<ul>
+<li>step1(共有用リンクからの動画取得)で躓いたし、なんかuploadもできないしでやめた</li>
+<li>何よりフロント慣れてないのに保守できない量のコードが一瞬で量産されるのが怖い
+<ul>
+<li>結局自分のレベル以上の能力を引き出そうとすると魔導書側に食われるというのが最近のAgentic Coding全般への感想</li>
+<li>地道なレベル上げが大事</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+    
+  </div>
+  <footer>
+    
+    
+    
+      
+    
+    
+    
+    
+      
+    
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+    
+    
+    
+      <table class="taxonomy-table">
+        <tbody>
+          
+            <tr>
+              <th>セクション:</th>
+              <td>
+                <div class="folder">
+                  <a href="/blog/posts/">Posts</a>
+                </div>
+              </td>
+            </tr>
+          
+          
+            <tr>
+              <th>Tags:</th>
+              <td>
+                <ul class="tags">
+                  
+                    <li class="tagged"><a href="/blog/tags/poc/">PoC</a></li>
+                  
+                </ul>
+              </td>
+            </tr>
+          
+          
+            
+          
+            
+              
+            
+          
+            
+              
+            
+          
+            
+          
+        </tbody>
+      </table>
+    
+    
+      
+      
+      
+        
+        
+      
+      
+        <div class="author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+          
+            <a rel="author" href="https://github.com/velengel" itemprop="url"><span itemprop="name">velengel</span></a>
+          
+        </div>
+      
+    
+  </footer>
+</article>
+
+
+          </main>
+          
+          
+  
+    
+    
+    
+      <nav class="prev-next">
+        
+        
+          <a class="prev" href="/blog/posts/2025/0105/" title="前の記事: texteditor途中まで作った">texteditor途中まで作った</a>
+        
+      </nav>
+    
+  
+
+          
+            
+
+
+
+  
+
+
+  <nav class="pane">
+    <header class="component-title">次に読む</header>
+    <ul class="dense">
+      
+        <li><a href="/blog/posts/2023/0719/">phpで掲示板作る</a></li>
+      
+        <li><a href="/blog/posts/2023/1015/">表示の都合でデータを別で作ってはいけない</a></li>
+      
+    </ul>
+  </nav>
+
+
+          
+          
+        </div>
+        <aside id="sidebar" class="column">
+  <div class="pane sidebar-top">
+  <div class="profile">
+    <a href="/blog/pages/bio">
+      <img class="avatar" src="/blog/bio.png">
+    </a>
+    <div class="name">
+      <a href="/blog/pages/bio">velengel</a>
+    </div>
+  </div>
+  <p>技術とマネジメントの二刀流⚔</p>
+</div>
+
+  
+<nav class="pane">
+  <ul>
+    
+      <li>
+        <a href="/blog/">Vel Labs(ベル研究所)</a>
+      </li>
+    
+    
+      <li>
+        <a href="/blog/pages/bio/">自己紹介</a>
+      </li>
+    
+    
+      <li>
+        <a href="/blog/archives/">Archives</a>
+      </li>
+    
+    
+      <li>
+        <a href="/blog/search/">Search</a>
+      </li>
+    
+    
+      <li>
+        <a href="/blog/index.xml">RSS</a>
+      </li>
+    
+  </ul>
+</nav>
+
+  
+
+  
+    
+      <nav class="pane">
+        <form class="sidebar-search-form" method="get" action="/blog/search/">
+          <input required type="search" name="q" id="query" aria-label="検索クエリ">
+          <input type="submit" value="検索">
+        </form>
+      </nav>
+    
+  
+
+
+  
+
+
+  
+    <nav class="pane">
+      
+  
+    <ul class="folders">
+      
+        
+        <li class="folder">
+          <a href="/blog/posts/">
+            Posts (11) 
+          </a>
+          
+  
+
+        </li>
+      
+        
+        <li class="folder">
+          <a href="/blog/pages/">
+            Pages (1) 
+          </a>
+          
+  
+
+        </li>
+      
+    </ul>
+  
+
+    </nav>
+  
+
+
+  
+
+
+
+  
+    
+    
+    
+    
+    
+    
+      <nav class="pane">
+        <header class="component-title">
+          <a href="/blog/tags/">Tags</a>
+        </header>
+        <ul class="tags">
+          
+            <li class="tagged">
+              <a href="/blog/tags/c/">C</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/loupedeck/">Loupedeck</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/memo/">Memo</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/php/">Php</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/poc/">PoC</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/programming/">Programming</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/uri%E3%82%B9%E3%82%AD%E3%83%BC%E3%83%A0/">URIスキーム</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/vue/">Vue</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/windows/">Windows</a>
+            </li>
+          
+        </ul>
+        
+      </nav>
+    
+  
+
+
+  
+  
+
+  
+    
+      <nav class="pane">
+        
+          <header class="component-title">
+            <a href="/blog/categories/">Categories</a>
+          </header>
+          <ul>
+            
+              <li>
+                <a href="/blog/categories/tech/">Tech</a>
+              </li>
+            
+          </ul>
+        
+      </nav>
+    
+  
+
+  
+    
+  
+
+  
+
+
+  
+  
+
+  <nav class="pane">
+    <header class="component-title">最新記事</header>
+    <ul class="dense">
+      
+        <li>
+          <a href="/blog/posts/2025/0613/">ドラムレッスン要約アプリ PoC</a>
+        </li>
+      
+        <li>
+          <a href="/blog/posts/2025/0105/">texteditor途中まで作った</a>
+        </li>
+      
+        <li>
+          <a href="/blog/posts/2024/0713/">windowsの自動起動(スタートアップ)アプリに標準のクロックを入れたい</a>
+        </li>
+      
+        <li>
+          <a href="/blog/posts/2024/0525/">ゼロからのOS自作入門を読み終わった話</a>
+        </li>
+      
+        <li>
+          <a href="/blog/posts/2024/0104/">ラズパイを買って自宅サーバ入門した話</a>
+        </li>
+      
+        <li>
+          <a href="/blog/posts/2023/1211/">読書メモのフォーマット所感</a>
+        </li>
+      
+        <li>
+          <a href="/blog/posts/2023/1015/">表示の都合でデータを別で作ってはいけない</a>
+        </li>
+      
+        <li>
+          <a href="/blog/posts/2023/0725/">loupedeckとWindowsのURIスキーム</a>
+        </li>
+      
+        <li>
+          <a href="/blog/posts/2023/0719/">phpで掲示板作る</a>
+        </li>
+      
+        <li>
+          <a href="/blog/posts/2023/0717/">ブログ改修工事</a>
+        </li>
+      
+    </ul>
+  </nav>
+
+
+  
+</aside>
+
+      </div>
+      <footer id="bottom">
+  <small>
+    <a href="/blog/">
+      <span>Vel Labs(ベル研究所)</span>
+    </a>
+    <wbr>
+    <span>
+      
+        
+        
+          ©&nbsp;2023–2025
+        
+        
+          
+            <a href="https://github.com/velengel"><em>velengel</em></a>
+          
+        
+      
+    </span>
+    <br>
+    <span>
+      <a href="https://github.com/curegit/nagoya"><i>Nagoya</i>&nbsp;Theme</a>&nbsp;by&nbsp;<a href="https://curegit.jp/"><i>curegit</i></a>.
+      <wbr>
+      Built&nbsp;with&nbsp;<a href="https://gohugo.io/">Hugo</a>.
+    </span>
+  </small>
+</footer>
+
+    </div>
+  </body>
+</html>
