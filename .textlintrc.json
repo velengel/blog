@@ -6,6 +6,7 @@
     "comments": true
   },
   "rules": {
+    
     // 日本語におけるスペースの扱いを定義したプリセットルール群
     "preset-overflow-techblog": {
       // インラインコードの前後はスペースをいれたほうが見た目が安定しやすいので有効化
@@ -24,6 +25,8 @@
       "sentence-length": {
         "max": 150
       },
+      "no-doubled-joshi": false,
+      "no-dropping-the-ra": false,
       // テックブログはお堅い文書ではないので感嘆符（！、？）を許可
       "no-exclamation-question-mark": false,
       // 「かも」とか「思います」のような歯切れの悪い表現を許可
