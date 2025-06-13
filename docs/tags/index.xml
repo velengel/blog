@@ -2,73 +2,73 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Vel Labs(ベル研究所)</title>
-    <link>http://localhost:1313/blog/tags/</link>
+    <link>https://www.velengel.com/blog/tags/</link>
     <description>Recent content in Tags on Vel Labs(ベル研究所)</description>
     <generator>Hugo</generator>
     <language>ja</language>
     <lastBuildDate>Fri, 13 Jun 2025 20:33:32 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://www.velengel.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>PoC</title>
-      <link>http://localhost:1313/blog/tags/poc/</link>
+      <link>https://www.velengel.com/blog/tags/poc/</link>
       <pubDate>Fri, 13 Jun 2025 20:33:32 +0900</pubDate>
-      <guid>http://localhost:1313/blog/tags/poc/</guid>
+      <guid>https://www.velengel.com/blog/tags/poc/</guid>
       <description></description>
     </item>
     <item>
       <title>C</title>
-      <link>http://localhost:1313/blog/tags/c/</link>
+      <link>https://www.velengel.com/blog/tags/c/</link>
       <pubDate>Sun, 05 Jan 2025 11:03:57 +0900</pubDate>
-      <guid>http://localhost:1313/blog/tags/c/</guid>
+      <guid>https://www.velengel.com/blog/tags/c/</guid>
       <description></description>
     </item>
     <item>
       <title>Programming</title>
-      <link>http://localhost:1313/blog/tags/programming/</link>
+      <link>https://www.velengel.com/blog/tags/programming/</link>
       <pubDate>Sun, 05 Jan 2025 11:03:57 +0900</pubDate>
-      <guid>http://localhost:1313/blog/tags/programming/</guid>
+      <guid>https://www.velengel.com/blog/tags/programming/</guid>
       <description></description>
     </item>
     <item>
       <title>Memo</title>
-      <link>http://localhost:1313/blog/tags/memo/</link>
+      <link>https://www.velengel.com/blog/tags/memo/</link>
       <pubDate>Mon, 11 Dec 2023 21:04:36 +0900</pubDate>
-      <guid>http://localhost:1313/blog/tags/memo/</guid>
+      <guid>https://www.velengel.com/blog/tags/memo/</guid>
       <description></description>
     </item>
     <item>
       <title>Vue</title>
-      <link>http://localhost:1313/blog/tags/vue/</link>
+      <link>https://www.velengel.com/blog/tags/vue/</link>
       <pubDate>Sun, 15 Oct 2023 13:57:31 +0900</pubDate>
-      <guid>http://localhost:1313/blog/tags/vue/</guid>
+      <guid>https://www.velengel.com/blog/tags/vue/</guid>
       <description></description>
     </item>
     <item>
       <title>Loupedeck</title>
-      <link>http://localhost:1313/blog/tags/loupedeck/</link>
+      <link>https://www.velengel.com/blog/tags/loupedeck/</link>
       <pubDate>Tue, 25 Jul 2023 20:15:11 +0900</pubDate>
-      <guid>http://localhost:1313/blog/tags/loupedeck/</guid>
+      <guid>https://www.velengel.com/blog/tags/loupedeck/</guid>
       <description></description>
     </item>
     <item>
       <title>URIスキーム</title>
-      <link>http://localhost:1313/blog/tags/uri%E3%82%B9%E3%82%AD%E3%83%BC%E3%83%A0/</link>
+      <link>https://www.velengel.com/blog/tags/uri%E3%82%B9%E3%82%AD%E3%83%BC%E3%83%A0/</link>
       <pubDate>Tue, 25 Jul 2023 20:15:11 +0900</pubDate>
-      <guid>http://localhost:1313/blog/tags/uri%E3%82%B9%E3%82%AD%E3%83%BC%E3%83%A0/</guid>
+      <guid>https://www.velengel.com/blog/tags/uri%E3%82%B9%E3%82%AD%E3%83%BC%E3%83%A0/</guid>
       <description></description>
     </item>
     <item>
       <title>Windows</title>
-      <link>http://localhost:1313/blog/tags/windows/</link>
+      <link>https://www.velengel.com/blog/tags/windows/</link>
       <pubDate>Tue, 25 Jul 2023 20:15:11 +0900</pubDate>
-      <guid>http://localhost:1313/blog/tags/windows/</guid>
+      <guid>https://www.velengel.com/blog/tags/windows/</guid>
       <description></description>
     </item>
     <item>
       <title>Php</title>
-      <link>http://localhost:1313/blog/tags/php/</link>
+      <link>https://www.velengel.com/blog/tags/php/</link>
       <pubDate>Wed, 19 Jul 2023 22:23:52 +0900</pubDate>
-      <guid>http://localhost:1313/blog/tags/php/</guid>
+      <guid>https://www.velengel.com/blog/tags/php/</guid>
       <description></description>
     </item>
   </channel>
