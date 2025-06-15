@@ -6,8 +6,15 @@
     <description>Recent content in Posts on Vel Labs(ベル研究所)</description>
     <generator>Hugo</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 13 Jun 2025 20:33:32 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 15 Jun 2025 20:31:10 +0900</lastBuildDate>
     <atom:link href="https://www.velengel.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>関数型まつり 2025に行ってきた話</title>
+      <link>https://www.velengel.com/blog/posts/2025/0615/</link>
+      <pubDate>Sun, 15 Jun 2025 20:31:10 +0900</pubDate>
+      <guid>https://www.velengel.com/blog/posts/2025/0615/</guid>
+      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://fortee.jp/2025fp-matsuri&#34;&gt;これ&lt;/a&gt; に行ってきた&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;動機&#34;&gt;動機&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;もともと中高の部活でプログラミングを始めていて、その時二個上の先輩から Haskell を勧められたことがある&#xA;&lt;ul&gt;&#xA;&lt;li&gt;有名な &lt;a href=&#34;https://www.amazon.co.jp/%E3%81%99%E3%81%94%E3%81%84Haskell%E3%81%9F%E3%81%AE%E3%81%97%E3%81%8F%E5%AD%A6%E3%81%BC%E3%81%86-Miran-Lipova%C4%8Da/dp/4274068854&#34;&gt;すごいH本&lt;/a&gt; を先輩から&lt;strong&gt;貸してもらって&lt;/strong&gt;読んだりしていた&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;大学ではその辺触れなかったものの、業務で Scala 書く機会はあったので結果&lt;strong&gt;関数型言語からは逃れられなかった&lt;/strong&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://zio.dev/reference/fiber/&#34;&gt;Fiber&lt;/a&gt; とか使ってたので少なくとも関数型的な考えは触れ続けていた&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;単純な興味&lt;/strong&gt;で土日の勉強会だけど行ってみるかーとなった&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
     <item>
       <title>ドラムレッスン要約アプリ PoC</title>
       <link>https://www.velengel.com/blog/posts/2025/0613/</link>
