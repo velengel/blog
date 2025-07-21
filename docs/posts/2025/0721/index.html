@@ -8,11 +8,12 @@
 
   
 
-<title>ブログ改修工事</title>
+<title>shellの実行形式の違いでハマった話</title>
 
-  <meta name="description" content="先週有給 3 日も使ってしまい週に必要な課題解決成分が足りてなかったので、リハビリも兼ねて趣味プロをした。
-この土日月でやったこと GitHub Pages のカスタムドメインとして velengel.com を設定 このブログのデプロイ リンク集の作成 todo-test をデプロイ">
+  <meta name="description" content="背景 mackerel でプロセス監視をしたかった この記事 を参考に yes コマンドを監視する shell を作った なんかすぐに発火して困ったので詳細調査した">
 
+
+  <meta name="keywords" content="Programming, Bash, Mackerel">
 
 <meta name="generator" content="Hugo 0.143.1">
 
@@ -21,7 +22,7 @@
     <link rel="author" href="https://github.com/velengel">
   
 
-<link rel="canonical" href="https://www.velengel.com/blog/posts/2023/0717/">
+<link rel="canonical" href="https://www.velengel.com/blog/posts/2025/0721/">
 
 
   
@@ -53,36 +54,36 @@
 
 <meta property="og:site_name" content="Vel Labs(ベル研究所)">
 
-  <meta property="og:title" content="ブログ改修工事">
+  <meta property="og:title" content="shellの実行形式の違いでハマった話">
 
 
-  <meta property="og:description" content="先週有給 3 日も使ってしまい週に必要な課題解決成分が足りてなかったので、リハビリも兼ねて趣味プロをした。
-この土日月でやったこと GitHub Pages のカスタムドメインとして velengel.com を設定 このブログのデプロイ リンク集の作成 todo-test をデプロイ">
+  <meta property="og:description" content="背景 mackerel でプロセス監視をしたかった この記事 を参考に yes コマンドを監視する shell を作った なんかすぐに発火して困ったので詳細調査した">
 
-<meta property="og:url" content="https://www.velengel.com/blog/posts/2023/0717/">
+<meta property="og:url" content="https://www.velengel.com/blog/posts/2025/0721/">
 
 
     
-  <meta itemprop="name" content="ブログ改修工事">
+  <meta itemprop="name" content="shellの実行形式の違いでハマった話">
 
 
-  <meta itemprop="description" content="先週有給 3 日も使ってしまい週に必要な課題解決成分が足りてなかったので、リハビリも兼ねて趣味プロをした。
-この土日月でやったこと GitHub Pages のカスタムドメインとして velengel.com を設定 このブログのデプロイ リンク集の作成 todo-test をデプロイ">
+  <meta itemprop="description" content="背景 mackerel でプロセス監視をしたかった この記事 を参考に yes コマンドを監視する shell を作った なんかすぐに発火して困ったので詳細調査した">
 
+
+  <meta itemprop="keywords" content="Programming, Bash, Mackerel">
 
 
   
   
-    <meta itemprop="datePublished" content="2023-07-17T21:38:31+09:00">
+    <meta itemprop="datePublished" content="2025-07-21T09:11:30+09:00">
   
   
     
-      <meta itemprop="dateModified" content="2023-07-17T21:38:31+09:00">
+      <meta itemprop="dateModified" content="2025-07-21T09:11:30+09:00">
     
   
 
 
-<link itemprop="url" href="https://www.velengel.com/blog/posts/2023/0717/">
+<link itemprop="url" href="https://www.velengel.com/blog/posts/2025/0721/">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd" crossorigin="anonymous"></script>
@@ -165,7 +166,7 @@
     
     
     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="page">
-      <a aria-current="location"><span itemprop="name">ブログ改修工事</span></a>
+      <a aria-current="location"><span itemprop="name">shellの実行形式の違いでハマった話</span></a>
       <meta itemprop="position" content="2">
     </li>
   </ol>
@@ -182,131 +183,110 @@
 
 <article class="single">
   <header>
-    <h1 class="title" itemprop="headline">ブログ改修工事</h1>
+    <h1 class="title" itemprop="headline">shellの実行形式の違いでハマった話</h1>
     
       <div class="time">
         
-          <div><time datetime="2023-07-17"> 2023/07/17</time></div>
+          <div><time datetime="2025-07-21"> 2025/07/21</time></div>
         
       </div>
     
   </header>
   <div class="body">
     
-      <p>先週有給 3 日も使ってしまい週に必要な<strong>課題解決成分</strong>が足りてなかったので、リハビリも兼ねて趣味プロをした。</p>
-<h1 id="この土日月でやったこと">この土日月でやったこと</h1>
+      <h2 id="背景">背景</h2>
 <ul>
-<li>GitHub Pages のカスタムドメインとして <code>velengel.com</code> を設定</li>
-<li>このブログのデプロイ</li>
-<li>リンク集の作成</li>
-<li>todo-test をデプロイ</li>
+<li>mackerel でプロセス監視をしたかった</li>
+<li><a href="https://blog.a-know.me/entry/2018/12/07/101433">この記事</a> を参考に yes コマンドを監視する shell を作った</li>
+<li>なんかすぐに発火して困ったので詳細調査した</li>
 </ul>
-<hr>
-<h2 id="カスタムドメインとして-velengelcom-を設定">カスタムドメインとして <code>velengel.com</code> を設定</h2>
+<h2 id="現象">現象</h2>
+<p>check-yes.sh を <a href="https://mackerel.io/ja/docs/entry/custom-checks">チェックプラグイン</a> として送った瞬間にアラートが発火して止まらない</p>
 <ul>
-<li>前に実は設定していたが、free プランだと private repository で GitHub Pages 使えない(設定を解除すると課金が必要になる)ということで、仕方なく再設定した
-<ul>
-<li>しようとして、いろいろ苦労した</li>
-<li>このドメインを他のブログサービスに使おうとしてこの辺を一旦解除したが、結局何故か使えずこっちのリンクも死ぬみたいな最悪な状況になった</li>
+<li>mackerel の設定</li>
 </ul>
-</li>
-<li>研究の成果物リンクとかが切れてた
-<ul>
-<li><a href="https://tomokohashida.tumblr.com/post/642174236673310720">https://tomokohashida.tumblr.com/post/642174236673310720</a>
-<ul>
-<li>このへん</li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>plugin.checks.yes<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>command <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;./usr/local/bin/check-yes.sh&#34;</span>
+</span></span></code></pre></div><ul>
+<li>使ったスクリプト</li>
 </ul>
-</li>
-<li>ドメイン自体はお金を払ってるので勿体無いみたいな気持ちもあった</li>
-</ul>
-</li>
-</ul>
-<h3 id="苦労したところ">苦労したところ</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ cat check-yes.sh
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>count<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>pgrep -c yes<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> test $count -eq 0; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>  exit <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>  exit <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span></code></pre></div><h2 id="対処">対処</h2>
+<p>以下の設定にしたら期待通りの挙動になった</p>
 <ul>
-<li>既存のレコードが中途半端に残っている
-<ul>
-<li>A レコードと CNAME レコード</li>
-<li>ネームサーバ系も</li>
-<li>一旦全部消して対応</li>
+<li>通常では何もアラート発火せず、yes コマンドを暴発したときだけアラートが上がる</li>
 </ul>
-</li>
-<li>ドメインの検証が必要
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>plugin.checks.yes<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>command <span style="color:#f92672">=</span> <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;bash&#34;</span>, <span style="color:#e6db74">&#34;/usr/local/bin/check-yes.sh&#34;</span><span style="color:#f92672">]</span>
+</span></span></code></pre></div><h2 id="詳細調査">詳細調査</h2>
+<h3 id="仮説-check-yessh-と-bash-check-yessh-で結果が違う違った">仮説: <code>./check-yes.sh</code> と <code>bash check-yes.sh</code> で結果が違う？→違った</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ bash check-yes.sh
+</span></span><span style="display:flex;"><span>$ echo $?
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>$ ./check-yes.sh
+</span></span><span style="display:flex;"><span>$ echo $?
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>
+</span></span></code></pre></div><p>違い</p>
 <ul>
-<li>検索して出てきた</li>
-</ul>
-</li>
-<li>反映に数分かかる
+<li><code>bash check-yes.sh</code>
 <ul>
-<li>地味なイライラポイント</li>
-</ul>
-</li>
-</ul>
-<h3 id="楽だったところ">楽だったところ</h3>
-<ul>
-<li>chatGPT がおおよその方針を示してくれる
-<ul>
-<li>修正は必要だが、おおよそイメージがつくので終わりがわかっているという精神的楽さがあった</li>
+<li>”bash” が実行されていて、その引数に check-yes.sh っていう文字列が渡されている</li>
 </ul>
 </li>
-<li>業務経験が生きた
+<li><code>./check-yes.sh</code>
 <ul>
-<li>Route 53 でやったことあるやつをお名前コムでやるだけといえばやるだけ</li>
-<li>それが UI 的にわかりにくくて大変なんだけど&hellip;&hellip;</li>
+<li>“check-yes.sh”が実行されていて、インタプリタには/bin/bash を使いなさいとシバンで指定されている</li>
 </ul>
 </li>
 </ul>
-<h2 id="このブログのデプロイ">このブログのデプロイ</h2>
+<p>要は実行結果が 2 だったのですぐにアラート発火していたということ</p>
+<h3 id="具体的に何が動いている">具体的に何が動いている？</h3>
+<p>検証</p>
 <ul>
-<li>自分でブログやってます！みたいなの、憧れていた
+<li>else の後に <code>ps aux | grep '[y]es'</code> を入れて表示させてみる</li>
+</ul>
+<p>結果</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ./check-yes2.sh
+</span></span><span style="display:flex;"><span>実行中のyesコマンドが <span style="color:#ae81ff">1</span> 個あります。
+</span></span><span style="display:flex;"><span>実行中のyesプロセス詳細:
+</span></span><span style="display:flex;"><span>root      <span style="color:#ae81ff">279153</span>  0.0  0.0   <span style="color:#ae81ff">6800</span>  <span style="color:#ae81ff">3100</span> pts/3    S+   09:34   0:00 /bin/bash ./check-yes2.sh
+</span></span><span style="display:flex;"><span>$ bash check-yes2.sh
+</span></span><span style="display:flex;"><span>実行中のyesコマンドはありません。
+</span></span></code></pre></div><h2 id="学び">学び</h2>
 <ul>
-<li>エンジニアとしてアウトプットする場がなかったのもある</li>
-<li>はてブロはどっちかというと趣味とかサークルに近い内容を書くところなので</li>
+<li>./の場合は実行中の自分自身をカウントしていた！！
+<ul>
+<li>bash でサブシェル経由で実行すると新たにシェルが立ち上がるからカウントされない</li>
 </ul>
 </li>
-<li>でもなかなか良いフレームワークを探したり知る能力がなかったのでできてなかった</li>
-<li>これも chatGPT とか色々で解決した</li>
-</ul>
-<h3 id="苦労したところ-1">苦労したところ</h3>
+<li>mackerel のチェック監視の使い方を学んだ
 <ul>
-<li>hugo のやってみた記事が公開してるテンプレートみたいなのをクローンして楽しようとしたらなんかデプロイできず、結局公式ドキュメントを一からやることでなんとかした
-<ul>
-<li>原典をあたるのが結局近道</li>
+<li>今まではグラフで見たかったのでメトリック監視ばかりを使っていた</li>
+<li>チェックする対象が明確かつ簡単な実行結果で表せる場合はこっちの方がいいね</li>
 </ul>
 </li>
-<li>何を使ってどうデプロイするか
+<li>こういう時(前提が足りてなかったり自分の中で説明がつかなかったりする時)は生成 AI に聞くのはよくない
 <ul>
-<li>いろいろ選択肢は出てくるが、別に今回の要件は自分でサーバ立てていろいろやりたいみたいなわけではない(勉強でもないのにお金をかけたくないし)ので、そこの選定に一番コスト使った気がする</li>
-<li>他の選択肢：gatsby とか</li>
+<li>なんかよしなに説明をつけようとしてくる</li>
+<li>久しぶりにググって誰かのメモ書きブログを読み漁るのをやった</li>
 </ul>
 </li>
 </ul>
-<h3 id="楽だったところ-1">楽だったところ</h3>
+<h3 id="参考">参考</h3>
 <ul>
-<li>hugo でビルドできんの控えめに言ってすごすぎる、いつの間にこんな時代になってたんだ</li>
-<li>chatGPT バンザイ</li>
+<li><a href="https://penpen-dev.com/blog/shellscript-tigai/">https://penpen-dev.com/blog/shellscript-tigai/</a>
+<ul>
+<li>実行形式の違いについて</li>
 </ul>
-<h2 id="リンク集の作成">リンク集の作成</h2>
-<ul>
-<li><a href="https://www.velengel.com/">https://www.velengel.com/</a></li>
-<li>今までの成果物のリンクをまとめる場所が欲しかった</li>
-<li>ほんとは経歴とかも書いて自己紹介要素を足したい</li>
-<li>lit.link の劣化版みたいな感じになってる</li>
-</ul>
-<h3 id="苦労したところ-2">苦労したところ</h3>
-<ul>
-<li>GitHub Pages の仕様に合わせて、 docs 以下に書き出す必要があった</li>
-<li>毎回 <code>HelloWorld.vue</code> を消してなんとかしなきゃいけないの地味にめんどい、テンプレートから作る弊害</li>
-</ul>
-<h3 id="楽だったところ-2">楽だったところ</h3>
-<ul>
-<li>chatGPT に「カードっぽく表示したい」みたいなことを言えば概ねそうしてくれる。微修正は必要だが</li>
-<li>作りたいものに最短でいけるようになった</li>
-</ul>
-<h2 id="todo-testをデプロイ">todo-testをデプロイ</h2>
-<ul>
-<li><a href="https://www.velengel.com/todo-test/">https://www.velengel.com/todo-test/</a></li>
-<li>Vue3 のキャッチアップを兼ねて(Composition API とか TypeScript とか)趣味で作ってたもの</li>
-<li>一応動くところまではいってるので、デプロイしておこうかなみたいな感じ</li>
+</li>
 </ul>
     
   </div>
@@ -319,6 +299,8 @@
     
     
     
+      
+    
     
       
     
@@ -333,6 +315,50 @@
       
     
     
+    
+      <table class="taxonomy-table">
+        <tbody>
+          
+            <tr>
+              <th>セクション:</th>
+              <td>
+                <div class="folder">
+                  <a href="/blog/posts/">Posts</a>
+                </div>
+              </td>
+            </tr>
+          
+          
+            <tr>
+              <th>Tags:</th>
+              <td>
+                <ul class="tags">
+                  
+                    <li class="tagged"><a href="/blog/tags/programming/">Programming</a></li>
+                  
+                    <li class="tagged"><a href="/blog/tags/bash/">Bash</a></li>
+                  
+                    <li class="tagged"><a href="/blog/tags/mackerel/">Mackerel</a></li>
+                  
+                </ul>
+              </td>
+            </tr>
+          
+          
+            
+          
+            
+              
+            
+          
+            
+              
+            
+          
+            
+          
+        </tbody>
+      </table>
     
     
       
@@ -362,10 +388,8 @@
     
       <nav class="prev-next">
         
-          <a class="next" href="/blog/posts/2023/0719/" title="次の記事: phpで掲示板作る">phpで掲示板作る</a>
         
-        
-          <a class="prev" href="/blog/posts/my-first-post/" title="前の記事: はじまり">はじまり</a>
+          <a class="prev" href="/blog/posts/2025/0615/" title="前の記事: 関数型まつり 2025に行ってきた話">関数型まつり 2025に行ってきた話</a>
         
       </nav>
     
@@ -383,9 +407,11 @@
     <header class="component-title">次に読む</header>
     <ul class="dense">
       
-        <li><a href="/blog/posts/2024/0713/">windowsの自動起動(スタートアップ)アプリに標準のクロックを入れたい</a></li>
+        <li><a href="/blog/posts/2025/0105/">texteditor途中まで作った</a></li>
       
-        <li><a href="/blog/posts/2023/0717/">ブログ改修工事</a></li>
+        <li><a href="/blog/posts/2025/0721/">shellの実行形式の違いでハマった話</a></li>
+      
+        <li><a href="/blog/posts/2025/0615/">関数型まつり 2025に行ってきた話</a></li>
       
     </ul>
   </nav>

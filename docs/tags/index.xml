@@ -6,8 +6,29 @@
     <description>Recent content in Tags on Vel Labs(ベル研究所)</description>
     <generator>Hugo</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 15 Jun 2025 20:31:10 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 21 Jul 2025 09:11:30 +0900</lastBuildDate>
     <atom:link href="https://www.velengel.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bash</title>
+      <link>https://www.velengel.com/blog/tags/bash/</link>
+      <pubDate>Mon, 21 Jul 2025 09:11:30 +0900</pubDate>
+      <guid>https://www.velengel.com/blog/tags/bash/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mackerel</title>
+      <link>https://www.velengel.com/blog/tags/mackerel/</link>
+      <pubDate>Mon, 21 Jul 2025 09:11:30 +0900</pubDate>
+      <guid>https://www.velengel.com/blog/tags/mackerel/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Programming</title>
+      <link>https://www.velengel.com/blog/tags/programming/</link>
+      <pubDate>Mon, 21 Jul 2025 09:11:30 +0900</pubDate>
+      <guid>https://www.velengel.com/blog/tags/programming/</guid>
+      <description></description>
+    </item>
     <item>
       <title>勉強会</title>
       <link>https://www.velengel.com/blog/tags/%E5%8B%89%E5%BC%B7%E4%BC%9A/</link>
@@ -27,13 +48,6 @@
       <link>https://www.velengel.com/blog/tags/c/</link>
       <pubDate>Sun, 05 Jan 2025 11:03:57 +0900</pubDate>
       <guid>https://www.velengel.com/blog/tags/c/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Programming</title>
-      <link>https://www.velengel.com/blog/tags/programming/</link>
-      <pubDate>Sun, 05 Jan 2025 11:03:57 +0900</pubDate>
-      <guid>https://www.velengel.com/blog/tags/programming/</guid>
       <description></description>
     </item>
     <item>
