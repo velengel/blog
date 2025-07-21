@@ -217,7 +217,7 @@
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> test $count -eq 0; <span style="color:#66d9ef">then</span>
 </span></span><span style="display:flex;"><span>  exit <span style="color:#ae81ff">0</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>
-</span></span><span style="display:flex;"><span>  exit <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>  exit <span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
 </span></span></code></pre></div><h2 id="対処">対処</h2>
 <p>以下の設定にしたら期待通りの挙動になった</p>
@@ -233,7 +233,7 @@
 </span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>
 </span></span><span style="display:flex;"><span>$ ./check-yes.sh
 </span></span><span style="display:flex;"><span>$ echo $?
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>
 </span></span></code></pre></div><p>違い</p>
 <ul>
 <li><code>bash check-yes.sh</code>
@@ -247,24 +247,38 @@
 </ul>
 </li>
 </ul>
-<p>要は実行結果が 2 だったのですぐにアラート発火していたということ</p>
+<p>要は実行結果が 1 だったのですぐにアラート発火していたということ</p>
 <h3 id="具体的に何が動いている">具体的に何が動いている？</h3>
 <p>検証</p>
 <ul>
-<li>else の後に <code>ps aux | grep '[y]es'</code> を入れて表示させてみる</li>
+<li>pgrep の後に <code>ps aux | grep '[y]es'</code> <code>ps aux | grep bash</code> を入れて表示させてみる</li>
 </ul>
 <p>結果</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ./check-yes2.sh
-</span></span><span style="display:flex;"><span>実行中のyesコマンドが <span style="color:#ae81ff">1</span> 個あります。
-</span></span><span style="display:flex;"><span>実行中のyesプロセス詳細:
-</span></span><span style="display:flex;"><span>root      <span style="color:#ae81ff">279153</span>  0.0  0.0   <span style="color:#ae81ff">6800</span>  <span style="color:#ae81ff">3100</span> pts/3    S+   09:34   0:00 /bin/bash ./check-yes2.sh
+</span></span><span style="display:flex;"><span>実行中のプロセス詳細<span style="color:#f92672">(</span>yes<span style="color:#f92672">)</span>:
+</span></span><span style="display:flex;"><span>root      <span style="color:#ae81ff">303185</span>  0.0  0.0   <span style="color:#ae81ff">6800</span>  <span style="color:#ae81ff">3108</span> pts/1    S+   13:08   0:00 /bin/bash ./check-yes2.sh
+</span></span><span style="display:flex;"><span>実行中のプロセス詳細<span style="color:#f92672">(</span>bash<span style="color:#f92672">)</span>:
+</span></span><span style="display:flex;"><span>velengel  <span style="color:#ae81ff">300726</span>  0.0  0.1   <span style="color:#ae81ff">8236</span>  <span style="color:#ae81ff">4928</span> pts/0    Ss   12:49   0:00 -bash
+</span></span><span style="display:flex;"><span>root      <span style="color:#ae81ff">300955</span>  0.0  0.1   <span style="color:#ae81ff">8104</span>  <span style="color:#ae81ff">4812</span> pts/1    S    12:49   0:00 -bash
+</span></span><span style="display:flex;"><span>root      <span style="color:#ae81ff">303185</span>  0.0  0.0   <span style="color:#ae81ff">6800</span>  <span style="color:#ae81ff">3116</span> pts/1    S+   13:08   0:00 /bin/bash ./check-yes2.sh
+</span></span><span style="display:flex;"><span>root      <span style="color:#ae81ff">303191</span>  0.0  0.0   <span style="color:#ae81ff">6088</span>  <span style="color:#ae81ff">1924</span> pts/1    S+   13:08   0:00 grep bash
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>$ bash check-yes2.sh
-</span></span><span style="display:flex;"><span>実行中のyesコマンドはありません。
+</span></span><span style="display:flex;"><span>実行中のプロセス詳細<span style="color:#f92672">(</span>yes<span style="color:#f92672">)</span>:
+</span></span><span style="display:flex;"><span>root      <span style="color:#ae81ff">303176</span>  0.0  0.0   <span style="color:#ae81ff">6800</span>  <span style="color:#ae81ff">3104</span> pts/1    S+   13:08   0:00 bash check-yes2.sh
+</span></span><span style="display:flex;"><span>実行中のプロセス詳細<span style="color:#f92672">(</span>bash<span style="color:#f92672">)</span>:
+</span></span><span style="display:flex;"><span>velengel  <span style="color:#ae81ff">300726</span>  0.0  0.1   <span style="color:#ae81ff">8236</span>  <span style="color:#ae81ff">4928</span> pts/0    Ss   12:49   0:00 -bash
+</span></span><span style="display:flex;"><span>root      <span style="color:#ae81ff">300955</span>  0.0  0.1   <span style="color:#ae81ff">8104</span>  <span style="color:#ae81ff">4812</span> pts/1    S    12:49   0:00 -bash
+</span></span><span style="display:flex;"><span>root      <span style="color:#ae81ff">303176</span>  4.7  0.0   <span style="color:#ae81ff">6800</span>  <span style="color:#ae81ff">3112</span> pts/1    S+   13:08   0:00 bash check-yes2.sh
+</span></span><span style="display:flex;"><span>root      <span style="color:#ae81ff">303182</span>  0.0  0.0   <span style="color:#ae81ff">6088</span>  <span style="color:#ae81ff">1912</span> pts/1    S+   13:08   0:00 grep bash
 </span></span></code></pre></div><h2 id="学び">学び</h2>
 <ul>
-<li>./の場合は実行中の自分自身をカウントしていた！！
+<li>./の場合は実行中の自分自身をカウントしていた！！</li>
+<li>pgrep はほんとにプロセス名だけを見てくれるんだね</li>
+<li>今回のポイントはプロセスの名前に yes が入っているかどうか
 <ul>
-<li>bash でサブシェル経由で実行すると新たにシェルが立ち上がるからカウントされない</li>
+<li>bash 経由で実行するとプロセス名は bash になる</li>
+<li>./で実行するとプロセス名は check-yes.sh が入る=yes が入ってくる</li>
 </ul>
 </li>
 <li>mackerel のチェック監視の使い方を学んだ
@@ -411,7 +425,7 @@
       
         <li><a href="/blog/posts/2025/0721/">shellの実行形式の違いでハマった話</a></li>
       
-        <li><a href="/blog/posts/2025/0615/">関数型まつり 2025に行ってきた話</a></li>
+        <li><a href="/blog/posts/2024/0525/">ゼロからのOS自作入門を読み終わった話</a></li>
       
     </ul>
   </nav>
