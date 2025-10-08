@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+
+<html lang="en" itemscope itemtype="https://schema.org/BlogPosting">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+  
+
+<title>AIは趣味開発をどう変えたか？ドメイン移管からゲーム制作まで</title>
+
+  <meta name="description" content="背景 gemini cli や codex, ChatGPT とかを当たり前に使うようになって、趣味プロで今まで実装コストを理由にやってなかった問題が解けるようになった。 ここ最近やったことと学び・所感をつらつら書いていく。">
+
+
+  <meta name="keywords" content="Programming, AI Agent">
+
+<meta name="generator" content="Hugo 0.143.1">
+
+  <meta name="author" content="velengel">
+  
+    <link rel="author" href="https://github.com/velengel">
+  
+
+<link rel="canonical" href="https://www.velengel.com/blog/posts/2025/1008/">
+
+
+  
+    <link rel="sitemap" type="application/xml" href="/blog/sitemap.xml">
+  
+
+
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/blog/bundle.min.87c750e580f88b9cd2425b03b0fe7f8c26055dbf67c8c1d244475fa34dbcd068.css">
+
+    <link rel="icon" href="/blog/icon.png">
+
+    
+  <meta property="og:type" content="article">
+
+<meta property="og:site_name" content="Vel Labs(ベル研究所)">
+
+  <meta property="og:title" content="AIは趣味開発をどう変えたか？ドメイン移管からゲーム制作まで">
+
+
+  <meta property="og:description" content="背景 gemini cli や codex, ChatGPT とかを当たり前に使うようになって、趣味プロで今まで実装コストを理由にやってなかった問題が解けるようになった。 ここ最近やったことと学び・所感をつらつら書いていく。">
+
+<meta property="og:url" content="https://www.velengel.com/blog/posts/2025/1008/">
+
+
+    
+  <meta itemprop="name" content="AIは趣味開発をどう変えたか？ドメイン移管からゲーム制作まで">
+
+
+  <meta itemprop="description" content="背景 gemini cli や codex, ChatGPT とかを当たり前に使うようになって、趣味プロで今まで実装コストを理由にやってなかった問題が解けるようになった。 ここ最近やったことと学び・所感をつらつら書いていく。">
+
+
+  <meta itemprop="keywords" content="Programming, AI Agent">
+
+
+  
+  
+    <meta itemprop="datePublished" content="2025-10-08T17:46:31+09:00">
+  
+  
+    
+      <meta itemprop="dateModified" content="2025-10-08T17:46:31+09:00">
+    
+  
+
+
+<link itemprop="url" href="https://www.velengel.com/blog/posts/2025/1008/">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\(", right: "\\)", display: false},
+        {left: "\\[", right: "\\]", display: true}
+      ],
+      throwOnError: false
+    });
+  });
+</script>
+
+    
+  
+
+
+    
+  </head>
+  <body>
+    <div id="container">
+      <header id="top">
+  <div id="header-grid">
+    
+      <div id="site-title">
+        <a href="/blog/">Vel Labs(ベル研究所)</a>
+      </div>
+    
+    
+      
+        <p id="description">エンジニアリングマネージャー見習いの個人開発備忘録</p>
+      
+    
+  </div>
+</header>
+
+      <div id="middle">
+        <div id="content" class="column">
+          
+          
+            <nav id="breadcrumb" class="pane">
+              
+
+
+  
+  
+  <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+      
+  
+  
+    
+      
+  
+  
+    
+    
+    
+      <li><a href="/blog/">Vel Labs(ベル研究所)</a></li>
+    
+  
+
+      
+    
+    
+    
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="/blog/posts/" itemprop="item"><span itemprop="name">Posts</span></a>
+        <meta itemprop="position" content="1">
+      </li>
+    
+  
+
+      
+    
+    
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="page">
+      <a aria-current="location"><span itemprop="name">AIは趣味開発をどう変えたか？ドメイン移管からゲーム制作まで</span></a>
+      <meta itemprop="position" content="2">
+    </li>
+  </ol>
+
+
+            </nav>
+          
+          
+          <main class="pane">
+            
+  
+
+
+
+<article class="single">
+  <header>
+    <h1 class="title" itemprop="headline">AIは趣味開発をどう変えたか？ドメイン移管からゲーム制作まで</h1>
+    
+      <div class="time">
+        
+          <div><time datetime="2025-10-08"> 2025/10/08</time></div>
+        
+      </div>
+    
+  </header>
+  <div class="body">
+    
+      <h1 id="背景">背景</h1>
+<p>gemini cli や codex, ChatGPT とかを当たり前に使うようになって、趣味プロで今まで実装コストを理由にやってなかった問題が解けるようになった。
+ここ最近やったことと学び・所感をつらつら書いていく。</p>
+<h2 id="ドメイン移管-お名前comcloudflare">ドメイン移管 お名前.com→Cloudflare</h2>
+<ul>
+<li>学生時代に安いしとりあえずでお名前.com でドメインを取っていたが、UI が使いにくかったりで移管したくて仕方がなかった</li>
+<li>移管は割と待つ(最大 5 日)と言われていたが、1 時間くらい待ったら普通に承認のメールが来ていた</li>
+<li>Cloudflare Workers などでも遊べるようになったので、API リクエストしたら discord の incoming webhook 経由でメッセージ送るような簡単なアプリとかもついでに作って遊んだ</li>
+</ul>
+<h3 id="流れ">流れ</h3>
+<p>ChatGPT に以下のような流れで聞いて進めた</p>
+<ul>
+<li>まず普通にやり方を訊く</li>
+<li>不完全な回答が返ってくるので、最新の公式ドキュメントを読ませて、UI の名前なども最新のものであることを検証させてから回答を作り直させる
+<ul>
+<li>一応使えるマシなものが返ってくる</li>
+</ul>
+</li>
+<li>その通りにやりつつ、詰まったら逐一スクショを送って今どこで、これからどうすればいいかを訊く
+<ul>
+<li>これができるようになったのが時代の進歩って感じがする</li>
+</ul>
+</li>
+</ul>
+<h3 id="学び">学び</h3>
+<ul>
+<li>ドメイン移管の運用フローが分かった</li>
+<li>Cloudflare は気軽におもちゃが作れるものがそろいすぎている
+<ul>
+<li>普通に AWS とか契約しないとできないと思っていたものが無料で作れる</li>
+</ul>
+</li>
+<li>理解したいところだけする、ができるのが趣味プロのいいところ
+<ul>
+<li>さすがに移管の注意みたいなドキュメントは読むけど、それ以外は追々でいい</li>
+<li>こういうインフラ系がサクっとできるようになったのは成長を感じる</li>
+</ul>
+</li>
+<li>自分用の Discord App のエンドポイントとかもどうしようかなーと思っていたので、これを機に実現性が高まった
+<ul>
+<li>次は何作ろうかな～～</li>
+</ul>
+</li>
+</ul>
+<h2 id="学生時代にcで作ったゲームをp5jsで復活させた">学生時代にC++で作ったゲームをp5.jsで復活させた</h2>
+<p>
+  <img src="images/image.png" alt="alt text">
+
+</p>
+<ul>
+<li><a href="https://www.velengel.com/Dr.Mari0/">ここ</a> から遊べます
+<ul>
+<li>大学 1-2 年の時に作った、BGM とプログラムを初めて自作して組み合わせた思い出のゲーム</li>
+<li>リポジトリは <a href="https://github.com/velengel/Dr.Mari0/tree/master">こっち</a></li>
+</ul>
+</li>
+<li>これはもともとリポジトリがあったので、CLI 系の AI エージェントが向いてると思って gemini cli を使った</li>
+</ul>
+<h3 id="流れ-1">流れ</h3>
+<ul>
+<li>リポジトリ全体を読み込ませ、構造を把握させてそれをドキュメントに書かせる</li>
+<li>p5.js に移行したいが、いきなり実装するのではなくまず実装計画を書かせる</li>
+<li>計画の区切り(フェーズ)ごとに動作確認を挟む
+<ul>
+<li>実際に自分で動かす</li>
+<li>テストも書かせる</li>
+</ul>
+</li>
+<li>作業日報も以下のフォーマットで書かせる
+<ul>
+<li>やったこと</li>
+<li>学び</li>
+<li>TODO</li>
+</ul>
+</li>
+<li>TODO が大体不完全(悪い意味でまとめてくる)なので、自分で追記する
+<ul>
+<li>断片でも詳細な情報があったほうが思い出しやすい</li>
+</ul>
+</li>
+</ul>
+<h3 id="学び-1">学び</h3>
+<ul>
+<li>少しずつ組み上げていくのとても楽しい
+<ul>
+<li>業務でこういう風に AI エージェント・ソフトウェア開発は進めていくもの、という慣例を知っていたからこそできた所業な感じはする</li>
+</ul>
+</li>
+<li>これに関しては p5.js のドキュメントは全く読まなくてもできた</li>
+<li>エラーとかはちゃんと開発者ツールやサーバのログとかで見て、それを<strong>そのまま</strong>与えてあげないとハマってしまうので注意
+<ul>
+<li>「なんか違うので直して」みたいな指示がうまくないマネージャーみたいなことをするとどんどん深みにハマってしまうので早めに引き上げてあげる</li>
+</ul>
+</li>
+<li>テストの意図も書かせた
+<ul>
+<li>これがあるのとないので自分で読んだ時の理解のしやすさが段違い</li>
+</ul>
+</li>
+<li>まだテストが落ちていたり、できてない機能があるのでもう少しやるつもり</li>
+</ul>
+<h2 id="正規表現のパーサーを作った">正規表現のパーサーを作った</h2>
+<ul>
+<li>リポジトリ: <a href="https://github.com/velengel/mini-regex">https://github.com/velengel/mini-regex</a></li>
+<li>関数型まつりで「正規表現作って評価したことがある人ー？」の時に会場の半分くらいの人が手を上げている(これが異常な空間であるという前提はあるが)のに自分が上げられなかったのが<strong>恥ずかしかった</strong>ので一歩踏み込んでみることにした</li>
+</ul>
+<h3 id="流れ-2">流れ</h3>
+<ul>
+<li>これは最初は ChatGPT に最小限のコードを書かせて、途中から gemini cli に切り替えた</li>
+<li>理由
+<ul>
+<li>最初から完璧な評価をしようとすると無限にできてしまうので、最小限のコードから始めたかった</li>
+<li><strong>自分の理解も同時に生やしていきたかった</strong>ので、AI エージェントに書かせるのではなくコード片をコピペするというひと手間とそれを解説してもらうステップを挟みながら進めた
+<ul>
+<li>一昔前の「検索」に近いイメージ&hellip;知りたいことをキーワードに落とし込んで google に訊く</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>コードを動かして機能最小限のもの(&ldquo;a*&ldquo;だけ評価できる)を作り、テストを書かせ、次のステップに進んだ</li>
+<li>最初は <code>regex_engine.py</code> として 1 つの Python ファイルで書いていたが、途中からパーサーのお作法である以下の 3 ステップに分解した
+<ul>
+<li>字句解析</li>
+<li>構文解析</li>
+<li>評価</li>
+</ul>
+</li>
+<li>ある程度大きくなってから「いじわるなテストケースを追加して」と命令して、それが(当然)落ちるので直していく過程でさらに堅牢になっていった</li>
+<li><a href="https://github.com/velengel/mini-regex/blob/main/.github/workflows/ci.yml">CI</a> で lint, format も確認済み</li>
+</ul>
+<h3 id="学び-2">学び</h3>
+<ul>
+<li>パーサー自体やその周辺の概念は普通に勉強になった
+<ul>
+<li>「DFA と NFA は等価なので書き換えてみては」とのフィードバックももらったので今後の課題</li>
+</ul>
+</li>
+<li>プロセスの <a href="https://github.com/velengel/mini-regex/blob/main/learning.md">学び</a> も AI に書いてもらった</li>
+<li>作るものの動機によって AI エージェントとの付き合い方が変わる
+<ul>
+<li>理解を生やしたいならステップバイステップで立ち止まって自分の中で咀嚼するのが大事</li>
+<li>自分の能力を高めるために使う</li>
+</ul>
+</li>
+<li>パーサー作るの、新しい言語を学ぶのにとてもちょうどいい題材だと思った
+<ul>
+<li>程よい課題の複雑度と発展性</li>
+<li>クイズゲームや Twitter(死語)クローンがフロント・バック・DB をすべて使ういい題材だと前に友達から教えてもらったことがあるけど、そういうものを 1 つ持っておくのは大事かもしれない</li>
+</ul>
+</li>
+<li>実は <a href="https://github.com/velengel/yaml-ast">yaml-ast</a> も少し作っていて、こっちも同様に発展させていきつつ理解を深めたい</li>
+</ul>
+<h2 id="ラズパイで動いているプロセスを確認するansibleを書いた">ラズパイで動いているプロセスを確認するansibleを書いた</h2>
+<ul>
+<li><a href="https://github.com/velengel/rasp-ansible/blob/main/verify.yml">コード</a> はこちら</li>
+<li>趣味で立ち上げてるサーバなので落ちてもクリティカルではないが、「もしこれが本番運用されてるサーバだとしたら重要なプロセスは何か？」を考える思考実験と実践としてやってみた
+<ul>
+<li>ansible 自体は業務で散々書いてるので、命令して出てきた結果が見やすければ ok</li>
+</ul>
+</li>
+</ul>
+<h3 id="流れ-3">流れ</h3>
+<ul>
+<li><code>ps aux</code> の結果をそのまま ChatGPT に食わせて、重要なプロセスとそう判断した根拠を洗い出させる</li>
+<li>それを確認する ansible を書かせる</li>
+<li>ラズパイ上で実行</li>
+</ul>
+<h3 id="学び-3">学び</h3>
+<ul>
+<li>これはいわゆるショートカットの使い方だなと思った
+<ul>
+<li>自分がその言語に手慣れている前提で、実装コストだけを肩代わりしてもらう</li>
+<li>今回は要件的にも特にそんな膨大にもならない</li>
+</ul>
+</li>
+</ul>
+<h1 id="まとめ">まとめ</h1>
+<ul>
+<li>正直体感としては「AI エージェント君と話してたら勝手にできた」くらいの感覚
+<ul>
+<li>ちょっとおかしいところはきちんと立ち止まって一緒に考える or 考えさせた</li>
+<li>喉の手術後でしゃべりづらいという背景もあり、ちょうどよかったのかもしれない</li>
+</ul>
+</li>
+<li>プリミティブな喜びを高速で体験、回せるようになったなと思った
+<ul>
+<li>理解できた！楽しい！</li>
+<li>動いた！楽しい！</li>
+</ul>
+</li>
+<li>フロントからインフラまで幅広く作って動かしてみたが、正直いい意味で差はあまり感じられなかった
+<ul>
+<li>エラーが出たら事象整理で一旦立ち止まる、公式ドキュメントを読む(読ませる)、テストを書いて(書かせて)ガードレールを敷くみたいな、ソフトウェア開発や仕事の基礎をきちんと叩き込まれた自分としてはとても心強いパートナーとしてふるまってくれている</li>
+<li>ここまでくると、ソフトウェア開発以外の分野にこれを応用できたら高速で理解が発生するのでは？と思っている
+<ul>
+<li>ポケモンのわざマシンみたいな</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+    
+  </div>
+  <footer>
+    
+    
+    
+      
+    
+    
+    
+    
+      
+    
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+    
+    
+    
+      <table class="taxonomy-table">
+        <tbody>
+          
+            <tr>
+              <th>セクション:</th>
+              <td>
+                <div class="folder">
+                  <a href="/blog/posts/">Posts</a>
+                </div>
+              </td>
+            </tr>
+          
+          
+            <tr>
+              <th>Tags:</th>
+              <td>
+                <ul class="tags">
+                  
+                    <li class="tagged"><a href="/blog/tags/programming/">Programming</a></li>
+                  
+                    <li class="tagged"><a href="/blog/tags/ai-agent/">AI Agent</a></li>
+                  
+                </ul>
+              </td>
+            </tr>
+          
+          
+            
+          
+            
+              
+            
+          
+            
+              
+            
+          
+            
+          
+        </tbody>
+      </table>
+    
+    
+      
+      
+      
+        
+        
+      
+      
+        <div class="author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+          
+            <a rel="author" href="https://github.com/velengel" itemprop="url"><span itemprop="name">velengel</span></a>
+          
+        </div>
+      
+    
+  </footer>
+</article>
+
+
+          </main>
+          
+          
+  
+    
+    
+    
+      <nav class="prev-next">
+        
+        
+          <a class="prev" href="/blog/posts/2025/0721/" title="前の記事: shellの実行形式の違いでハマった話">shellの実行形式の違いでハマった話</a>
+        
+      </nav>
+    
+  
+
+          
+            
+
+
+
+  
+
+
+  <nav class="pane">
+    <header class="component-title">次に読む</header>
+    <ul class="dense">
+      
+        <li><a href="/blog/posts/2025/0721/">shellの実行形式の違いでハマった話</a></li>
+      
+        <li><a href="/blog/posts/2025/1008/">AIは趣味開発をどう変えたか？ドメイン移管からゲーム制作まで</a></li>
+      
+        <li><a href="/blog/posts/2025/0105/">texteditor途中まで作った</a></li>
+      
+        <li><a href="/blog/posts/2023/0717/">ブログ改修工事</a></li>
+      
+    </ul>
+  </nav>
+
+
+          
+          
+        </div>
+        <aside id="sidebar" class="column">
+  <div class="pane sidebar-top">
+  <div class="profile">
+    <a href="/blog/pages/bio">
+      <img class="avatar" src="/blog/bio.png">
+    </a>
+    <div class="name">
+      <a href="/blog/pages/bio">velengel</a>
+    </div>
+  </div>
+  <p>技術とマネジメントの二刀流⚔</p>
+</div>
+
+  
+<nav class="pane">
+  <ul>
+    
+      <li>
+        <a href="/blog/">Vel Labs(ベル研究所)</a>
+      </li>
+    
+    
+      <li>
+        <a href="/blog/pages/bio/">自己紹介</a>
+      </li>
+    
+    
+      <li>
+        <a href="/blog/archives/">Archives</a>
+      </li>
+    
+    
+      <li>
+        <a href="/blog/search/">Search</a>
+      </li>
+    
+    
+      <li>
+        <a href="/blog/index.xml">RSS</a>
+      </li>
+    
+  </ul>
+</nav>
+
+  
+
+  
+    
+      <nav class="pane">
+        <form class="sidebar-search-form" method="get" action="/blog/search/">
+          <input required type="search" name="q" id="query" aria-label="検索クエリ">
+          <input type="submit" value="検索">
+        </form>
+      </nav>
+    
+  
+
+
+  
+
+
+  
+    <nav class="pane">
+      
+  
+    <ul class="folders">
+      
+        
+        <li class="folder">
+          <a href="/blog/posts/">
+            Posts (14) 
+          </a>
+          
+  
+
+        </li>
+      
+        
+        <li class="folder">
+          <a href="/blog/pages/">
+            Pages (1) 
+          </a>
+          
+  
+
+        </li>
+      
+    </ul>
+  
+
+    </nav>
+  
+
+
+  
+
+
+
+  
+    
+    
+    
+    
+    
+    
+      <nav class="pane">
+        <header class="component-title">
+          <a href="/blog/tags/">Tags</a>
+        </header>
+        <ul class="tags">
+          
+            <li class="tagged">
+              <a href="/blog/tags/ai-agent/">AI Agent</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/bash/">Bash</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/c/">C</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/loupedeck/">Loupedeck</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/mackerel/">Mackerel</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/memo/">Memo</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/php/">Php</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/poc/">PoC</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/programming/">Programming</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/uri%E3%82%B9%E3%82%AD%E3%83%BC%E3%83%A0/">URIスキーム</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/vue/">Vue</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/windows/">Windows</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/%E5%8B%89%E5%BC%B7%E4%BC%9A/">勉強会</a>
+            </li>
+          
+        </ul>
+        
+      </nav>
+    
+  
+
+
+  
+  
+
+  
+    
+      <nav class="pane">
+        
+          <header class="component-title">
+            <a href="/blog/categories/">Categories</a>
+          </header>
+          <ul>
+            
+              <li>
+                <a href="/blog/categories/tech/">Tech</a>
+              </li>
+            
+          </ul>
+        
+      </nav>
+    
+  
+
+  
+    
+  
+
+  
+
+
+  
+  
+
+  <nav class="pane">
+    <header class="component-title">最新記事</header>
+    <ul class="dense">
+      
+        <li>
+          <a href="/blog/posts/2025/1008/">AIは趣味開発をどう変えたか？ドメイン移管からゲーム制作まで</a>
+        </li>
+      
+        <li>
+          <a href="/blog/posts/2025/0721/">shellの実行形式の違いでハマった話</a>
+        </li>
+      
+        <li>
+          <a href="/blog/posts/2025/0615/">関数型まつり 2025に行ってきた話</a>
+        </li>
+      
+        <li>
+          <a href="/blog/posts/2025/0613/">ドラムレッスン要約アプリ PoC</a>
+        </li>
+      
+        <li>
+          <a href="/blog/posts/2025/0105/">texteditor途中まで作った</a>
+        </li>
+      
+        <li>
+          <a href="/blog/posts/2024/0713/">windowsの自動起動(スタートアップ)アプリに標準のクロックを入れたい</a>
+        </li>
+      
+        <li>
+          <a href="/blog/posts/2024/0525/">ゼロからのOS自作入門を読み終わった話</a>
+        </li>
+      
+        <li>
+          <a href="/blog/posts/2024/0104/">ラズパイを買って自宅サーバ入門した話</a>
+        </li>
+      
+        <li>
+          <a href="/blog/posts/2023/1211/">読書メモのフォーマット所感</a>
+        </li>
+      
+        <li>
+          <a href="/blog/posts/2023/1015/">表示の都合でデータを別で作ってはいけない</a>
+        </li>
+      
+    </ul>
+  </nav>
+
+
+  
+</aside>
+
+      </div>
+      <footer id="bottom">
+  <small>
+    <a href="/blog/">
+      <span>Vel Labs(ベル研究所)</span>
+    </a>
+    <wbr>
+    <span>
+      
+        
+        
+          ©&nbsp;2023–2025
+        
+        
+          
+            <a href="https://github.com/velengel"><em>velengel</em></a>
+          
+        
+      
+    </span>
+    <br>
+    <span>
+      <a href="https://github.com/curegit/nagoya"><i>Nagoya</i>&nbsp;Theme</a>&nbsp;by&nbsp;<a href="https://curegit.jp/"><i>curegit</i></a>.
+      <wbr>
+      Built&nbsp;with&nbsp;<a href="https://gohugo.io/">Hugo</a>.
+    </span>
+  </small>
+</footer>
+
+    </div>
+  </body>
+</html>
