@@ -42,6 +42,10 @@ npx textlint --fix content/**
 * `--fix` で直らないやつ(日本語とか)は**自分で**直す
 * 元の設定: https://zenn.dev/overflow_offers/articles/20220512-awesome-texlint-correction
 
+## GitHub Actions 更新時
+* `uses:` は可能ならリリースタグだけでなく SHA まで固定する
+* 更新時はタグと SHA の両方を見直す
+
 ## その他
 * `hugo` を実行した後のものをcommitする
   * serverの方はlocalhostのURLになっちゃうので
