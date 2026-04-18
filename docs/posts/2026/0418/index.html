@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+
+<html lang="en" itemscope itemtype="https://schema.org/BlogPosting">
+  <head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1318&amp;path=blog/livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+  
+
+<title>ガラケーのドラクエを再現して得た学び</title>
+
+  <meta name="description" content="背景 小学生のころ、親のガラケーを借りてドラクエをやっていた 自分の携帯ではなかった 後から通信料で 2,3 万円くらい請求されてめちゃくちゃ怒られた苦い思い出がある 今考えると当たり前なんだけど、当時は「ゲームをしている」感覚であって「通信している」感覚はかなり薄かった それくらい、ガラケーのドラクエには自分の中で妙な実感が残っている 作ってみると、仕様を再現することと、当時楽しかった体験を再現することはかなり違うと分かった。">
+
+
+  <meta name="keywords" content="Programming, Game">
+
+<meta name="generator" content="Hugo 0.154.5">
+
+  <meta name="author" content="velengel">
+  
+    <link rel="author" href="https://github.com/velengel">
+  
+
+<link rel="canonical" href="http://localhost:1318/blog/posts/2026/0418/">
+
+
+  
+    <link rel="sitemap" type="application/xml" href="/blog/sitemap.xml">
+  
+
+
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/blog/bundle.min.b19546808a826089b9e8f88a778cf704ea012e440cd7ef3658ded5cee65699de.css">
+
+    <link rel="icon" href="/blog/icon.png">
+
+    
+  <meta property="og:type" content="article">
+
+<meta property="og:site_name" content="Vel Labs(ベル研究所)">
+
+  <meta property="og:title" content="ガラケーのドラクエを再現して得た学び">
+
+
+  <meta property="og:description" content="背景 小学生のころ、親のガラケーを借りてドラクエをやっていた 自分の携帯ではなかった 後から通信料で 2,3 万円くらい請求されてめちゃくちゃ怒られた苦い思い出がある 今考えると当たり前なんだけど、当時は「ゲームをしている」感覚であって「通信している」感覚はかなり薄かった それくらい、ガラケーのドラクエには自分の中で妙な実感が残っている 作ってみると、仕様を再現することと、当時楽しかった体験を再現することはかなり違うと分かった。">
+
+<meta property="og:url" content="http://localhost:1318/blog/posts/2026/0418/">
+
+
+    
+  <meta itemprop="name" content="ガラケーのドラクエを再現して得た学び">
+
+
+  <meta itemprop="description" content="背景 小学生のころ、親のガラケーを借りてドラクエをやっていた 自分の携帯ではなかった 後から通信料で 2,3 万円くらい請求されてめちゃくちゃ怒られた苦い思い出がある 今考えると当たり前なんだけど、当時は「ゲームをしている」感覚であって「通信している」感覚はかなり薄かった それくらい、ガラケーのドラクエには自分の中で妙な実感が残っている 作ってみると、仕様を再現することと、当時楽しかった体験を再現することはかなり違うと分かった。">
+
+
+  <meta itemprop="keywords" content="Programming, Game">
+
+
+  
+  
+    <meta itemprop="datePublished" content="2026-04-18T00:00:00+09:00">
+  
+  
+    
+      <meta itemprop="dateModified" content="2026-04-18T00:00:00+09:00">
+    
+  
+
+
+<link itemprop="url" href="http://localhost:1318/blog/posts/2026/0418/">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\(", right: "\\)", display: false},
+        {left: "\\[", right: "\\]", display: true}
+      ],
+      throwOnError: false
+    });
+  });
+</script>
+
+    
+  
+
+
+    
+  </head>
+  <body>
+    <div id="container">
+      <header id="top">
+  <div id="header-grid">
+    
+      <div id="site-title">
+        <a href="/blog/">Vel Labs(ベル研究所)</a>
+      </div>
+    
+    
+      
+        <p id="description">エンジニアリングマネージャー見習いの個人開発備忘録</p>
+      
+    
+  </div>
+</header>
+
+      <div id="middle">
+        <div id="content" class="column">
+          
+          
+            <nav id="breadcrumb" class="pane">
+              
+
+
+  
+  
+  <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+      
+  
+  
+    
+      
+  
+  
+    
+    
+    
+      <li><a href="/blog/">Vel Labs(ベル研究所)</a></li>
+    
+  
+
+      
+    
+    
+    
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="/blog/posts/" itemprop="item"><span itemprop="name">Posts</span></a>
+        <meta itemprop="position" content="1">
+      </li>
+    
+  
+
+      
+    
+    
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="page">
+      <a aria-current="location"><span itemprop="name">ガラケーのドラクエを再現して得た学び</span></a>
+      <meta itemprop="position" content="2">
+    </li>
+  </ol>
+
+
+            </nav>
+          
+          
+          <main class="pane">
+            
+  
+
+
+
+<article class="single">
+  <header>
+    <h1 class="title" itemprop="headline">ガラケーのドラクエを再現して得た学び</h1>
+    
+      <div class="time">
+        
+          <div><time datetime="2026-04-18"> 2026/04/18</time></div>
+        
+      </div>
+    
+  </header>
+  <div class="body">
+    
+      <h2 id="背景">背景</h2>
+<ul>
+<li>小学生のころ、親のガラケーを借りてドラクエをやっていた
+<ul>
+<li>自分の携帯ではなかった</li>
+<li>後から通信料で 2,3 万円くらい請求されてめちゃくちゃ怒られた苦い思い出がある</li>
+</ul>
+</li>
+<li>今考えると当たり前なんだけど、当時は「ゲームをしている」感覚であって「通信している」感覚はかなり薄かった</li>
+<li>それくらい、ガラケーのドラクエには自分の中で妙な実感が残っている</li>
+</ul>
+<p>作ってみると、仕様を再現することと、当時楽しかった体験を再現することはかなり違うと分かった。</p>
+<h2 id="きっかけ">きっかけ</h2>
+<ul>
+<li><a href="https://levtech.jp/media/detail_827/">攻略サイトが“仕様書”に？　ソースコード無きRPG『ラミィの大冒険』を蘇らせるまで</a> という記事を読んだ
+<ul>
+<li>ソースコードや社内資料が残っていないゲームを、当時の攻略サイトやプレイ検証から復活させる話</li>
+<li>「攻略サイトが仕様書になる」という発想が面白かった</li>
+</ul>
+</li>
+<li>自分の場合は実機も元データも持っていないので、本当の復刻ではない</li>
+<li>ただ、公開情報を集めて仕様にして、ブラウザで遊べるおもちゃを作ることはできるのでは？と思った</li>
+</ul>
+<p>対象にしたのは以下の 2 つ。</p>
+<ul>
+<li>ドラゴンクエストモンスターズ i / MOBILE</li>
+<li>ドラゴンクエスト不思議のダンジョン MOBILE</li>
+</ul>
+<h2 id="ガラケーゲームの前提">ガラケーゲームの前提</h2>
+<ul>
+<li>今のスマホアプリと違って、App Store から買い切りで入れる感じではない</li>
+<li>i モードなどの公式メニューからサイトに入り、月額課金で遊ぶものが多かった
+<ul>
+<li>たとえばドラクエモンスターズ i は、<code>iアプリメニュー -&gt; ゲーム -&gt; ロールプレイング -&gt; ドラクエモンスターズi</code> からアクセスする</li>
+</ul>
+</li>
+<li>1 つのアプリで全部完結するというより、サイトと複数のアプリが組み合わさっていた
+<ul>
+<li>ドラクエモンスターズ i だと、牧場、不思議な森、塔、闘技場などがあった</li>
+</ul>
+</li>
+<li>通信機能も重要
+<ul>
+<li>他プレイヤーとの対戦</li>
+<li>交換</li>
+<li>配合</li>
+<li>ランキング</li>
+<li>協力旅</li>
+</ul>
+</li>
+<li>そりゃ通信料で怒られるよね、という感じ</li>
+</ul>
+<h2 id="進め方">進め方</h2>
+<p>かなり AI エージェントに任せた。</p>
+<ol>
+<li>公式サイトのアーカイブ、当時の記事、攻略サイト、Wiki などを調査させる</li>
+<li>調査結果から機能仕様書を作らせる</li>
+<li>遊べる最小単位に分解させる</li>
+<li>その単位ごとに story を書かせる</li>
+<li>story をレビューさせる</li>
+<li>コードを書かせる</li>
+<li>コードもレビューさせる</li>
+<li>自分が実際に遊ぶ</li>
+<li>フィードバックする</li>
+<li>次に何を作るべきか開発優先度を判断させる</li>
+</ol>
+<p>気をつけたこと。</p>
+<ul>
+<li>人間は基本的に、優先度判断や矛盾が出たときだけ介入する</li>
+<li>介入した理由や判断ログも残させる</li>
+<li>AI が自動で判断したものも ADR として残す</li>
+<li>「なぜそうしたのか」をあとから追えるようにする</li>
+</ul>
+<p>ここで言う story は「何をなぜ作るか」を小さく切った開発単位、ADR は「なぜその判断にしたか」を残すメモのこと。</p>
+<p>これはかなりよかった。</p>
+<p>AI にコードを書かせていると、動くものはどんどん出てくる。ただ、あとから「なんでこの仕様になっているんだっけ？」が分からなくなると、自分でも触れなくなる。</p>
+<p>今回のように元ネタが古く、公開情報も断片的な題材では、判断の根拠を残すこと自体がかなり大事だった。</p>
+<h2 id="ドラクエモンスターズ">ドラクエモンスターズ</h2>
+<p>ドラクエモンスターズ i / MOBILE は、モンスターを集めて育てるゲームだった。配合したり、旅に出したり、闘技場で戦わせたりもできる。</p>
+<ul>
+<li>モンスターをコレクションする</li>
+<li>育てる</li>
+<li>配合する</li>
+<li>旅に出す</li>
+<li>闘技場で他ユーザーのモンスターと対戦する</li>
+<li>旅で新しい地域や洞窟を発見して、行ける場所を増やす</li>
+</ul>
+<p>今回作ったものは、当時の要素を全部並べるというより、モンスターズの基本ループに絞った。</p>
+<ul>
+<li>モンスターを持ち、旅に出して、経験値や仲間を得る</li>
+<li>集めたモンスターを配合して、新しいモンスターを作る</li>
+<li>育てたモンスターを闘技場で戦わせる</li>
+<li>入手方法を一覧できるようにして、次に何を狙うか考えられるようにする</li>
+</ul>
+<p>
+  <img src="images/dq-mobile.png" alt="DQM MOBILE風の再現画面">
+
+</p>
+<p>実装していて大事だった判断。</p>
+<ul>
+<li>配合は、確認できた DQM1/DQM2 系の配合ルールだけを通すようにした</li>
+<li>一度は「未定義なら親の系統から簡易進化させる」みたいな fallback もあったが、すぐに廃止した</li>
+<li>理由は、創作配合が混ざると一気に別物になるから</li>
+</ul>
+<p>公開情報から再現する以上、分からないところを補う必要はある。</p>
+<p>ただ、補い方を間違えると「ドラクエモンスターズっぽい何か」ではなく「自分たちが勝手に作った配合ゲーム」になってしまう。そこは思った以上に繊細だった。</p>
+<h2 id="仕様として作れることと楽しいことは違う">仕様として作れることと楽しいことは違う</h2>
+<p>モンスターズを作って一番強く思ったのはこれ。</p>
+<ul>
+<li>牧場がある</li>
+<li>旅に出せる</li>
+<li>経験値が入る</li>
+<li>仲間が増える</li>
+<li>配合できる</li>
+<li>闘技場で戦える</li>
+</ul>
+<p>構造だけ見るとそれっぽい。</p>
+<p>でも遊んでみると、正直そこまで楽しくなかった。</p>
+<p>理由はいくつかあるが、一番大きいのはグラフィック、BGM、SE が足りないことだったと思う。</p>
+<p>自分の記憶の中では、モンスターを旅に出して、帰ってきたときに結果が表示されて、そこで「勇気を持って」が流れることがかなり重要だった。</p>
+<p>システム上は、経験値とアイテムと仲間が増えれば旅の結果として成立する。でも、当時の自分が楽しんでいたのは数字の増減だけではなかった。</p>
+<ul>
+<li>モンスターが帰ってきた感じ</li>
+<li>何かを持ち帰ってきた感じ</li>
+<li>それをドラクエの音と画面で受け取る感じ</li>
+</ul>
+<p>この辺がないと体験の芯には届かない。</p>
+<p>これは作る前には分かっているつもりだったけど、実際に動くものを触るとかなりはっきり分かった。</p>
+<p>一方で、改めて面白いと思ったこともある。</p>
+<ul>
+<li>モンスターを旅に出すと、画面に張り付いていなくても育つ</li>
+<li>育てたモンスターは闘技場で戦わせられる</li>
+<li>放置で育成が進み、要所でバトルも楽しめる</li>
+</ul>
+<p>2000 年代前半のガラケー向けゲームとして、これはかなり面白い設計だったと思う。常に画面を見続けるゲームではなく、携帯電話を持ち歩く生活の中にゲームが入り込むような作りになっている。</p>
+<h2 id="ヤンガスと不思議のダンジョン">ヤンガスと不思議のダンジョン</h2>
+<p>もう 1 つ作ったのが、ドラゴンクエスト不思議のダンジョン MOBILE 風のもの。</p>
+<p>こちらは意外と楽しめた。</p>
+<p>これは PS2 版 <code>少年ヤンガスと不思議のダンジョン</code> と同じく少年期のヤンガスが主人公。ただしゲーム内容は携帯版オリジナル。</p>
+<p>調べた範囲で分かった MOBILE 版独自の仕様。</p>
+<ul>
+<li>10 ターンで HP が 1 回復する</li>
+<li>装備変更はターンを消費しない</li>
+<li>DQ8 系の錬金がある</li>
+<li>不思議の森は 10F</li>
+</ul>
+<p>今回作ったものは、不思議のダンジョンとして成立する最小の流れに絞った。</p>
+<ul>
+<li>ランダム生成ダンジョンを、ターン制で探索する</li>
+<li>HP、満腹度、装備、アイテムを見ながら進む</li>
+<li>階段で下の階へ進み、危なくなったら持ち帰りを考える</li>
+<li>村とダンジョンを往復し、倉庫や死亡時ロストで継続プレイの意味を作る</li>
+</ul>
+<p>
+  <img src="images/yangus-mobile.png" alt="ヤンガス不思議のダンジョンMOBILE風の再現画面">
+
+</p>
+<p>作っていて面白かったのは、ローグライクはかなり情報設計のゲームなんだな、ということ。</p>
+<ul>
+<li>「やくそう」を見れば回復アイテムだと分かる</li>
+<li>「大きなパン」を見れば空腹度を回復するものだと分かる</li>
+<li>アイテム名に情報が圧縮されている</li>
+</ul>
+<p>そのため、グラフィックが簡素でも意外と成立する。</p>
+<p>もちろん BGM は大事だと思う。ダンジョンでは同じ曲を長く聞くので、体験への影響は大きい。モンスターのグラフィックも初見では大事。</p>
+<p>ただ、慣れてくるとモンスターを「取りうる選択肢のかたまり」として処理するようになる。</p>
+<ul>
+<li>あの敵は遠距離攻撃をしてくる</li>
+<li>あの敵は眠らせてくる</li>
+<li>今の HP と満腹度なら倒すべきか逃げるべきか</li>
+<li>手持ちアイテムで切り抜けられるか</li>
+</ul>
+<p>この状態になると、グラフィックよりも、名前、位置、距離、状態異常、手持ちアイテムのほうが重要になる。だから簡素な再現でも、モンスターズよりゲームとして遊びやすかったのだと思う。</p>
+<p>実際に遊んでいて楽しかったのも、この判断がちゃんと発生した瞬間だった。</p>
+<ul>
+<li>HP が減っているので、このまま殴るか薬草を使うか迷う</li>
+<li>パンが少ないので、まだ探索するか階段を降りるか迷う</li>
+<li>アイテム欄がいっぱいなので、何を捨てるか考える</li>
+<li>死にそうだけど、持ち帰れれば次の挑戦が少し楽になる</li>
+</ul>
+<p>派手な演出がなくても、こういう小さな判断が続くとちゃんとゲームになる。</p>
+<p>ヤンガスは、この感覚が早い段階で出てきたのがよかった。</p>
+<p>この 2 つを比べると、差がかなり分かりやすかった。</p>
+<ul>
+<li>モンスターズは、旅の結果を受け取る演出や音が体験の中心に近かった</li>
+<li>ヤンガスは、次の一手を判断するための情報が名前や状態に圧縮されていた</li>
+</ul>
+<p>だから同じように簡素なブラウザ再現をしても、ヤンガスのほうが遊びとして成立しやすかったのだと思う。</p>
+<h2 id="ゲームバランスは難しい">ゲームバランスは難しい</h2>
+<p>ヤンガスで一番難しかったのはゲームバランスだった。</p>
+<ul>
+<li>少しアイテムが少ないだけで苦しい</li>
+<li>敵が強すぎるとすぐ死ぬ</li>
+<li>逆にアイテムを増やしすぎると緊張感がなくなる</li>
+</ul>
+<p>「もう少しアイテムを増やしたい」「序盤はもう少し簡単にしたい」「でも簡単にしすぎると不思議のダンジョンっぽくない」みたいなことをずっと考えていた。</p>
+<p>こういうことを考えていると、プランナーやゲームデザイナーの仕事ってこういう感じなのかもしれない、と思った。</p>
+<p>ローグライクは変数が多い。</p>
+<ul>
+<li>敵</li>
+<li>アイテム</li>
+<li>地形</li>
+<li>空腹度</li>
+<li>階層</li>
+<li>罠</li>
+<li>倉庫</li>
+<li>死亡時ロスト</li>
+<li>報酬</li>
+</ul>
+<p>どれか 1 つだけを見てもバランスは決められない。</p>
+<p>しかも、プレイヤーが死んだときに「自分の判断が悪かった」と思うか「これは理不尽だ」と思うかは、かなり微妙な差で変わる。</p>
+<h2 id="ai-に任せるところ人間が見るところ">AI に任せるところ、人間が見るところ</h2>
+<p>今回の進め方でよかったのは、人間が全部を管理しようとしなかったことだと思う。</p>
+<p>AI に任せたこと。</p>
+<ul>
+<li>調査</li>
+<li>仕様書作成</li>
+<li>story 作成</li>
+<li>実装</li>
+<li>レビュー</li>
+<li>ADR の作成</li>
+</ul>
+<p>人間が見たこと。</p>
+<ul>
+<li>その仕様は本当に元ネタに寄っているか</li>
+<li>分からないところを創作で埋めすぎていないか</li>
+<li>遊んでいて楽しいか</li>
+<li>次に何を作ると体験が良くなるか</li>
+<li>今の違和感はバグなのか、ゲームバランスなのか、演出不足なのか</li>
+</ul>
+<p>AI は「もっともらしく作る」のがうまい。だからこそ、根拠のない仕様もそれっぽく作れてしまう。</p>
+<p>今回のような再現系では、そこが危ない。</p>
+<ul>
+<li>分からないなら分からないと残す</li>
+<li>補完するなら補完仕様として残す</li>
+<li>原作寄せにするところと、試作用に割り切るところを分ける</li>
+</ul>
+<p>この線引きがかなり大事だった。</p>
+<p>これは古いゲームの再現に限らないと思う。レガシーシステムの仕様を掘り起こしたり、ドキュメントが薄い社内ツールを直したりするときも、多分同じ問題が起きる。AI は空白をそれっぽく埋めてくれるので、どこからが事実でどこからが補完なのかを残しておかないと危ない。</p>
+<p>一方で、調査、仕様化、実装、テスト、ADR 化までを一気通貫で進められるのはかなり強かった。</p>
+<p>昔だったら「調べるだけで疲れた」となっていた気がする。今回は、調べたものをすぐ仕様にし、すぐ動かし、すぐ遊んでフィードバックできた。その速度は AI エージェントがあるからこそだと思う。</p>
+<h2 id="学び感想">学び・感想</h2>
+<ul>
+<li>実際に作らせてみると分かることが多い
+<ul>
+<li>当時の記事や攻略サイトを読んでいるだけだと、「こういうゲームだったんだな」で終わる</li>
+<li>動くものにすると、どこが体験の芯だったのかが見えてくる</li>
+</ul>
+</li>
+<li>モンスターズでは、仕様としてはそれっぽく作れても、音や演出がないとかなり物足りなかった
+<ul>
+<li>旅の結果で何が返ってくるかだけでなく、それをどう受け取るかが大事だった</li>
+</ul>
+</li>
+<li>ヤンガスでは、アイテム名や敵の性質、状況判断に情報が圧縮されているので、簡素な見た目でもゲームとして成立しやすかった
+<ul>
+<li>一方で、ゲームバランスはかなり難しかった</li>
+</ul>
+</li>
+<li>ガラケーという制約の強い環境だからこそ、いろいろ考えられたゲームだったのだと思った
+<ul>
+<li>画面は小さい</li>
+<li>入力も限られている</li>
+<li>通信にもお金がかかる</li>
+<li>音も今ほど自由ではない</li>
+</ul>
+</li>
+<li>それでも、放置育成、通信対戦、旅、ダンジョン、月額更新、他プレイヤーとの関わりなど、当時の環境に合わせた遊びが作られていた</li>
+<li>当時の感覚そのものを再現するところまではできなかった
+<ul>
+<li>特に BGM や SE、グラフィック込みの懐かしさは簡単には再現できない</li>
+</ul>
+</li>
+<li>それでも、将来性のある「とりあえずのおもちゃ」はできた</li>
+</ul>
+<p>懐かしさだけで始めたけど、結果としてゲームの構造や体験の作り方を考えるいい題材になった。再現実装は、仕様理解やゲームデザイン理解の練習としてかなりよかった。</p>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://levtech.jp/media/detail_827/">攻略サイトが“仕様書”に？　ソースコード無きRPG『ラミィの大冒険』を蘇らせるまで</a></li>
+<li><a href="https://k-tai.watch.impress.co.jp/cda/article/news_toppage/7954.html">「ドラゴンクエストモンスターズ」がiアプリに</a></li>
+<li><a href="https://game.watch.impress.co.jp/docs/20060522/dqm.htm">スクウェア・エニックス、モンスター育成ゲームがパワーアップ、iモード「ドラゴンクエストモンスターズMOBILE」配信</a></li>
+<li><a href="https://game.watch.impress.co.jp/docs/20060410/dq.htm">スクウェア・エニックス、ダンジョンRPGの無料体験版を配信 iモード「ドラゴンクエスト不思議のダンジョン MOBILE」</a></li>
+</ul>
+    
+  </div>
+  <footer>
+    
+    
+    
+      
+    
+    
+    
+    
+      
+    
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+    
+    
+    
+      <table class="taxonomy-table">
+        <tbody>
+          
+            <tr>
+              <th>セクション:</th>
+              <td>
+                <div class="folder">
+                  <a href="/blog/posts/">Posts</a>
+                </div>
+              </td>
+            </tr>
+          
+          
+            <tr>
+              <th>Tags:</th>
+              <td>
+                <ul class="tags">
+                  
+                    <li class="tagged"><a href="/blog/tags/programming/">Programming</a></li>
+                  
+                    <li class="tagged"><a href="/blog/tags/game/">Game</a></li>
+                  
+                </ul>
+              </td>
+            </tr>
+          
+          
+            
+          
+            
+              
+            
+          
+            
+              
+            
+          
+            
+          
+        </tbody>
+      </table>
+    
+    
+      
+      
+      
+        
+        
+      
+      
+        <div class="author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+          
+            <a rel="author" href="https://github.com/velengel" itemprop="url"><span itemprop="name">velengel</span></a>
+          
+        </div>
+      
+    
+  </footer>
+</article>
+
+
+          </main>
+          
+          
+  
+    
+    
+    
+      <nav class="prev-next">
+        
+        
+          <a class="prev" href="/blog/posts/2025/1008/" title="前の記事: AIは趣味開発をどう変えたか？ドメイン移管からゲーム制作まで">AIは趣味開発をどう変えたか？ドメイン移管からゲーム制作まで</a>
+        
+      </nav>
+    
+  
+
+          
+            
+
+
+
+  
+
+
+  <nav class="pane">
+    <header class="component-title">次に読む</header>
+    <ul class="dense">
+      
+        <li><a href="/blog/posts/2023/1211/">読書メモのフォーマット所感</a></li>
+      
+        <li><a href="/blog/posts/my-first-post/">はじまり</a></li>
+      
+        <li><a href="/blog/posts/2025/1008/">AIは趣味開発をどう変えたか？ドメイン移管からゲーム制作まで</a></li>
+      
+        <li><a href="/blog/posts/2025/0721/">shellの実行形式の違いでハマった話</a></li>
+      
+        <li><a href="/blog/posts/2025/0105/">texteditor途中まで作った</a></li>
+      
+    </ul>
+  </nav>
+
+
+          
+          
+        </div>
+        <aside id="sidebar" class="column">
+  <div class="pane sidebar-top">
+  <div class="profile">
+    <a href="/blog/pages/bio">
+      <img class="avatar" src="/blog/bio.png">
+    </a>
+    <div class="name">
+      <a href="/blog/pages/bio">velengel</a>
+    </div>
+  </div>
+  <p>技術とマネジメントの二刀流⚔</p>
+</div>
+
+  
+<nav class="pane">
+  <ul>
+    
+      <li>
+        <a href="/blog/">Vel Labs(ベル研究所)</a>
+      </li>
+    
+    
+      <li>
+        <a href="/blog/pages/bio/">自己紹介</a>
+      </li>
+    
+    
+      <li>
+        <a href="/blog/archives/">Archives</a>
+      </li>
+    
+    
+      <li>
+        <a href="/blog/search/">Search</a>
+      </li>
+    
+    
+      <li>
+        <a href="/blog/index.xml">RSS</a>
+      </li>
+    
+  </ul>
+</nav>
+
+  
+
+  
+    
+      <nav class="pane">
+        <form class="sidebar-search-form" method="get" action="/blog/search/">
+          <input required type="search" name="q" id="query" aria-label="検索クエリ">
+          <input type="submit" value="検索">
+        </form>
+      </nav>
+    
+  
+
+
+  
+
+
+  
+    <nav class="pane">
+      
+  
+    <ul class="folders">
+      
+        
+        <li class="folder">
+          <a href="/blog/posts/">
+            Posts (15) 
+          </a>
+          
+  
+
+        </li>
+      
+        
+        <li class="folder">
+          <a href="/blog/pages/">
+            Pages (1) 
+          </a>
+          
+  
+
+        </li>
+      
+    </ul>
+  
+
+    </nav>
+  
+
+
+  
+
+
+
+  
+    
+    
+    
+    
+    
+    
+      <nav class="pane">
+        <header class="component-title">
+          <a href="/blog/tags/">Tags</a>
+        </header>
+        <ul class="tags">
+          
+            <li class="tagged">
+              <a href="/blog/tags/ai-agent/">AI Agent</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/bash/">Bash</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/c/">C</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/game/">Game</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/loupedeck/">Loupedeck</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/mackerel/">Mackerel</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/memo/">Memo</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/php/">Php</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/poc/">PoC</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/programming/">Programming</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/uri%E3%82%B9%E3%82%AD%E3%83%BC%E3%83%A0/">URIスキーム</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/vue/">Vue</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/windows/">Windows</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/%E5%8B%89%E5%BC%B7%E4%BC%9A/">勉強会</a>
+            </li>
+          
+        </ul>
+        
+      </nav>
+    
+  
+
+
+  
+  
+
+  
+    
+      <nav class="pane">
+        
+          <header class="component-title">
+            <a href="/blog/categories/">Categories</a>
+          </header>
+          <ul>
+            
+              <li>
+                <a href="/blog/categories/tech/">Tech</a>
+              </li>
+            
+          </ul>
+        
+      </nav>
+    
+  
+
+  
+    
+  
+
+  
+
+
+  
+  
+
+  <nav class="pane">
+    <header class="component-title">最新記事</header>
+    <ul class="dense">
+      
+        <li>
+          <a href="/blog/posts/2026/0418/">ガラケーのドラクエを再現して得た学び</a>
+        </li>
+      
+        <li>
+          <a href="/blog/posts/2025/1008/">AIは趣味開発をどう変えたか？ドメイン移管からゲーム制作まで</a>
+        </li>
+      
+        <li>
+          <a href="/blog/posts/2025/0721/">shellの実行形式の違いでハマった話</a>
+        </li>
+      
+        <li>
+          <a href="/blog/posts/2025/0615/">関数型まつり 2025に行ってきた話</a>
+        </li>
+      
+        <li>
+          <a href="/blog/posts/2025/0613/">ドラムレッスン要約アプリ PoC</a>
+        </li>
+      
+        <li>
+          <a href="/blog/posts/2025/0105/">texteditor途中まで作った</a>
+        </li>
+      
+        <li>
+          <a href="/blog/posts/2024/0713/">windowsの自動起動(スタートアップ)アプリに標準のクロックを入れたい</a>
+        </li>
+      
+        <li>
+          <a href="/blog/posts/2024/0525/">ゼロからのOS自作入門を読み終わった話</a>
+        </li>
+      
+        <li>
+          <a href="/blog/posts/2024/0104/">ラズパイを買って自宅サーバ入門した話</a>
+        </li>
+      
+        <li>
+          <a href="/blog/posts/2023/1211/">読書メモのフォーマット所感</a>
+        </li>
+      
+    </ul>
+  </nav>
+
+
+  
+</aside>
+
+      </div>
+      <footer id="bottom">
+  <small>
+    <a href="/blog/">
+      <span>Vel Labs(ベル研究所)</span>
+    </a>
+    <wbr>
+    <span>
+      
+        
+        
+          ©&nbsp;2023–2026
+        
+        
+          
+            <a href="https://github.com/velengel"><em>velengel</em></a>
+          
+        
+      
+    </span>
+    <br>
+    <span>
+      <a href="https://github.com/curegit/nagoya"><i>Nagoya</i>&nbsp;Theme</a>&nbsp;by&nbsp;<a href="https://curegit.jp/"><i>curegit</i></a>.
+      <wbr>
+      Built&nbsp;with&nbsp;<a href="https://gohugo.io/">Hugo</a>.
+    </span>
+  </small>
+</footer>
+
+    </div>
+  </body>
+</html>
