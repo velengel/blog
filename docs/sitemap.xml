@@ -2,110 +2,116 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://www.velengel.com/blog/tags/ai-agent/</loc>
+    <loc>http://localhost:1318/blog/tags/game/</loc>
+    <lastmod>2026-04-18T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1318/blog/posts/</loc>
+    <lastmod>2026-04-18T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1318/blog/tags/programming/</loc>
+    <lastmod>2026-04-18T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1318/blog/tags/</loc>
+    <lastmod>2026-04-18T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1318/blog/</loc>
+    <lastmod>2026-04-18T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1318/blog/posts/2026/0418/</loc>
+    <lastmod>2026-04-18T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1318/blog/tags/ai-agent/</loc>
     <lastmod>2025-10-08T17:46:31+09:00</lastmod>
   </url><url>
-    <loc>https://www.velengel.com/blog/posts/2025/1008/</loc>
+    <loc>http://localhost:1318/blog/posts/2025/1008/</loc>
     <lastmod>2025-10-08T17:46:31+09:00</lastmod>
   </url><url>
-    <loc>https://www.velengel.com/blog/posts/</loc>
-    <lastmod>2025-10-08T17:46:31+09:00</lastmod>
-  </url><url>
-    <loc>https://www.velengel.com/blog/tags/programming/</loc>
-    <lastmod>2025-10-08T17:46:31+09:00</lastmod>
-  </url><url>
-    <loc>https://www.velengel.com/blog/tags/</loc>
-    <lastmod>2025-10-08T17:46:31+09:00</lastmod>
-  </url><url>
-    <loc>https://www.velengel.com/blog/</loc>
-    <lastmod>2025-10-08T17:46:31+09:00</lastmod>
-  </url><url>
-    <loc>https://www.velengel.com/blog/tags/bash/</loc>
+    <loc>http://localhost:1318/blog/tags/bash/</loc>
     <lastmod>2025-07-21T09:11:30+09:00</lastmod>
   </url><url>
-    <loc>https://www.velengel.com/blog/tags/mackerel/</loc>
+    <loc>http://localhost:1318/blog/tags/mackerel/</loc>
     <lastmod>2025-07-21T09:11:30+09:00</lastmod>
   </url><url>
-    <loc>https://www.velengel.com/blog/posts/2025/0721/</loc>
+    <loc>http://localhost:1318/blog/posts/2025/0721/</loc>
     <lastmod>2025-07-21T09:11:30+09:00</lastmod>
   </url><url>
-    <loc>https://www.velengel.com/blog/tags/%E5%8B%89%E5%BC%B7%E4%BC%9A/</loc>
+    <loc>http://localhost:1318/blog/tags/%E5%8B%89%E5%BC%B7%E4%BC%9A/</loc>
     <lastmod>2025-06-15T20:31:10+09:00</lastmod>
   </url><url>
-    <loc>https://www.velengel.com/blog/posts/2025/0615/</loc>
+    <loc>http://localhost:1318/blog/posts/2025/0615/</loc>
     <lastmod>2025-06-15T20:31:10+09:00</lastmod>
   </url><url>
-    <loc>https://www.velengel.com/blog/tags/poc/</loc>
+    <loc>http://localhost:1318/blog/tags/poc/</loc>
     <lastmod>2025-06-13T20:33:32+09:00</lastmod>
   </url><url>
-    <loc>https://www.velengel.com/blog/posts/2025/0613/</loc>
+    <loc>http://localhost:1318/blog/posts/2025/0613/</loc>
     <lastmod>2025-06-13T20:33:32+09:00</lastmod>
   </url><url>
-    <loc>https://www.velengel.com/blog/pages/</loc>
+    <loc>http://localhost:1318/blog/pages/</loc>
     <lastmod>2025-02-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.velengel.com/blog/pages/bio/</loc>
+    <loc>http://localhost:1318/blog/pages/bio/</loc>
     <lastmod>2025-02-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.velengel.com/blog/tags/c/</loc>
+    <loc>http://localhost:1318/blog/tags/c/</loc>
     <lastmod>2025-01-05T11:03:57+09:00</lastmod>
   </url><url>
-    <loc>https://www.velengel.com/blog/posts/2025/0105/</loc>
+    <loc>http://localhost:1318/blog/posts/2025/0105/</loc>
     <lastmod>2025-01-05T11:03:57+09:00</lastmod>
   </url><url>
-    <loc>https://www.velengel.com/blog/posts/2024/0713/</loc>
+    <loc>http://localhost:1318/blog/posts/2024/0713/</loc>
     <lastmod>2024-07-13T17:03:14+09:00</lastmod>
   </url><url>
-    <loc>https://www.velengel.com/blog/posts/2024/0525/</loc>
+    <loc>http://localhost:1318/blog/posts/2024/0525/</loc>
     <lastmod>2024-05-25T20:11:20+09:00</lastmod>
   </url><url>
-    <loc>https://www.velengel.com/blog/posts/2024/0104/</loc>
+    <loc>http://localhost:1318/blog/posts/2024/0104/</loc>
     <lastmod>2024-01-04T09:53:32+09:00</lastmod>
   </url><url>
-    <loc>https://www.velengel.com/blog/tags/memo/</loc>
+    <loc>http://localhost:1318/blog/tags/memo/</loc>
     <lastmod>2023-12-11T21:04:36+09:00</lastmod>
   </url><url>
-    <loc>https://www.velengel.com/blog/posts/2023/1211/</loc>
+    <loc>http://localhost:1318/blog/posts/2023/1211/</loc>
     <lastmod>2023-12-11T21:04:36+09:00</lastmod>
   </url><url>
-    <loc>https://www.velengel.com/blog/tags/vue/</loc>
+    <loc>http://localhost:1318/blog/tags/vue/</loc>
     <lastmod>2023-10-15T13:57:31+09:00</lastmod>
   </url><url>
-    <loc>https://www.velengel.com/blog/posts/2023/1015/</loc>
+    <loc>http://localhost:1318/blog/posts/2023/1015/</loc>
     <lastmod>2023-10-15T13:57:31+09:00</lastmod>
   </url><url>
-    <loc>https://www.velengel.com/blog/tags/loupedeck/</loc>
+    <loc>http://localhost:1318/blog/tags/loupedeck/</loc>
     <lastmod>2023-07-25T20:15:11+09:00</lastmod>
   </url><url>
-    <loc>https://www.velengel.com/blog/posts/2023/0725/</loc>
+    <loc>http://localhost:1318/blog/posts/2023/0725/</loc>
     <lastmod>2023-07-25T20:15:11+09:00</lastmod>
   </url><url>
-    <loc>https://www.velengel.com/blog/tags/uri%E3%82%B9%E3%82%AD%E3%83%BC%E3%83%A0/</loc>
+    <loc>http://localhost:1318/blog/tags/uri%E3%82%B9%E3%82%AD%E3%83%BC%E3%83%A0/</loc>
     <lastmod>2023-07-25T20:15:11+09:00</lastmod>
   </url><url>
-    <loc>https://www.velengel.com/blog/tags/windows/</loc>
+    <loc>http://localhost:1318/blog/tags/windows/</loc>
     <lastmod>2023-07-25T20:15:11+09:00</lastmod>
   </url><url>
-    <loc>https://www.velengel.com/blog/categories/</loc>
+    <loc>http://localhost:1318/blog/categories/</loc>
     <lastmod>2023-07-19T22:23:52+09:00</lastmod>
   </url><url>
-    <loc>https://www.velengel.com/blog/tags/php/</loc>
+    <loc>http://localhost:1318/blog/tags/php/</loc>
     <lastmod>2023-07-19T22:23:52+09:00</lastmod>
   </url><url>
-    <loc>https://www.velengel.com/blog/posts/2023/0719/</loc>
+    <loc>http://localhost:1318/blog/posts/2023/0719/</loc>
     <lastmod>2023-07-19T22:23:52+09:00</lastmod>
   </url><url>
-    <loc>https://www.velengel.com/blog/categories/tech/</loc>
+    <loc>http://localhost:1318/blog/categories/tech/</loc>
     <lastmod>2023-07-19T22:23:52+09:00</lastmod>
   </url><url>
-    <loc>https://www.velengel.com/blog/posts/2023/0717/</loc>
+    <loc>http://localhost:1318/blog/posts/2023/0717/</loc>
     <lastmod>2023-07-17T21:38:31+09:00</lastmod>
   </url><url>
-    <loc>https://www.velengel.com/blog/posts/my-first-post/</loc>
+    <loc>http://localhost:1318/blog/posts/my-first-post/</loc>
     <lastmod>2023-07-17T14:07:54+09:00</lastmod>
   </url><url>
-    <loc>https://www.velengel.com/blog/archives/</loc>
+    <loc>http://localhost:1318/blog/archives/</loc>
   </url><url>
-    <loc>https://www.velengel.com/blog/search/</loc>
+    <loc>http://localhost:1318/blog/search/</loc>
   </url>
 </urlset>

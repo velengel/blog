@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pages on Vel Labs(ベル研究所)</title>
-    <link>https://www.velengel.com/blog/pages/</link>
+    <link>http://localhost:1318/blog/pages/</link>
     <description>Recent content in Pages on Vel Labs(ベル研究所)</description>
     <generator>Hugo</generator>
     <language>ja</language>
     <lastBuildDate>Fri, 14 Feb 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://www.velengel.com/blog/pages/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1318/blog/pages/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>自己紹介</title>
-      <link>https://www.velengel.com/blog/pages/bio/</link>
+      <link>http://localhost:1318/blog/pages/bio/</link>
       <pubDate>Fri, 14 Feb 2025 00:00:00 +0000</pubDate>
-      <guid>https://www.velengel.com/blog/pages/bio/</guid>
+      <guid>http://localhost:1318/blog/pages/bio/</guid>
       <description>&lt;h2 id=&#34;エンジニアリングマネージャー見習い&#34;&gt;エンジニアリングマネージャー見習い&lt;/h2&gt;&#xA;&lt;h2 id=&#34;infrastructure-as-code-iac&#34;&gt;Infrastructure as Code (IaC)&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Ansible&lt;/li&gt;&#xA;&lt;li&gt;Terraform&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;アプリケーション&#34;&gt;アプリケーション&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Perl&lt;/li&gt;&#xA;&lt;li&gt;Vue.js&lt;/li&gt;&#xA;&lt;li&gt;Scala&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;ミドルウェア&#34;&gt;ミドルウェア&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Apache&lt;/li&gt;&#xA;&lt;li&gt;Nginx&lt;/li&gt;&#xA;&lt;li&gt;Fluentd&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;クラウド&#34;&gt;クラウド&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;AWS&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;その他趣味&#34;&gt;その他趣味&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;楽器演奏&#xA;&lt;ul&gt;&#xA;&lt;li&gt;ドラム🥁&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;作曲(ボカロ P)&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
   </channel>
