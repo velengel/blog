@@ -31,6 +31,13 @@ git submodule update --init --recursive
 * `static/cover` に画像を配置
 * 該当の md ファイル(ex. `content/posts/2025/0105.md`)の images のところに設定
 
+## X の埋め込み
+* Hugo の `x` shortcode を使う
+  * 例: `{{< x user="velengel_dev" id="2076103660812300474" >}}`
+* `hugo` 実行時に `publish.x.com` から oEmbed を取得する
+  * ネットワークが使えない環境だと shortcode が空になり、HTML に埋め込みが出ない
+  * その場合はネットワーク許可ありで `hugo` を実行し直す
+
 ## textlintのかけ方
 
 ```bash
