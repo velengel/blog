@@ -1,0 +1,4 @@
+interface:
+  display_name: "Blog Review"
+  short_description: "Review blog posts for engineer readers."
+  default_prompt: "Use $blog-review to review this blog post from an engineer-reader perspective and prioritize concrete improvements."
