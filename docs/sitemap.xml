@@ -2,19 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1318/blog/posts/</loc>
+    <lastmod>2026-07-12T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1318/blog/tags/</loc>
+    <lastmod>2026-07-12T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1318/blog/</loc>
+    <lastmod>2026-07-12T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1318/blog/tags/%E5%8B%89%E5%BC%B7%E4%BC%9A/</loc>
+    <lastmod>2026-07-12T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1318/blog/posts/2026/0712/</loc>
+    <lastmod>2026-07-12T00:00:00+09:00</lastmod>
+  </url><url>
     <loc>http://localhost:1318/blog/tags/game/</loc>
     <lastmod>2026-04-18T00:00:00+09:00</lastmod>
   </url><url>
-    <loc>http://localhost:1318/blog/posts/</loc>
-    <lastmod>2026-04-18T00:00:00+09:00</lastmod>
-  </url><url>
     <loc>http://localhost:1318/blog/tags/programming/</loc>
-    <lastmod>2026-04-18T00:00:00+09:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1318/blog/tags/</loc>
-    <lastmod>2026-04-18T00:00:00+09:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1318/blog/</loc>
     <lastmod>2026-04-18T00:00:00+09:00</lastmod>
   </url><url>
     <loc>http://localhost:1318/blog/posts/2026/0418/</loc>
@@ -34,9 +40,6 @@
   </url><url>
     <loc>http://localhost:1318/blog/posts/2025/0721/</loc>
     <lastmod>2025-07-21T09:11:30+09:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1318/blog/tags/%E5%8B%89%E5%BC%B7%E4%BC%9A/</loc>
-    <lastmod>2025-06-15T20:31:10+09:00</lastmod>
   </url><url>
     <loc>http://localhost:1318/blog/posts/2025/0615/</loc>
     <lastmod>2025-06-15T20:31:10+09:00</lastmod>

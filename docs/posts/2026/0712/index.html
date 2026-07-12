@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+
+<html lang="en" itemscope itemtype="https://schema.org/BlogPosting">
+  <head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1318&amp;path=blog/livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+  
+
+<title>関数型まつり2026に行ってきた話</title>
+
+  <meta name="description" content="概要 今年も行ってきました
+#fp_matsuri pic.twitter.com/meZFIcCXJq
+&amp;mdash; velengel (@velengel_dev) July 12, 2026 動機 元々予定はなかったが、たまたま土日完全オフだったので土曜を休息日にして日曜行くことに決めた 土日完全オフは今年に入って二回目 自戒：もっと休もう 去年思った以上に旧交があったまったので、今年も誰かいるといいなーという気持ちがあった あとは数学と関数型の風を浴びたかった 雑感 全部面白かった or/and 興味深かった ほんとに来てよかった 旧交はあったまらなかった 最初から最後までソロだった 昼に居酒屋で食べた刺身定食は美味しかった pic.twitter.com/43MwAxHqj1
+&amp;mdash; velengel (@velengel_dev) July 12, 2026 今日のセッションでもあったけどパーサーって学習・理解にちょうどいい大きさの問題だと改めて思った ある程度の正解がある 業プロでありがちな妙な「要求」がない 問題として大きすぎない ステップバイステップで動くものを育てる形で進められる いつも使っている言語の裏側の一部を触る感覚が味わえる ざっくり理解と厳密な証明・検証は分けて考えると効率的だとわかった codexにもそう観点を与えるようにした 最初にざっくり理解と具体例、最後に厳密な補足 デモはやっぱいいなあと思った 何か視覚的にグラフが動くアプリや、音が聞こえてくるとやっぱり楽しい track Bの機材の調子が悪そうだった 前日にセッション選んでcodexに作らせた画像が大活躍だった 休憩が豊富なのがありがたい 昼が90分 夕方の休憩がある その上でクロージングも18時過ぎに終わる！早い！ 他の勉強会だと休憩50分とかでなんならそこにもセッションが詰め込まれてたりするので 前日の資料で空き時間に読んだものとかをまとめるmdを作って、codexに適宜投げて感想と学びをざっとまとめるようにした 今までこういう情報がどっかいってた(読んで終わりになってた)ので、まとめるの大事 わからない数学の用語とかもcodexでその場で聞けるのでとてもいい時代になったなと思った それでも抑えきれてない背景概念とかはまたゆっくり楽しみとして学ぶことにしましょう 好奇心エネルギーとしてとっておく 抑えきれない知識を抑えきれない好奇心エネルギーに変換 話だけは聞いてた関数型ドメインモデリングをぽちった 何か言語を作りたくなった 去年軽くymlのパーサーは書いてみたけど 印象に残ったセッション 午前 霧の中の代数的エフェクト
+一度理解しようとして撃沈した過去をちゃんと書いていてとてもわかるとなった 僕も何回も撃沈している 右上の[理論][整理]などのラベルがわかりやすい ざっくり理解→厳密説明の流れがすっごく入ってきやすい 関手やモナドのざっくり理解で随伴から「モナドが得られる」まで持っていってもらったの本当に感謝している 理論側と実装側もこれもレイヤー分けしているのが良い 本当にモデル化と説明が上手くて綺麗だなと思う どこかでちゃんと厳密な意味も追っておこうと思いました 午後前半 音楽のための関数型プログラミング言語mimiumにおける多段階計算の活用
+音のデモすごい楽しくてよかった こういうのしたかったんだよ、なんで音系の研究室選ばなかったんだろうな(まだ言ってる) やっぱLLMとかAIじゃなくて技術で思想を作ってる人ってかっこいいよね 生成AIに食傷気味だったので今日一日通してとても興味エネルギーが回復した 作りたいもののために楽しいパートとめんどいパートがあって、めんどい方を任せられるようになったと言ってたのが「わかる〜〜〜」となった パフォーマンスのトレードオフの図(p45)がサラッと言ってたけど泥臭い試行錯誤の上に気づいた学びなんだろうなととても敬意 空いてるときにmimium触ってみます 午後後半 アルゴリズムは何を圧縮しているのか ─ Haskell から育った「圧縮代数」というメンタルモデル">
+
+
+  <meta name="keywords" content="勉強会">
+
+<meta name="generator" content="Hugo 0.154.5">
+
+  <meta name="author" content="velengel">
+  
+    <link rel="author" href="https://github.com/velengel">
+  
+
+<link rel="canonical" href="http://localhost:1318/blog/posts/2026/0712/">
+
+
+  
+    <link rel="sitemap" type="application/xml" href="/blog/sitemap.xml">
+  
+
+
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/blog/bundle.min.b19546808a826089b9e8f88a778cf704ea012e440cd7ef3658ded5cee65699de.css">
+
+    <link rel="icon" href="/blog/icon.png">
+
+    
+  <meta property="og:type" content="article">
+
+<meta property="og:site_name" content="Vel Labs(ベル研究所)">
+
+  <meta property="og:title" content="関数型まつり2026に行ってきた話">
+
+
+  <meta property="og:description" content="概要 今年も行ってきました
+#fp_matsuri pic.twitter.com/meZFIcCXJq
+&amp;mdash; velengel (@velengel_dev) July 12, 2026 動機 元々予定はなかったが、たまたま土日完全オフだったので土曜を休息日にして日曜行くことに決めた 土日完全オフは今年に入って二回目 自戒：もっと休もう 去年思った以上に旧交があったまったので、今年も誰かいるといいなーという気持ちがあった あとは数学と関数型の風を浴びたかった 雑感 全部面白かった or/and 興味深かった ほんとに来てよかった 旧交はあったまらなかった 最初から最後までソロだった 昼に居酒屋で食べた刺身定食は美味しかった pic.twitter.com/43MwAxHqj1
+&amp;mdash; velengel (@velengel_dev) July 12, 2026 今日のセッションでもあったけどパーサーって学習・理解にちょうどいい大きさの問題だと改めて思った ある程度の正解がある 業プロでありがちな妙な「要求」がない 問題として大きすぎない ステップバイステップで動くものを育てる形で進められる いつも使っている言語の裏側の一部を触る感覚が味わえる ざっくり理解と厳密な証明・検証は分けて考えると効率的だとわかった codexにもそう観点を与えるようにした 最初にざっくり理解と具体例、最後に厳密な補足 デモはやっぱいいなあと思った 何か視覚的にグラフが動くアプリや、音が聞こえてくるとやっぱり楽しい track Bの機材の調子が悪そうだった 前日にセッション選んでcodexに作らせた画像が大活躍だった 休憩が豊富なのがありがたい 昼が90分 夕方の休憩がある その上でクロージングも18時過ぎに終わる！早い！ 他の勉強会だと休憩50分とかでなんならそこにもセッションが詰め込まれてたりするので 前日の資料で空き時間に読んだものとかをまとめるmdを作って、codexに適宜投げて感想と学びをざっとまとめるようにした 今までこういう情報がどっかいってた(読んで終わりになってた)ので、まとめるの大事 わからない数学の用語とかもcodexでその場で聞けるのでとてもいい時代になったなと思った それでも抑えきれてない背景概念とかはまたゆっくり楽しみとして学ぶことにしましょう 好奇心エネルギーとしてとっておく 抑えきれない知識を抑えきれない好奇心エネルギーに変換 話だけは聞いてた関数型ドメインモデリングをぽちった 何か言語を作りたくなった 去年軽くymlのパーサーは書いてみたけど 印象に残ったセッション 午前 霧の中の代数的エフェクト
+一度理解しようとして撃沈した過去をちゃんと書いていてとてもわかるとなった 僕も何回も撃沈している 右上の[理論][整理]などのラベルがわかりやすい ざっくり理解→厳密説明の流れがすっごく入ってきやすい 関手やモナドのざっくり理解で随伴から「モナドが得られる」まで持っていってもらったの本当に感謝している 理論側と実装側もこれもレイヤー分けしているのが良い 本当にモデル化と説明が上手くて綺麗だなと思う どこかでちゃんと厳密な意味も追っておこうと思いました 午後前半 音楽のための関数型プログラミング言語mimiumにおける多段階計算の活用
+音のデモすごい楽しくてよかった こういうのしたかったんだよ、なんで音系の研究室選ばなかったんだろうな(まだ言ってる) やっぱLLMとかAIじゃなくて技術で思想を作ってる人ってかっこいいよね 生成AIに食傷気味だったので今日一日通してとても興味エネルギーが回復した 作りたいもののために楽しいパートとめんどいパートがあって、めんどい方を任せられるようになったと言ってたのが「わかる〜〜〜」となった パフォーマンスのトレードオフの図(p45)がサラッと言ってたけど泥臭い試行錯誤の上に気づいた学びなんだろうなととても敬意 空いてるときにmimium触ってみます 午後後半 アルゴリズムは何を圧縮しているのか ─ Haskell から育った「圧縮代数」というメンタルモデル">
+
+<meta property="og:url" content="http://localhost:1318/blog/posts/2026/0712/">
+
+
+    
+  <meta itemprop="name" content="関数型まつり2026に行ってきた話">
+
+
+  <meta itemprop="description" content="概要 今年も行ってきました
+#fp_matsuri pic.twitter.com/meZFIcCXJq
+&amp;mdash; velengel (@velengel_dev) July 12, 2026 動機 元々予定はなかったが、たまたま土日完全オフだったので土曜を休息日にして日曜行くことに決めた 土日完全オフは今年に入って二回目 自戒：もっと休もう 去年思った以上に旧交があったまったので、今年も誰かいるといいなーという気持ちがあった あとは数学と関数型の風を浴びたかった 雑感 全部面白かった or/and 興味深かった ほんとに来てよかった 旧交はあったまらなかった 最初から最後までソロだった 昼に居酒屋で食べた刺身定食は美味しかった pic.twitter.com/43MwAxHqj1
+&amp;mdash; velengel (@velengel_dev) July 12, 2026 今日のセッションでもあったけどパーサーって学習・理解にちょうどいい大きさの問題だと改めて思った ある程度の正解がある 業プロでありがちな妙な「要求」がない 問題として大きすぎない ステップバイステップで動くものを育てる形で進められる いつも使っている言語の裏側の一部を触る感覚が味わえる ざっくり理解と厳密な証明・検証は分けて考えると効率的だとわかった codexにもそう観点を与えるようにした 最初にざっくり理解と具体例、最後に厳密な補足 デモはやっぱいいなあと思った 何か視覚的にグラフが動くアプリや、音が聞こえてくるとやっぱり楽しい track Bの機材の調子が悪そうだった 前日にセッション選んでcodexに作らせた画像が大活躍だった 休憩が豊富なのがありがたい 昼が90分 夕方の休憩がある その上でクロージングも18時過ぎに終わる！早い！ 他の勉強会だと休憩50分とかでなんならそこにもセッションが詰め込まれてたりするので 前日の資料で空き時間に読んだものとかをまとめるmdを作って、codexに適宜投げて感想と学びをざっとまとめるようにした 今までこういう情報がどっかいってた(読んで終わりになってた)ので、まとめるの大事 わからない数学の用語とかもcodexでその場で聞けるのでとてもいい時代になったなと思った それでも抑えきれてない背景概念とかはまたゆっくり楽しみとして学ぶことにしましょう 好奇心エネルギーとしてとっておく 抑えきれない知識を抑えきれない好奇心エネルギーに変換 話だけは聞いてた関数型ドメインモデリングをぽちった 何か言語を作りたくなった 去年軽くymlのパーサーは書いてみたけど 印象に残ったセッション 午前 霧の中の代数的エフェクト
+一度理解しようとして撃沈した過去をちゃんと書いていてとてもわかるとなった 僕も何回も撃沈している 右上の[理論][整理]などのラベルがわかりやすい ざっくり理解→厳密説明の流れがすっごく入ってきやすい 関手やモナドのざっくり理解で随伴から「モナドが得られる」まで持っていってもらったの本当に感謝している 理論側と実装側もこれもレイヤー分けしているのが良い 本当にモデル化と説明が上手くて綺麗だなと思う どこかでちゃんと厳密な意味も追っておこうと思いました 午後前半 音楽のための関数型プログラミング言語mimiumにおける多段階計算の活用
+音のデモすごい楽しくてよかった こういうのしたかったんだよ、なんで音系の研究室選ばなかったんだろうな(まだ言ってる) やっぱLLMとかAIじゃなくて技術で思想を作ってる人ってかっこいいよね 生成AIに食傷気味だったので今日一日通してとても興味エネルギーが回復した 作りたいもののために楽しいパートとめんどいパートがあって、めんどい方を任せられるようになったと言ってたのが「わかる〜〜〜」となった パフォーマンスのトレードオフの図(p45)がサラッと言ってたけど泥臭い試行錯誤の上に気づいた学びなんだろうなととても敬意 空いてるときにmimium触ってみます 午後後半 アルゴリズムは何を圧縮しているのか ─ Haskell から育った「圧縮代数」というメンタルモデル">
+
+
+  <meta itemprop="keywords" content="勉強会">
+
+
+  
+  
+    <meta itemprop="datePublished" content="2026-07-12T00:00:00+09:00">
+  
+  
+    
+      <meta itemprop="dateModified" content="2026-07-12T00:00:00+09:00">
+    
+  
+
+
+<link itemprop="url" href="http://localhost:1318/blog/posts/2026/0712/">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\(", right: "\\)", display: false},
+        {left: "\\[", right: "\\]", display: true}
+      ],
+      throwOnError: false
+    });
+  });
+</script>
+
+    
+  
+
+
+    
+  </head>
+  <body>
+    <div id="container">
+      <header id="top">
+  <div id="header-grid">
+    
+      <div id="site-title">
+        <a href="/blog/">Vel Labs(ベル研究所)</a>
+      </div>
+    
+    
+      
+        <p id="description">エンジニアリングマネージャー見習いの個人開発備忘録</p>
+      
+    
+  </div>
+</header>
+
+      <div id="middle">
+        <div id="content" class="column">
+          
+          
+            <nav id="breadcrumb" class="pane">
+              
+
+
+  
+  
+  <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+      
+  
+  
+    
+      
+  
+  
+    
+    
+    
+      <li><a href="/blog/">Vel Labs(ベル研究所)</a></li>
+    
+  
+
+      
+    
+    
+    
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="/blog/posts/" itemprop="item"><span itemprop="name">Posts</span></a>
+        <meta itemprop="position" content="1">
+      </li>
+    
+  
+
+      
+    
+    
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="page">
+      <a aria-current="location"><span itemprop="name">関数型まつり2026に行ってきた話</span></a>
+      <meta itemprop="position" content="2">
+    </li>
+  </ol>
+
+
+            </nav>
+          
+          
+          <main class="pane">
+            
+  
+
+
+
+<article class="single">
+  <header>
+    <h1 class="title" itemprop="headline">関数型まつり2026に行ってきた話</h1>
+    
+      <div class="time">
+        
+          <div><time datetime="2026-07-12"> 2026/07/12</time></div>
+        
+      </div>
+    
+  </header>
+  <div class="body">
+    
+      <h2 id="概要">概要</h2>
+<p><a href="https://2026.fp-matsuri.org/">今年</a>も行ってきました</p>
+<blockquote class="twitter-tweet"><p lang="qme" dir="ltr"><a href="https://x.com/hashtag/fp_matsuri?src=hash&amp;ref_src=twsrc%5Etfw">#fp_matsuri</a> <a href="https://t.co/meZFIcCXJq">pic.twitter.com/meZFIcCXJq</a></p>&mdash; velengel (@velengel_dev) <a href="https://x.com/velengel_dev/status/2076103660812300474?ref_src=twsrc%5Etfw">July 12, 2026</a></blockquote>
+<script async src="https://platform.x.com/widgets.js" charset="utf-8"></script>
+
+
+<h2 id="動機">動機</h2>
+<ul>
+<li>元々予定はなかったが、たまたま土日完全オフだったので土曜を休息日にして日曜行くことに決めた
+<ul>
+<li>土日完全オフは今年に入って二回目</li>
+<li>自戒：もっと休もう</li>
+</ul>
+</li>
+<li>去年思った以上に旧交があったまったので、今年も誰かいるといいなーという気持ちがあった</li>
+<li>あとは数学と関数型の風を浴びたかった</li>
+</ul>
+<h2 id="雑感">雑感</h2>
+<ul>
+<li>全部面白かった or/and 興味深かった ほんとに来てよかった</li>
+<li>旧交はあったまらなかった
+<ul>
+<li>最初から最後までソロだった</li>
+<li>昼に居酒屋で食べた刺身定食は美味しかった</li>
+</ul>
+</li>
+</ul>
+<blockquote class="twitter-tweet"><p lang="zxx" dir="ltr"><a href="https://t.co/43MwAxHqj1">pic.twitter.com/43MwAxHqj1</a></p>&mdash; velengel (@velengel_dev) <a href="https://x.com/velengel_dev/status/2076152370854334827?ref_src=twsrc%5Etfw">July 12, 2026</a></blockquote>
+<script async src="https://platform.x.com/widgets.js" charset="utf-8"></script>
+
+
+<ul>
+<li>今日のセッションでもあったけどパーサーって学習・理解にちょうどいい大きさの問題だと改めて思った
+<ul>
+<li>ある程度の正解がある</li>
+<li>業プロでありがちな妙な「要求」がない</li>
+<li>問題として大きすぎない</li>
+<li>ステップバイステップで動くものを育てる形で進められる</li>
+<li>いつも使っている言語の裏側の一部を触る感覚が味わえる</li>
+</ul>
+</li>
+<li>ざっくり理解と厳密な証明・検証は分けて考えると効率的だとわかった
+<ul>
+<li>codexにもそう観点を与えるようにした</li>
+<li>最初にざっくり理解と具体例、最後に厳密な補足</li>
+</ul>
+</li>
+<li>デモはやっぱいいなあと思った
+<ul>
+<li>何か視覚的にグラフが動くアプリや、音が聞こえてくるとやっぱり楽しい</li>
+</ul>
+</li>
+<li>track Bの機材の調子が悪そうだった</li>
+<li>前日にセッション選んでcodexに作らせた画像が大活躍だった</li>
+</ul>
+<p>
+  <img src="images/image.png" alt="関数型まつり2026のセッション選定メモ">
+
+</p>
+<ul>
+<li>休憩が豊富なのがありがたい
+<ul>
+<li>昼が90分</li>
+<li>夕方の休憩がある</li>
+<li>その上でクロージングも18時過ぎに終わる！早い！</li>
+<li>他の勉強会だと休憩50分とかでなんならそこにもセッションが詰め込まれてたりするので</li>
+</ul>
+</li>
+<li>前日の資料で空き時間に読んだものとかをまとめるmdを作って、codexに適宜投げて感想と学びをざっとまとめるようにした
+<ul>
+<li>今までこういう情報がどっかいってた(読んで終わりになってた)ので、まとめるの大事</li>
+</ul>
+</li>
+<li>わからない数学の用語とかもcodexでその場で聞けるのでとてもいい時代になったなと思った
+<ul>
+<li>それでも抑えきれてない背景概念とかはまたゆっくり楽しみとして学ぶことにしましょう</li>
+<li>好奇心エネルギーとしてとっておく
+<ul>
+<li>抑えきれない知識を抑えきれない好奇心エネルギーに変換</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>話だけは聞いてた<a href="https://amzn.asia/d/0caHDrLl">関数型ドメインモデリング</a>をぽちった</li>
+<li>何か言語を作りたくなった
+<ul>
+<li>去年軽く<a href="https://www.velengel.com/yaml-ast/">ymlのパーサー</a>は書いてみたけど</li>
+</ul>
+</li>
+</ul>
+<h2 id="印象に残ったセッション">印象に残ったセッション</h2>
+<h3 id="午前">午前</h3>
+<p><a href="https://speakerdeck.com/funnyycat/wu-nozhong-nodai-shu-de-ehuekuto">霧の中の代数的エフェクト</a></p>
+<ul>
+<li>一度理解しようとして撃沈した過去をちゃんと書いていてとてもわかるとなった
+<ul>
+<li>僕も何回も撃沈している</li>
+</ul>
+</li>
+<li>右上の[理論][整理]などのラベルがわかりやすい</li>
+<li>ざっくり理解→厳密説明の流れがすっごく入ってきやすい
+<ul>
+<li>関手やモナドのざっくり理解で随伴から「モナドが得られる」まで持っていってもらったの本当に感謝している</li>
+</ul>
+</li>
+<li>理論側と実装側もこれもレイヤー分けしているのが良い
+<ul>
+<li>本当にモデル化と説明が上手くて綺麗だなと思う</li>
+</ul>
+</li>
+<li>どこかでちゃんと厳密な意味も追っておこうと思いました</li>
+</ul>
+<h3 id="午後前半">午後前半</h3>
+<p><a href="https://matsuuratomoya.com/research/kansuugatamatsuri-2026/">音楽のための関数型プログラミング言語mimiumにおける多段階計算の活用</a></p>
+<ul>
+<li>音のデモすごい楽しくてよかった</li>
+<li>こういうのしたかったんだよ、<del>なんで音系の研究室選ばなかったんだろうな</del>(まだ言ってる)</li>
+<li>やっぱLLMとかAIじゃなくて技術で思想を作ってる人ってかっこいいよね
+<ul>
+<li>生成AIに食傷気味だったので今日一日通してとても興味エネルギーが回復した</li>
+<li>作りたいもののために楽しいパートとめんどいパートがあって、めんどい方を任せられるようになったと言ってたのが「わかる〜〜〜」となった</li>
+</ul>
+</li>
+<li>パフォーマンスのトレードオフの図(p45)がサラッと言ってたけど泥臭い試行錯誤の上に気づいた学びなんだろうなととても敬意</li>
+<li>空いてるときにmimium触ってみます</li>
+</ul>
+<h3 id="午後後半">午後後半</h3>
+<p><a href="https://speakerdeck.com/naoya/compressed-algebra-with-haskell">アルゴリズムは何を圧縮しているのか ─ Haskell から育った「圧縮代数」というメンタルモデル</a></p>
+<ul>
+<li>今日の中で一番視点として新しかった</li>
+<li>こういうモデル化をAIと対話しながらやるのは自分もしょっちゅうやってるのでとても共感できた</li>
+<li>Haskellちゃんとやってると抽象と具体を行き来できるようになるんですかね、やっぱり</li>
+<li>これも2レイヤーに分けての説明だった
+<ul>
+<li>操作的と意味的</li>
+<li>圧縮代数と評価器
+<ul>
+<li>意味と評価</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>妄想スライドが一番アツかった</li>
+<li>競プロの概念忘れかけでもギリ覚えてるくらいのものを例にしてくれて助かった
+<ul>
+<li>セグ木とか累積話とかね</li>
+</ul>
+</li>
+</ul>
+<h2 id="todoやりたいこと">TODO/やりたいこと</h2>
+<ul>
+<li>mmm触ってみる</li>
+<li>関数型ドメインモデリングを読む</li>
+<li>なんか色々言語やパーサーを作ってみる</li>
+<li><a href="https://github.com/fp-matsuri/fp-in-scala-exercises">ハンズオン</a>を軽く動かしてみる</li>
+</ul>
+
+    
+  </div>
+  <footer>
+    
+    
+    
+      
+    
+    
+    
+    
+      
+    
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+    
+    
+    
+      <table class="taxonomy-table">
+        <tbody>
+          
+            <tr>
+              <th>セクション:</th>
+              <td>
+                <div class="folder">
+                  <a href="/blog/posts/">Posts</a>
+                </div>
+              </td>
+            </tr>
+          
+          
+            <tr>
+              <th>Tags:</th>
+              <td>
+                <ul class="tags">
+                  
+                    <li class="tagged"><a href="/blog/tags/%E5%8B%89%E5%BC%B7%E4%BC%9A/">勉強会</a></li>
+                  
+                </ul>
+              </td>
+            </tr>
+          
+          
+            
+          
+            
+              
+            
+          
+            
+              
+            
+          
+            
+          
+        </tbody>
+      </table>
+    
+    
+      
+      
+      
+        
+        
+      
+      
+        <div class="author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+          
+            <a rel="author" href="https://github.com/velengel" itemprop="url"><span itemprop="name">velengel</span></a>
+          
+        </div>
+      
+    
+  </footer>
+</article>
+
+
+          </main>
+          
+          
+  
+    
+    
+    
+      <nav class="prev-next">
+        
+        
+          <a class="prev" href="/blog/posts/2026/0418/" title="前の記事: ガラケーのドラクエを再現して得た学び">ガラケーのドラクエを再現して得た学び</a>
+        
+      </nav>
+    
+  
+
+          
+            
+
+
+
+  
+
+
+  <nav class="pane">
+    <header class="component-title">次に読む</header>
+    <ul class="dense">
+      
+        <li><a href="/blog/posts/2025/0615/">関数型まつり 2025に行ってきた話</a></li>
+      
+        <li><a href="/blog/posts/2025/0721/">shellの実行形式の違いでハマった話</a></li>
+      
+        <li><a href="/blog/posts/2025/0105/">texteditor途中まで作った</a></li>
+      
+    </ul>
+  </nav>
+
+
+          
+          
+        </div>
+        <aside id="sidebar" class="column">
+  <div class="pane sidebar-top">
+  <div class="profile">
+    <a href="/blog/pages/bio">
+      <img class="avatar" src="/blog/bio.png">
+    </a>
+    <div class="name">
+      <a href="/blog/pages/bio">velengel</a>
+    </div>
+  </div>
+  <p>技術とマネジメントの二刀流⚔</p>
+</div>
+
+  
+<nav class="pane">
+  <ul>
+    
+      <li>
+        <a href="/blog/">Vel Labs(ベル研究所)</a>
+      </li>
+    
+    
+      <li>
+        <a href="/blog/pages/bio/">自己紹介</a>
+      </li>
+    
+    
+      <li>
+        <a href="/blog/archives/">Archives</a>
+      </li>
+    
+    
+      <li>
+        <a href="/blog/search/">Search</a>
+      </li>
+    
+    
+      <li>
+        <a href="/blog/index.xml">RSS</a>
+      </li>
+    
+  </ul>
+</nav>
+
+  
+
+  
+    
+      <nav class="pane">
+        <form class="sidebar-search-form" method="get" action="/blog/search/">
+          <input required type="search" name="q" id="query" aria-label="検索クエリ">
+          <input type="submit" value="検索">
+        </form>
+      </nav>
+    
+  
+
+
+  
+
+
+  
+    <nav class="pane">
+      
+  
+    <ul class="folders">
+      
+        
+        <li class="folder">
+          <a href="/blog/posts/">
+            Posts (16) 
+          </a>
+          
+  
+
+        </li>
+      
+        
+        <li class="folder">
+          <a href="/blog/pages/">
+            Pages (1) 
+          </a>
+          
+  
+
+        </li>
+      
+    </ul>
+  
+
+    </nav>
+  
+
+
+  
+
+
+
+  
+    
+    
+    
+    
+    
+    
+      <nav class="pane">
+        <header class="component-title">
+          <a href="/blog/tags/">Tags</a>
+        </header>
+        <ul class="tags">
+          
+            <li class="tagged">
+              <a href="/blog/tags/ai-agent/">AI Agent</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/bash/">Bash</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/c/">C</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/game/">Game</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/loupedeck/">Loupedeck</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/mackerel/">Mackerel</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/memo/">Memo</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/php/">Php</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/poc/">PoC</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/programming/">Programming</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/uri%E3%82%B9%E3%82%AD%E3%83%BC%E3%83%A0/">URIスキーム</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/vue/">Vue</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/windows/">Windows</a>
+            </li>
+          
+            <li class="tagged">
+              <a href="/blog/tags/%E5%8B%89%E5%BC%B7%E4%BC%9A/">勉強会</a>
+            </li>
+          
+        </ul>
+        
+      </nav>
+    
+  
+
+
+  
+  
+
+  
+    
+      <nav class="pane">
+        
+          <header class="component-title">
+            <a href="/blog/categories/">Categories</a>
+          </header>
+          <ul>
+            
+              <li>
+                <a href="/blog/categories/tech/">Tech</a>
+              </li>
+            
+          </ul>
+        
+      </nav>
+    
+  
+
+  
+    
+  
+
+  
+
+
+  
+  
+
+  <nav class="pane">
+    <header class="component-title">最新記事</header>
+    <ul class="dense">
+      
+        <li>
+          <a href="/blog/posts/2026/0712/">関数型まつり2026に行ってきた話</a>
+        </li>
+      
+        <li>
+          <a href="/blog/posts/2026/0418/">ガラケーのドラクエを再現して得た学び</a>
+        </li>
+      
+        <li>
+          <a href="/blog/posts/2025/1008/">AIは趣味開発をどう変えたか？ドメイン移管からゲーム制作まで</a>
+        </li>
+      
+        <li>
+          <a href="/blog/posts/2025/0721/">shellの実行形式の違いでハマった話</a>
+        </li>
+      
+        <li>
+          <a href="/blog/posts/2025/0615/">関数型まつり 2025に行ってきた話</a>
+        </li>
+      
+        <li>
+          <a href="/blog/posts/2025/0613/">ドラムレッスン要約アプリ PoC</a>
+        </li>
+      
+        <li>
+          <a href="/blog/posts/2025/0105/">texteditor途中まで作った</a>
+        </li>
+      
+        <li>
+          <a href="/blog/posts/2024/0713/">windowsの自動起動(スタートアップ)アプリに標準のクロックを入れたい</a>
+        </li>
+      
+        <li>
+          <a href="/blog/posts/2024/0525/">ゼロからのOS自作入門を読み終わった話</a>
+        </li>
+      
+        <li>
+          <a href="/blog/posts/2024/0104/">ラズパイを買って自宅サーバ入門した話</a>
+        </li>
+      
+    </ul>
+  </nav>
+
+
+  
+</aside>
+
+      </div>
+      <footer id="bottom">
+  <small>
+    <a href="/blog/">
+      <span>Vel Labs(ベル研究所)</span>
+    </a>
+    <wbr>
+    <span>
+      
+        
+        
+          ©&nbsp;2023–2026
+        
+        
+          
+            <a href="https://github.com/velengel"><em>velengel</em></a>
+          
+        
+      
+    </span>
+    <br>
+    <span>
+      <a href="https://github.com/curegit/nagoya"><i>Nagoya</i>&nbsp;Theme</a>&nbsp;by&nbsp;<a href="https://curegit.jp/"><i>curegit</i></a>.
+      <wbr>
+      Built&nbsp;with&nbsp;<a href="https://gohugo.io/">Hugo</a>.
+    </span>
+  </small>
+</footer>
+
+    </div>
+  </body>
+</html>
